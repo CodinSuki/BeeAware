@@ -1,5 +1,3 @@
-# pip install yt-dlp pandas
-# Save as: scripts/build_educational_dataset.py
 
 import json
 import subprocess

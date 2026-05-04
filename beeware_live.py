@@ -10,7 +10,6 @@ from datetime import datetime
 
 print("--- INITIALIZING BEEWARE UNIVERSAL WATCHER ---")
 
-# --- HELPER FUNCTION: X-RAY VISION ---
 def get_active_process_name():
     """Extracts the underlying .exe name of the active window."""
     try:
@@ -21,7 +20,6 @@ def get_active_process_name():
     except Exception:
         return "unknown.exe"
 
-# --- HELPER FUNCTION: PERSISTENT STORAGE ---
 def log_session_to_csv(stats, intensity, filename="data/beeware_daily_log.csv"):
     """Appends the session data to a persistent CSV ledger."""
     os.makedirs(os.path.dirname(filename), exist_ok=True)
@@ -42,7 +40,7 @@ def log_session_to_csv(stats, intensity, filename="data/beeware_daily_log.csv"):
         ])
     print(f">> Session successfully logged to {filename}")
 
-# 1. LOAD THE UNIVERSAL NLP MODEL
+
 try:
     with open('models/eisenhower_model.pkl', 'rb') as f:
         model = pickle.load(f)
@@ -83,18 +81,17 @@ def get_live_metrics(duration=60):
             raw_title = gw.getActiveWindowTitle() or "Desktop"
             exe_name = get_active_process_name()
             
-            # THE OS BYPASS FILTER
+           
             if raw_title in ["Desktop", "Task Manager", "Program Manager", "Settings"] or exe_name == "explorer.exe":
                 print(f"Sec {i+1:<2} | IDLE / SYSTEM             | [{exe_name}] {raw_title[:35]}")
                 time.sleep(1)
                 continue
             
-            # Track switching intensity
             if raw_title != last_window and raw_title != "Desktop":
                 switch_count += 1
                 last_window = raw_title
             
-            # 1.5 USER OVERRIDES
+          
             title_lower = raw_title.lower()
             override_triggered = False
             
@@ -111,7 +108,7 @@ def get_live_metrics(duration=60):
                 time.sleep(1)
                 continue
 
-            # 2. LET THE AI DO THE WORK
+       
             if exe_name in ["zen.exe", "chrome.exe", "msedge.exe", "firefox.exe", "brave.exe"]:
                 nlp_process = "web browser"
             else:
@@ -133,7 +130,7 @@ def get_live_metrics(duration=60):
         
     return stats, switch_count
 
-# Run the monitor for 60 seconds
+
 session_stats, switches = get_live_metrics(60)
 
 intensity = switches 
@@ -148,5 +145,4 @@ if intensity > 10:
 if session_stats[3.0] > 15: 
     print(">> AI WARNING: Distraction thresholds exceeded. Time to close unnecessary tabs.")
 
-# --- SAVE TO THE DATABASE ---
 log_session_to_csv(session_stats, intensity)

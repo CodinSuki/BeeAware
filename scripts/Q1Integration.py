@@ -7,7 +7,7 @@ import requests
 from icalendar import Calendar
 from datetime import datetime, timezone
 
-BLACKBOARD_URL = "YOUR_BLACKBOARD_ICS_LINK_HERE" 
+BLACKBOARD_URL = "Y" 
 
 def fetch_q1_keywords():
     q1_keywords = set()

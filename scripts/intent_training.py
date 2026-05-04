@@ -10,8 +10,7 @@ os.makedirs('models', exist_ok=True)
 
 df = pd.read_csv('data/processed/youtube_training_data.csv')
 
-# --- THE FIX: BINARY MAPPING ---
-# We convert all categories into a simple 1 (Study) or 0 (Distraction)
+
 def map_label(category):
     cat_str = str(category).lower()
     if 'educational' in cat_str or 'study' in cat_str:
@@ -36,7 +35,7 @@ y_pred = clf.predict(X_test)
 print("--- YOUTUBE INTENT BRAIN (V2) ---")
 print(f"Accuracy: {accuracy_score(y_test, y_pred):.2%}")
 print("\nDetailed Report:")
-# This report will tell us if it's actually finding the 'Study' (1) rows!
+
 print(classification_report(y_test, y_pred, target_names=['Distraction (0)', 'Study (1)']))
 
 with open('models/youtube_intent_model.pkl', 'wb') as f:

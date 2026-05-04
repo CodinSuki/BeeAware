@@ -13,7 +13,7 @@ import win32process
 import psutil
 import csv
 
-# --- CONFIGURATION ---
+
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
 
@@ -30,7 +30,7 @@ class BeewareApp(ctk.CTk):
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=3)
         
-        # --- STATE VARIABLES ---
+    
         self.is_tracking = False
         self.is_paused = False  
         self.tracking_thread = None
@@ -43,7 +43,7 @@ class BeewareApp(ctk.CTk):
         self.current_verdict = "Idle"
         self.current_exe = ""
         
-        # --- LOAD AI MODELS ---
+
         try:
             with open('models/eisenhower_model.pkl', 'rb') as f:
                 self.model = pickle.load(f)
@@ -59,13 +59,11 @@ class BeewareApp(ctk.CTk):
         self.build_summary_panel()
         self.build_graphs_panel()
         
-        # Capture the window 'X' button
+     
         self.protocol("WM_DELETE_WINDOW", self.exit_app)
 
 
-    # ==========================================
-    # DATA & LOGIC
-    # ==========================================
+  
     def load_data(self):
         """Finds Today's stats and the Most Recent available past day."""
         file_path = "data/beeware_daily_log.csv"
@@ -83,7 +81,7 @@ class BeewareApp(ctk.CTk):
             today = datetime.now().date()
             t_data = daily.loc[today].to_dict() if today in daily.index else empty_stats
             
-            # Find the most recent date BEFORE today in the logs
+      
             past_dates = [d for d in daily.index if d < today]
             if past_dates:
                 latest_past = max(past_dates)
@@ -129,7 +127,7 @@ class BeewareApp(ctk.CTk):
             if messagebox.askyesno("Exit Beeware", "Session active! Save and close?"):
                 self.is_tracking = False 
                 self.save_live_session()
-                self.quit() # Stop the event loop
+                self.quit() 
         else:
             self.is_tracking = False
             self.quit()
@@ -206,19 +204,19 @@ class BeewareApp(ctk.CTk):
 
         try:
             if self.winfo_exists():
-                # 1. Format the time strings
+                
                 prod_sec = self.live_stats[0.0] + self.live_stats[1.0]
                 dist_sec = self.live_stats[2.0] + self.live_stats[3.0]
                 
                 self.lbl_live_prod.configure(text=f"Live Focus: {self.format_time(prod_sec)}")
                 self.lbl_live_dist.configure(text=f"Live Distracted: {self.format_time(dist_sec)}")
                 
-                # 2. Visual Pause Feedback
+                
                 if self.is_paused:
-                    self.sum_frame.configure(fg_color="#3d3d3d") # Dim the panel
+                    self.sum_frame.configure(fg_color="#3d3d3d") #
                     self.lbl_ai_verdict.configure(text_color="gray")
                 else:
-                    self.sum_frame.configure(fg_color="#2b2b2b") # Reset to original
+                    self.sum_frame.configure(fg_color="#2b2b2b") 
                     self.lbl_ai_verdict.configure(text_color="#339af0")
 
                 display_title = self.current_window[:35] + "..." if len(self.current_window) > 35 else self.current_window
@@ -229,9 +227,7 @@ class BeewareApp(ctk.CTk):
         except Exception:
             pass
 
-    # ==========================================
-    # UI CONSTRUCTION
-    # ==========================================
+   
     def build_control_panel(self):
         frame = ctk.CTkFrame(self, height=100, corner_radius=10)
         frame.grid(row=0, column=0, columnspan=2, padx=20, pady=(20,0), sticky="ew")
@@ -301,7 +297,7 @@ class BeewareApp(ctk.CTk):
 if __name__ == "__main__":
     app = BeewareApp()
     app.mainloop()
-    # Safely destroy everything after the loop stops
+ 
     try:
         app.destroy()
     except:

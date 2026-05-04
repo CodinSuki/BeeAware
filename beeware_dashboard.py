@@ -5,8 +5,8 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from datetime import datetime, timedelta
 import os
 
-# --- 1. APP CONFIGURATION ---
-ctk.set_appearance_mode("Dark")  # Modern dark mode
+
+ctk.set_appearance_mode("Dark")  
 ctk.set_default_color_theme("blue")
 
 class BeewareDashboard(ctk.CTk):
@@ -16,15 +16,14 @@ class BeewareDashboard(ctk.CTk):
         self.title("Beeware | Personal Productivity Analytics")
         self.geometry("1000x600")
         
-        # Grid layout for the main window (1 row, 2 columns)
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
         self.grid_rowconfigure(0, weight=1)
         
-        # --- 2. LOAD & PROCESS DATA ---
+       
         self.today_stats, self.yesterday_stats = self.load_data()
         
-        # --- 3. BUILD THE UI PANELS ---
+  
         self.build_summary_panel()
         self.build_graphs_panel()
 
@@ -32,7 +31,7 @@ class BeewareDashboard(ctk.CTk):
         """Reads the CSV, groups by day, and extracts Today vs Yesterday."""
         file_path = "data/beeware_daily_log.csv"
         
-        # Default empty data if file doesn't exist yet
+       
         empty_stats = {'q1_urgent': 0, 'q2_growth': 0, 'q3_noise': 0, 'q4_play': 0}
         
         if not os.path.exists(file_path):
@@ -40,16 +39,15 @@ class BeewareDashboard(ctk.CTk):
             
         try:
             df = pd.read_csv(file_path)
-            # Convert timestamp to a Date object
+         
             df['date'] = pd.to_datetime(df['timestamp']).dt.date
             
-            # Sum the seconds for each day
+           
             daily_totals = df.groupby('date')[['q1_urgent', 'q2_growth', 'q3_noise', 'q4_play']].sum()
             
             today = datetime.now().date()
             yesterday = today - timedelta(days=1)
-            
-            # Extract dictionaries for Today and Yesterday (or empty if no data)
+          
             today_data = daily_totals.loc[today].to_dict() if today in daily_totals.index else empty_stats
             yesterday_data = daily_totals.loc[yesterday].to_dict() if yesterday in daily_totals.index else empty_stats
             
@@ -63,35 +61,33 @@ class BeewareDashboard(ctk.CTk):
         """The left column: Text summaries and the Delta Analysis."""
         frame = ctk.CTkFrame(self, corner_radius=15)
         frame.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
-        
-        # Header
+
         header = ctk.CTkLabel(frame, text="Daily Verdict", font=ctk.CTkFont(size=24, weight="bold"))
         header.pack(pady=(20, 10))
         
-        # Math: Convert seconds to minutes for display
+   
         today_productive = (self.today_stats['q1_urgent'] + self.today_stats['q2_growth']) / 60
         today_distracted = (self.today_stats['q3_noise'] + self.today_stats['q4_play']) / 60
         
         yesterday_distracted = (self.yesterday_stats['q3_noise'] + self.yesterday_stats['q4_play']) / 60
         
-        # Delta Calculation
+  
         if yesterday_distracted > 0:
             delta = ((today_distracted - yesterday_distracted) / yesterday_distracted) * 100
             if delta > 0:
                 delta_text = f"Distractions are UP {abs(delta):.1f}% from yesterday. Focus!"
-                delta_color = "#ff6b6b" # Red
+                delta_color = "#ff6b6b"
             else:
                 delta_text = f"Distractions are DOWN {abs(delta):.1f}%! Great job."
-                delta_color = "#51cf66" # Green
+                delta_color = "#51cf66"
         else:
             delta_text = "Not enough data from yesterday for comparison."
             delta_color = "gray"
 
-        # Display Stats
         ctk.CTkLabel(frame, text=f"Focus Time: {today_productive:.1f} mins", font=ctk.CTkFont(size=18)).pack(pady=10)
         ctk.CTkLabel(frame, text=f"Noise/Play Time: {today_distracted:.1f} mins", font=ctk.CTkFont(size=18)).pack(pady=10)
         
-        # Display the AI Verdict (The Delta)
+   
         verdict_box = ctk.CTkTextbox(frame, height=80, text_color=delta_color, font=ctk.CTkFont(size=16))
         verdict_box.pack(pady=20, padx=20, fill="x")
         verdict_box.insert("0.0", f">> AI ANALYSIS:\n{delta_text}")
@@ -102,12 +98,12 @@ class BeewareDashboard(ctk.CTk):
         frame = ctk.CTkFrame(self, corner_radius=15)
         frame.grid(row=0, column=1, padx=20, pady=20, sticky="nsew")
         
-        # Set matplotlib to dark mode to match CustomTkinter
+
         plt.style.use('dark_background')
         
-        # Create a figure
+     
         fig, ax = plt.subplots(figsize=(5, 4), dpi=100)
-        fig.patch.set_facecolor('#2b2b2b') # Match CTkFrame background
+        fig.patch.set_facecolor('#2b2b2b') 
         ax.set_facecolor('#2b2b2b')
         
         labels = ['Urgent', 'Growth', 'Noise', 'Play']
@@ -118,10 +114,10 @@ class BeewareDashboard(ctk.CTk):
             self.today_stats['q4_play']
         ]
         
-        # Colors: Blue, Green, Yellow/Orange, Red
+      
         colors = ['#339af0', '#51cf66', '#fcc419', '#ff6b6b'] 
         
-        # Only draw pie if there is data, otherwise show text
+
         if sum(sizes) > 0:
             ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
             ax.set_title("Today's Breakdown", color="white")
@@ -129,7 +125,7 @@ class BeewareDashboard(ctk.CTk):
             ax.text(0.5, 0.5, "No Data Yet Today", horizontalalignment='center', verticalalignment='center', color='white')
             ax.axis('off')
 
-        # Embed the matplotlib figure into CustomTkinter
+
         canvas = FigureCanvasTkAgg(fig, master=frame)
         canvas.draw()
         canvas.get_tk_widget().pack(pady=20, padx=20, fill="both", expand=True)
