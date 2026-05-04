@@ -1,0 +1,8 @@
+*.*/*p=*cross*word*
+*.*/*p=*solitaire*
+*.*/*q=*cross*word*
+*.*/*q=*solitaire*
+*minesweeper*
+dictionary.com/games*
+*.steampowered.com
+*.ter.io

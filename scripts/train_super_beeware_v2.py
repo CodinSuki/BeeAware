@@ -1,0 +1,35 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, accuracy_score
+import pickle
+
+# 1. LOAD THE PRIORITIZED DATA
+df = pd.read_csv('beeware_v2_prioritized.csv')
+
+# 2. SELECT THE NEW FEATURE SET
+# We now include switching_intensity and strategy_type
+features = ['study_hrs', 'distraction_hrs', 'sleep_hrs', 'stress_level', 'switching_intensity', 'strategy_type']
+X = df[features]
+y = df['is_productive']
+
+# 3. SPLIT DATA
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# 4. TRAIN THE UPGRADED MODEL
+# Using a slightly higher estimator count to handle the extra logic
+model = RandomForestClassifier(n_estimators=200, max_depth=15, random_state=42)
+model.fit(X_train, y_train)
+
+# 5. EVALUATE
+y_pred = model.predict(X_test)
+print("--- Priority-Aware Model Performance ---")
+print(f"Accuracy: {accuracy_score(y_test, y_pred):.2%}")
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred))
+
+# 6. SAVE THE V2 BRAIN
+with open('beeware_model_v2.pkl', 'wb') as f:
+    pickle.dump(model, f)
+
+print("\nPhase 2 upgraded: beeware_model_v2.pkl is now Task-Prioritization ready!")
