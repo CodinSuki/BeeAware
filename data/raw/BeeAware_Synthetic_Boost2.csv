@@ -1,0 +1,223 @@
+﻿tag_type,value
+q1_subject,PostgreSQL
+q1_subject, 8086 Assembly
+q1_subject, Microprocessors
+q1_subject, Thesis
+q1_subject, Capstone Project
+q1_subject, Database Management
+q1_subject, Circuit Simulation
+q1_subject, Logic Gates
+q1_subject, Embedded Systems
+q1_subject, Data Structures
+q1_subject, Algorithms
+q1_subject, Technical Documentation
+q1_subject, Final Report
+q1_subject, Laboratory Exercise
+q1_subject, System Analysis
+q1_subject, Project Proposal
+q1_action,Coding
+q1_action, Debugging
+q1_action, Troubleshooting
+q1_action, Writing
+q1_action, Drafting
+q1_action, Simulating
+q1_action, Testing
+q1_action, Reviewing
+q1_action, Designing
+q1_action, Compiling
+q1_action, Submitting
+q1_action, Formatting
+q1_platform,VS Code
+q1_platform, Tinkercad
+q1_platform, Microsoft Word
+q1_platform, Excel
+q1_platform, GitHub
+q1_platform, Canvas
+q1_platform, Proteus
+q1_platform, Packet Tracer
+q1_platform, Google Docs
+q1_platform, StackOverflow
+q1_platform, Jupyter Notebook
+q1_urgency,urgent
+q1_urgency, final
+q1_urgency, immediate
+q1_urgency, emergency
+q1_urgency, critical
+q1_urgency, rush
+q1_urgency, asap
+q1_urgency, high-priority
+q1_urgency, mandatory
+q1_urgency, important
+q1_urgency, priority
+q1_urgency, time-sensitive
+q1_urgency, pressing
+q1_urgency, instant
+q1_urgency, accelerated
+q1_urgency,deadline
+q1_subject,submission
+q1_subject, thesis manuscript
+q1_subject, capstone revision
+q1_subject, documentation
+q1_subject, laboratory exercise
+q1_subject, project proposal
+q1_subject, final report
+q1_subject, presentation slides
+q1_subject, source code
+q1_subject, simulation output
+q2_subject,PostgreSQL
+q2_subject, 8086 Assembly
+q2_subject, Microprocessors
+q2_subject, Thesis
+q2_subject, Capstone Project
+q2_subject, Database Management
+q2_subject, Circuit Simulation
+q2_subject, Logic Gates
+q2_subject, Embedded Systems
+q2_subject, Data Structures
+q2_subject, Algorithms
+q2_subject, Technical Documentation
+q2_subject, Final Report
+q2_subject, Laboratory Exercise
+q2_subject, System Analysis
+q2_subject, Project Proposal
+q2_subject,Research
+q2_subject, Skill Development
+q2_subject, Long-Term Planning
+q2_subject, Thesis Planning
+q2_subject, Career Development
+q2_subject, Portfolio Building
+q2_subject, Learning Python
+q2_subject, Learning PostgreSQL
+q2_subject, System Architecture
+q2_subject, Software Design
+q2_subject, UI/UX Improvement
+q2_subject, Code Refactoring
+q2_subject, Optimization
+q2_subject, Documentation Improvement
+q2_subject, Knowledge Review
+q2_subject, Reading Materials
+q2_subject, Study Session
+q2_subject, Algorithm Practice
+q2_subject, Data Structure Practice
+q2_subject, Network Fundamentals
+q2_subject, Cybersecurity Learning
+q2_subject, Database Normalization
+q2_subject, Workflow Improvement
+q2_subject, Productivity Planning
+q2_subject, Habit Tracking
+q2_subject, Goal Setting
+q2_subject, Strategic Planning
+q2_subject, Version Control Learning
+q2_subject, Git Practice
+q2_subject, Cloud Fundamentals
+q2_subject, DevOps Learning
+q2_subject, Technical Reading
+q2_subject, Research Review
+q2_subject, Prototype Improvement
+q2_subject, Design Planning
+q2_subject, Testing Strategy
+q2_subject, Performance Optimization
+q2_subject, Infrastructure Planning
+q2_subject, Preventive Maintenance
+q2_subject, Personal Development
+q2_subject, Academic Preparation
+q2_subject, Exam Review
+q2_subject, Future Proposal Drafting
+q2_subject, Feasibility Analysis
+q2_subject, Requirement Analysis
+q2_subject, Learning Embedded Systems
+q2_subject, Machine Learning Practice
+q2_subject, Research Notes
+q2_subject, Design Patterns
+q2_subject, Clean Code Practice
+q2_subject, Time Management
+q2_subject, Organizational Planning
+q2_growth,learning
+q2_growth, practicing
+q2_growth, improving
+q2_growth, developing
+q2_growth, studying
+q2_growth, researching
+q2_growth, mastering
+q2_growth, reviewing
+q2_planning,planning
+q2_planning, organizing
+q2_planning, strategizing
+q2_planning, outlining
+q2_planning, preparing
+q2_planning, scheduling
+q2_planning, roadmap creation
+q2_maintenance,maintenance
+q2_maintenance, refactoring
+q2_maintenance, cleanup
+q2_maintenance, optimization
+q2_maintenance, monitoring
+q2_maintenance, preventive review
+q2_maintenance, backup management
+q3_subject,Notifications
+q3_subject, Messages
+q3_subject, Email Replies
+q3_subject, Group Chat
+q3_subject, Discord Ping
+q3_subject, Meeting Request
+q3_subject, Quick Call
+q3_subject, Follow-Up Request
+q3_subject, Approval Request
+q3_subject, Minor Revision
+q3_subject, Administrative Task
+q3_subject, Attendance Check
+q3_subject, Status Update
+q3_subject, Reminder Message
+q3_subject, Client Inquiry
+q3_subject, Schedule Change
+q3_subject, Calendar Notification
+q3_subject, Phone Call
+q3_subject, Social Media Message
+q3_subject, Inbox Review
+q3_subject, Team Mention
+q3_subject, Urgent Reply
+q3_subject, Announcement Review
+q3_subject, Verification Request
+q3_subject, Document Signature
+q3_subject, Routine Request
+q3_subject, Technical Support Request
+q3_subject, Unplanned Meeting
+q3_subject, Chat Support
+q3_subject, Clarification Request
+q3_subject, Reschedule Notice
+q3_subject, Event Reminder
+q3_subject, Quick Question
+q3_subject, Non-Critical Ticket
+q3_subject, Queue Monitoring
+q3_subject, Task Reminder
+q3_subject, Minor Formatting Request
+q3_subject, Classroom Announcement
+q3_subject, Faculty Notice
+q3_subject, Messenger Chat
+q3_action,replying
+q3_action, responding
+q3_action, checking
+q3_action, answering
+q3_action, attending
+q3_action, acknowledging
+q3_action, confirming
+q3_action, forwarding
+q3_action, reviewing quickly
+q3_action, reacting
+q3_action, monitoring
+q3_action, following up
+q3_action, updating
+q3_action, approving
+q3_action, rescheduling
+q3_platform,Discord
+q3_platform, Messenger
+q3_platform, Gmail
+q3_platform, Outlook
+q3_platform, Slack
+q3_platform, Microsoft Teams
+q3_platform, Zoom
+q3_platform, Google Meet
+q3_platform, Facebook
+q3_platform, Telegram
+q3_platform, WhatsApp
+q3_platform, Canvas Notifications

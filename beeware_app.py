@@ -45,9 +45,9 @@ class BeewareApp(ctk.CTk):
         
 
         try:
-            with open('models/eisenhower_model.pkl', 'rb') as f:
+            with open('models/V2eisenhower_model.pkl', 'rb') as f:
                 self.model = pickle.load(f)
-            with open('models/tfidf_vectorizer.pkl', 'rb') as f:
+            with open('models/V2tfidf_vectorizer.pkl', 'rb') as f:
                 self.vectorizer = pickle.load(f)
             self.ai_status = "AI Models Loaded."
         except Exception:
