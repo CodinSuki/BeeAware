@@ -8,7 +8,7 @@ from sklearn.metrics import classification_report
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_PATH = BASE_DIR / 'data' / 'processed' / 'beeware_master_training.csv'
+DATA_PATH = BASE_DIR / 'data' / 'processed' / 'V2beeware_master_training.csv'
 MODEL_DIR = BASE_DIR / 'models'
 MODEL_DIR.mkdir(parents=True, exist_ok=True)
 
