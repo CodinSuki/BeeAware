@@ -1,0 +1,2 @@
+date,session_ts,exe_name,total_seconds,q1_seconds,q2_seconds,q3_seconds,q4_seconds,dominant_q,frequency_rank
+2026-05-28,2026-05-28 14:40:32,beeaware.exe,15,15,0,0,0,0,1

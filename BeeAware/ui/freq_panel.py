@@ -26,7 +26,7 @@ class FreqPanelMixin:
         Slots are built once at startup; update_app_freq_panel() refreshes labels only.
         """
         self.freq_frame = ctk.CTkFrame(self, corner_radius=12, fg_color=BEE_COMB_LIGHT)
-        self.freq_frame.grid(row=2, column=0, columnspan=2, padx=20, pady=(0, 14), sticky="ew")
+        self.freq_frame.grid(row=2, column=0, columnspan=2, sticky="nsew", padx=20, pady=(0, 20))
         self.freq_frame.grid_columnconfigure(0, weight=1)
         self.freq_frame.grid_columnconfigure(1, weight=1)
 

@@ -1,0 +1,3 @@
+date,session_ts,exe_name,total_seconds,q1_seconds,q2_seconds,q3_seconds,q4_seconds,dominant_q,frequency_rank
+2026-05-26,2026-05-26 10:54:07,zen.exe,20,13,0,7,0,0,1
+2026-05-26,2026-05-26 10:54:07,python.exe,5,5,0,0,0,0,2

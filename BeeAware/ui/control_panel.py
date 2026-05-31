@@ -7,14 +7,14 @@ from config import (
     BEE_BROWN, BEE_CREAM, BEE_GRAY, BEE_RED,
 )
 
-
 class ControlPanelMixin:
 
     def build_control_panel(self):
         frame = ctk.CTkFrame(self, height=70, corner_radius=10, fg_color=BEE_COMB_MID)
         frame.grid(row=0, column=0, columnspan=2, padx=20, pady=(16, 0), sticky="ew")
         frame.grid_propagate(False)
-        frame.grid_columnconfigure(3, weight=1)
+   
+        frame.grid_columnconfigure(4, weight=1)
 
         self.btn_toggle = ctk.CTkButton(
             frame, text="Start Session", width=150, height=38,
@@ -40,8 +40,21 @@ class ControlPanelMixin:
         )
         self.btn_graphs.grid(row=0, column=2, padx=8, pady=16)
 
+       
+        self.btn_options = ctk.CTkButton(
+            frame, 
+            text="⚙ Options",
+            command=self.open_options,
+            fg_color=BEE_BROWN,       
+            hover_color=BEE_COMB_MID,
+            width=100, height=38,
+            font=ctk.CTkFont(size=13)
+        )
+        self.btn_options.grid(row=0, column=3, padx=8, pady=16) 
+
+      
         status_box = ctk.CTkFrame(frame, fg_color="transparent")
-        status_box.grid(row=0, column=3, padx=16, sticky="w")
+        status_box.grid(row=0, column=4, padx=16, sticky="w")
 
         self.dot_status = ctk.CTkLabel(
             status_box, text="●", text_color=BEE_GRAY, font=ctk.CTkFont(size=12),
@@ -54,8 +67,9 @@ class ControlPanelMixin:
         )
         self.lbl_status.pack(side="left")
 
+       
         ctk.CTkLabel(
             frame, text=self.ai_status,
             font=ctk.CTkFont(size=11),
             text_color=BEE_GRAY if self.models_ready else BEE_RED,
-        ).grid(row=0, column=4, padx=16, sticky="e")
+        ).grid(row=0, column=5, padx=16, sticky="e")
