@@ -25,7 +25,7 @@ from config import (
 )
 from logger import log_error
 
-CORRECTIONS_PATH = "data/corrections.csv"
+CORRECTIONS_PATH = os.path.join(config.BASE_DIR, "data", "corrections.csv")
 CORRECTIONS_COLS = [
     "timestamp",
     "exe_name",
@@ -160,6 +160,9 @@ class CorrectionMixin:
 
         # Also key on the raw exe name in case watcher matches on that
         config.CUSTOM_OVERRIDES[exe.lower()] = corrected_label
+        # And key on the current window title so the correction applies immediately
+        title_key = title.lower().replace(" ", "").replace("-", "")
+        config.CUSTOM_OVERRIDES[title_key] = corrected_label
 
         # ── c. Update the live verdict label immediately ───────────────────────
         self.current_verdict = f"{corrected_quadrant} (Corrected)"

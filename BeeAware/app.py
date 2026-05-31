@@ -277,6 +277,7 @@ class BeewareApp(
         else:
             self.is_tracking = False
             self.quit()
+            self.destroy()
 
     def show_session_summary(self):
         """Display session totals in a summary modal before exit."""
@@ -367,6 +368,7 @@ class BeewareApp(
         summary_window.destroy()
         self.save_live_session()
         self.quit()
+        self.destroy()
 
     # Data persistence 
     def save_live_session(self):
@@ -508,13 +510,14 @@ class BeewareApp(
                     self.switch_count += 1
                     self.last_window = active_window_key
 
-                normalized = raw_title.lower().replace(" ", "").replace("-", "")
+                normalized_title = raw_title.lower().replace(" ", "").replace("-", "")
+                normalized_exe = exe_name.lower().replace(".exe", "").replace(" ", "")
 
                 override = False
                 active_q_int = None  # Track the integer value of the active quadrant
 
                 for kw, q in CUSTOM_OVERRIDES.items():
-                    if kw in normalized:
+                    if kw in normalized_title or kw in normalized_exe:
                         self.live_stats[q] += 1
                         self.current_verdict = f"{QUADRANTS[q]} (Override)"
                         override = True
