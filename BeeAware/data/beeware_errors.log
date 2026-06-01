@@ -1,0 +1,42 @@
+[2026-05-26 11:19:43] [get_active_process_name] ValueError: pid must be a positive integer (got -1711857872)
+[2026-05-26 11:20:58] [get_active_process_name] ValueError: pid must be a positive integer (got -1711857872)
+[2026-05-26 11:25:22] [get_active_process_name] ValueError: pid must be a positive integer (got -1711857872)
+[2026-05-26 11:25:24] [get_active_process_name] ValueError: pid must be a positive integer (got -1711857872)
+[2026-05-26 11:25:31] [get_active_process_name] ValueError: pid must be a positive integer (got -1711857872)
+[2026-05-31 19:15:44] [get_active_process_name] ValueError: pid must be a positive integer (got -1613498720)
+[2026-05-31 19:15:46] [get_active_process_name] ValueError: pid must be a positive integer (got -1613498720)
+[2026-05-31 19:15:47] [get_active_process_name] ValueError: pid must be a positive integer (got -1613498720)
+[2026-05-31 19:15:48] [get_active_process_name] ValueError: pid must be a positive integer (got -1613498720)
+[2026-05-31 19:15:52] [get_active_process_name] ValueError: pid must be a positive integer (got -1613498720)
+[2026-05-31 19:56:09] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:10] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:11] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:12] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:13] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:14] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:15] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:16] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:17] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:18] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:19] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:20] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:21] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:22] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:23] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:24] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:25] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:26] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:27] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:28] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:29] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:30] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:31] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:32] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:33] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:38] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-05-31 19:56:39] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
+[2026-06-01 07:13:11] [get_active_process_name] ValueError: pid must be a positive integer (got -262552256)
+[2026-06-01 08:44:35] [_populate_daily_logs] NameError: name 'BEE_COMB_MID' is not defined
+[2026-06-01 08:44:35] [_populate_app_history] NameError: name 'BEE_COMB_MID' is not defined
+[2026-06-01 08:44:47] [_populate_daily_logs] NameError: name 'BEE_COMB_MID' is not defined
+[2026-06-01 08:44:47] [_populate_app_history] NameError: name 'BEE_COMB_MID' is not defined
