@@ -525,9 +525,7 @@ class BeewareApp(
                         break
 
                 if not override:
-                    prefix    = "web browser " if exe_name in BROWSER_EXES else exe_name + " "
-                    nlp_input = prefix + raw_title
-                    
+                    nlp_input = self.build_nlp_input(exe_name, raw_title)
                     # Safe NLP prediction with Q2 fallback
                     pred = self.safe_predict(nlp_input)
                     self.live_stats[pred] += 1
@@ -623,6 +621,45 @@ class BeewareApp(
         except Exception as e:
             log_error("safe_predict", e)
             return 1  # Default to Q2 on any error
+
+    def build_nlp_input(self, exe_name: str, raw_title: str) -> str:
+        exe_label = exe_name.lower().replace(".exe", "").strip()
+        source_type = "web browser" if exe_name in BROWSER_EXES else "app"
+        app_family = self.infer_app_family(exe_label, raw_title)
+        browser_category = self.infer_browser_category(raw_title) if source_type == "web browser" else "unknown"
+        return f"{exe_label} | {source_type} | {app_family} | {browser_category} | {raw_title}"
+
+    def infer_app_family(self, exe_label: str, raw_title: str) -> str:
+        text = f"{exe_label} {raw_title}".lower()
+        if any(word in text for word in ["word", "excel", "powerpoint", "office", "outlook", "onenote"]):
+            return "office"
+        if any(word in text for word in ["vscode", "pycharm", "visualstudio", "ide", "studio", "git", "github", "gitlab"]):
+            return "dev"
+        if any(word in text for word in ["zoom", "teams", "slack", "discord", "mail", "email", "meet", "calendar"]):
+            return "communication"
+        if any(word in text for word in ["youtube", "netflix", "spotify", "stream", "music", "video", "movie"]):
+            return "media"
+        if any(word in text for word in ["game", "play", "arcade", "vr", "steam", "gamer", "quest"]):
+            return "game"
+        if any(word in text for word in ["docs", "research", "course", "assignment", "study", "tutorial"]):
+            return "productivity"
+        return "app"
+
+    def infer_browser_category(self, raw_title: str) -> str:
+        text = raw_title.lower()
+        if any(word in text for word in ["docs", "drive", "slides", "sheets", "office", "outlook"]):
+            return "productivity"
+        if any(word in text for word in ["meet", "calendar", "hangouts", "gmail", "outlook", "email"]):
+            return "communication"
+        if any(word in text for word in ["github", "stack overflow", "gitlab", "stackoverflow"]):
+            return "dev"
+        if any(word in text for word in ["youtube", "netflix", "twitch", "spotify", "video", "music"]):
+            return "media"
+        if any(word in text for word in ["twitter", "facebook", "reddit", "discord", "instagram"]):
+            return "social"
+        if any(word in text for word in ["news", "cnn", "nyt", "bbc", "guardian"]):
+            return "news"
+        return "browser"
 
     def get_active_process_name(self) -> str:
         """Return exe name; 'system' for protected/missing processes (FIX 3)."""

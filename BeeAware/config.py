@@ -41,6 +41,20 @@ CUSTOM_OVERRIDES = {
     "lupadmods":       0,
     "blackboard":      1,
     "canvas":          1,
+    "word":            1,
+    "excel":           1,
+    "powerpoint":      1,
+    "outlook":         1,
+    "teams":           1,
+    "slack":           1,
+    "vscode":          1,
+    "pycharm":         1,
+    "visualstudio":    1,
+    "notion":          1,
+    "google docs":     1,
+    "jupyter":         1,
+    "stackoverflow":   1,
+    "stack overflow":  1,
 }
 
 # File paths
@@ -64,8 +78,8 @@ APP_HISTORY_COLS = [
 ]
 
 # Models — read-only, loaded from bundle when frozen, script root during dev
-MODEL_PATH      = os.path.join(BUNDLE_DIR, "models", "V2eisenhower_model.pkl")
-VECTORIZER_PATH = os.path.join(BUNDLE_DIR, "models", "V2tfidf_vectorizer.pkl")
+MODEL_PATH      = os.path.join(BUNDLE_DIR, "models", "V3eisenhower_model.pkl")
+VECTORIZER_PATH = os.path.join(BUNDLE_DIR, "models", "V3tfidf_vectorizer.pkl")
 
 # Browser process names
 BROWSER_EXES = {"zen.exe", "chrome.exe"}
