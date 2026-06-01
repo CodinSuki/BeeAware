@@ -9,3 +9,5 @@ timestamp,exe_name,window_title,original_verdict,corrected_label,corrected_quadr
 2026-06-01 08:12:37,zen.exe,Institution Page — Zen Browser,Q3: NOISE (Override),1,Q2: GROWTH
 2026-06-01 08:12:43,zen.exe,"Mairimashita Iruma-Kun, Chapter 380 - Mairimashita Iruma-Kun Manga Online — Zen Browser",Q2: GROWTH (Override),2,Q3: NOISE
 2026-06-01 08:15:34,zen.exe,Assessment Feedback — Zen Browser,Q3: NOISE (Override),1,Q2: GROWTH
+2026-06-01 09:01:46,python.exe,Beeware | Live Productivity Engine,IDLE / SYSTEM,1,Q2: GROWTH
+2026-06-01 09:01:54,code.exe,beeware_daily_log.csv - MachineLearninng - Visual Studio Code,IDLE / SYSTEM,1,Q2: GROWTH

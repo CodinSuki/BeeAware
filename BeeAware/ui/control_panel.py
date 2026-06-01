@@ -50,9 +50,8 @@ class ControlPanelMixin:
             width=100, height=38,
             font=ctk.CTkFont(size=13)
         )
-        self.btn_options.grid(row=0, column=3, padx=8, pady=16) 
+        self.btn_options.grid(row=0, column=3, padx=8, pady=16)
 
-      
         status_box = ctk.CTkFrame(frame, fg_color="transparent")
         status_box.grid(row=0, column=4, padx=16, sticky="w")
 

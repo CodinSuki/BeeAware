@@ -36,3 +36,7 @@
 [2026-05-31 19:56:38] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
 [2026-05-31 19:56:39] [watcher_loop] AttributeError: '_tkinter.tkapp' object has no attribute 'get_active_process_name'
 [2026-06-01 07:13:11] [get_active_process_name] ValueError: pid must be a positive integer (got -262552256)
+[2026-06-01 08:44:35] [_populate_daily_logs] NameError: name 'BEE_COMB_MID' is not defined
+[2026-06-01 08:44:35] [_populate_app_history] NameError: name 'BEE_COMB_MID' is not defined
+[2026-06-01 08:44:47] [_populate_daily_logs] NameError: name 'BEE_COMB_MID' is not defined
+[2026-06-01 08:44:47] [_populate_app_history] NameError: name 'BEE_COMB_MID' is not defined

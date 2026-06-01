@@ -6,6 +6,8 @@ import csv
 import time
 import pickle
 import threading
+import pystray
+from PIL import Image, ImageDraw
 import customtkinter as ctk
 import pandas as pd
 import win32gui
@@ -16,7 +18,9 @@ import pygetwindow as gw
 from datetime import datetime
 from tkinter import messagebox
 from notif import show_notification
-from options import OptionsWindow
+from ui.options import OptionsWindow
+from ui.history import HistoryWindow
+from ui.summary import SessionSummaryWindow
 
 from config import (
     BEE_COMB, BEE_COMB_LIGHT, BEE_GREEN, BEE_GOLD, BEE_RED,
@@ -98,7 +102,8 @@ class BeewareApp(
         self.WARNING_THRESHOLD = 1800 
         self.notifications_enabled = True
         self.silent_tracking = False  # Silent mode: track but no notifications
-        self.options_window = None         
+        self.options_window = None
+        self.history_window = None         
 
         try:
             with open(MODEL_PATH, "rb") as f:
@@ -129,7 +134,12 @@ class BeewareApp(
         self.bind("<Control-Shift-P>", lambda e: self.toggle_pause())
         self.bind("<Control-Shift-E>", lambda e: self.exit_app())
         self.bind("<Control-Shift-S>", lambda e: self.toggle_silent_tracking())
-        self.protocol("WM_DELETE_WINDOW", self.exit_app)
+        self.protocol("WM_DELETE_WINDOW", self._on_close_request)
+
+        # System tray state
+        self.tray_icon = None
+        self._tray_thread = None
+        self._tray_active = False
 
     # Model error modal 
     def _show_model_error_modal(self):
@@ -272,103 +282,182 @@ class BeewareApp(
 
     def exit_app(self):
         if self.is_tracking:
+            # Stop tracking, SAVE immediately, update UI, then show summary
             self.is_tracking = False
-            self.show_session_summary()
+            
+            # Capture stats BEFORE reset
+            saved_stats = self.live_stats.copy()
+            saved_switches = self.switch_count
+            
+            try:
+                self.save_live_session()  # Save BEFORE showing summary
+            except Exception as e:
+                log_error("exit_app_save", e)
+            
+            try:
+                self.btn_toggle.configure(text="Start Session", fg_color=BEE_AMBER, hover_color=BEE_AMBER_DIM)
+            except Exception:
+                pass
+            try:
+                self.btn_pause.configure(state="disabled", text="Privacy Pause")
+            except Exception:
+                pass
+            try:
+                self.lbl_status.configure(text="IDLE", text_color=BEE_GRAY)
+                self.dot_status.configure(text="●", text_color=BEE_GRAY)
+            except Exception:
+                pass
+            self.show_session_summary(saved_stats, saved_switches)
         else:
             self.is_tracking = False
             self.quit()
             self.destroy()
 
-    def show_session_summary(self):
-        """Display session totals in a summary modal before exit."""
-        summary = ctk.CTkToplevel(self)
-        summary.title("Session Summary — Beeware")
-        summary.geometry("420x350")
-        summary.configure(fg_color=BEE_COMB)
-        summary.resizable(False, False)
-        
-        # Center window
-        summary.transient(self)
-        summary.grab_set()
+    def _create_tray_image(self):
+        # Create a simple square icon in memory
+        size = (64, 64)
+        image = Image.new("RGBA", size, (46, 36, 22, 255))
+        draw = ImageDraw.Draw(image)
+        draw.ellipse((12, 12, 52, 52), fill=(200, 150, 74, 255))
+        return image
 
-        # Title
-        lbl_title = ctk.CTkLabel(
-            summary,
-            text="📊 Session Summary",
-            font=ctk.CTkFont(size=18, weight="bold"),
-            text_color=BEE_CREAM
+    def _minimize_to_tray(self):
+        if self._tray_active:
+            return
+        self.withdraw()
+        image = self._create_tray_image()
+
+        def on_restore(icon, item):
+            icon.stop()
+            self.after(0, self._restore_from_tray)
+
+        def on_exit(icon, item):
+            icon.stop()
+            self.after(0, self._exit_from_tray)
+
+        menu = pystray.Menu(
+            pystray.MenuItem("Restore", on_restore),
+            pystray.MenuItem("Exit", on_exit),
         )
-        lbl_title.pack(pady=(20, 10))
 
-        # Total time
-        total_secs = sum(self.live_stats.values())
-        total_time_str = self.format_time(total_secs)
-        lbl_total = ctk.CTkLabel(
-            summary,
-            text=f"Total Time: {total_time_str}",
-            font=ctk.CTkFont(size=14, weight="bold"),
-            text_color=BEE_GOLD
+        self.tray_icon = pystray.Icon("beeware", image, "Beeware", menu)
+
+        def run_icon():
+            try:
+                self._tray_active = True
+                self.tray_icon.run()
+            finally:
+                self._tray_active = False
+
+        self._tray_thread = threading.Thread(target=run_icon, daemon=True)
+        self._tray_thread.start()
+
+    def _restore_from_tray(self):
+        try:
+            if self.tray_icon:
+                # ensure icon stopped
+                try:
+                    self.tray_icon.stop()
+                except Exception:
+                    pass
+                self.tray_icon = None
+        finally:
+            self.deiconify()
+            self.lift()
+
+    def _exit_from_tray(self):
+        # Prompt to save session before exiting
+        try_save = messagebox.askyesno(
+            "Save Session?",
+            "Save current session before exiting?",
         )
-        lbl_total.pack(pady=10)
+        if try_save:
+            self.save_live_session()
+        try:
+            self.quit()
+            self.destroy()
+        except Exception:
+            pass
 
-        # Quadrant breakdown
-        frame_breakdown = ctk.CTkFrame(summary, fg_color=BEE_COMB_LIGHT, corner_radius=8)
-        frame_breakdown.pack(fill="both", expand=True, padx=20, pady=10)
-
-        quadrant_names = ["Q1 (Urgent)", "Q2 (Deep Work)", "Q3 (Noise)", "Q4 (Play)"]
-        for q, name in enumerate(quadrant_names):
-            time_str = self.format_time(self.live_stats[q])
-            color = list(Q_COLORS.values())[q] if q < len(Q_COLORS) else BEE_CREAM
-            
-            lbl_q = ctk.CTkLabel(
-                frame_breakdown,
-                text=f"{name}: {time_str}",
-                font=ctk.CTkFont(size=12),
-                text_color=color
+    def _on_close_request(self):
+        # Ask whether to minimize to tray
+        minimize = messagebox.askyesno(
+            "Minimize to Tray?",
+            "Would you like to minimize to system tray?",
+        )
+        if minimize:
+            try:
+                self._minimize_to_tray()
+            except Exception as e:
+                log_error("minimize_to_tray", e)
+                # fallback to normal exit prompt
+                proceed = messagebox.askyesno(
+                    "Exit",
+                    "Minimize failed. Save session and exit?",
+                )
+                if proceed:
+                    self.save_live_session()
+                try:
+                    self.quit()
+                    self.destroy()
+                except Exception:
+                    pass
+        else:
+            save = messagebox.askyesno(
+                "Save Session?",
+                "Save current session before exiting?",
             )
-            lbl_q.pack(anchor="w", padx=15, pady=6)
+            if save:
+                try:
+                    self.save_live_session()
+                except Exception as e:
+                    log_error("save_on_exit", e)
+            try:
+                self.quit()
+                self.destroy()
+            except Exception:
+                pass
 
-        # Window switches
-        lbl_switches = ctk.CTkLabel(
-            frame_breakdown,
-            text=f"Window Switches: {self.switch_count}",
-            font=ctk.CTkFont(size=12),
-            text_color=BEE_CREAM
-        )
-        lbl_switches.pack(anchor="w", padx=15, pady=6)
+    def show_session_summary(self, saved_stats, saved_switches):
+        """Launch the dedicated SessionSummaryWindow with rich visuals."""
+        SessionSummaryWindow(self, saved_stats, saved_switches)
 
-        # Buttons
-        frame_btns = ctk.CTkFrame(summary, fg_color=BEE_COMB)
-        frame_btns.pack(fill="x", padx=20, pady=(10, 20))
-
-        btn_cancel = ctk.CTkButton(
-            frame_btns,
-            text="Resume Session",
-            command=lambda: self._resume_from_summary(summary)
-        )
-        btn_cancel.pack(side="left", padx=5)
-
-        btn_save = ctk.CTkButton(
-            frame_btns,
-            text="Save & Exit",
-            fg_color=BEE_RED,
-            hover_color="#8f3f30",
-            command=lambda: self._confirm_and_save(summary)
-        )
-        btn_save.pack(side="right", padx=5)
-
-    def _resume_from_summary(self, summary_window):
+    def _resume_from_summary(self, summary_window=None):
         """Resume session after viewing summary."""
-        summary_window.destroy()
+        if summary_window:
+            summary_window.destroy()
+        
+        # Restart tracking and UI state
         self.is_tracking = True
+        try:
+            self.btn_toggle.configure(text="End & Save Session", fg_color=BEE_RED, hover_color="#8f3f30")
+        except Exception:
+            pass
+        try:
+            self.btn_pause.configure(state="normal", text="Privacy Pause")
+        except Exception:
+            pass
+        try:
+            self.lbl_status.configure(text="WATCHING", text_color=BEE_GREEN)
+            self.dot_status.configure(text="●", text_color=BEE_GREEN)
+        except Exception:
+            pass
+
+        # (Re)start watcher thread if not running
+        if not self.tracking_thread or not getattr(self.tracking_thread, "is_alive", lambda: False)():
+            self.tracking_thread = threading.Thread(target=self.watcher_loop, daemon=True)
+            self.tracking_thread.start()
+
         self.update_live_ui()
 
     def _confirm_and_save(self, summary_window):
-        """Save session and close app."""
+        """Close app (session already saved in exit_app)."""
         summary_window.destroy()
-        self.save_live_session()
-        self.quit()
-        self.destroy()
+        try:
+            self.quit()
+            self.destroy()
+        except Exception:
+            pass
 
     # Data persistence 
     def save_live_session(self):
@@ -434,6 +523,38 @@ class BeewareApp(
             log_error("save_live_session", e)
             
         self.save_app_history()
+
+        # Reset in-memory session state so subsequent sessions start fresh
+        try:
+            self.live_stats = {0: 0, 1: 0, 2: 0, 3: 0}
+            self.app_freq = {}
+            self.switch_count = 0
+            self.last_window = None
+            self.session_start = None
+            self.current_window = "Waiting..."
+            self.current_exe = ""
+            self.current_verdict = "Idle"
+
+            # Update UI if present
+            try:
+                self.lbl_live_prod.configure(text=self.format_time(0))
+                self.lbl_live_dist.configure(text=self.format_time(0))
+                for q, lbl in getattr(self, 'q_time_labels', {}).items():
+                    lbl.configure(text=self.format_time(0))
+                try:
+                    self.lbl_switches.configure(text="0")
+                except Exception:
+                    pass
+                try:
+                    self.lbl_exe_val.configure(text="—")
+                    self.lbl_title_val.configure(text="—")
+                    self.lbl_verdict_val.configure(text="Idle")
+                except Exception:
+                    pass
+            except Exception:
+                pass
+        except Exception as e:
+            log_error("reset_after_save", e)
 
     def save_app_history(self):
         """Append one row per app to APP_HISTORY_PATH at session end."""
@@ -695,4 +816,10 @@ class BeewareApp(
         if self.options_window is None or not self.options_window.winfo_exists():
             self.options_window = OptionsWindow(self, self)  
         else:
-            self.options_window.focus()  
+            self.options_window.focus()
+
+    def open_history(self):
+        if self.history_window is None or not self.history_window.winfo_exists():
+            self.history_window = HistoryWindow(self)
+        else:
+            self.history_window.focus()  

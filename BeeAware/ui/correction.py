@@ -1,15 +1,3 @@
-# ui/correction.py
-# Mixin providing the "Wrong? Fix it" correction flow for BeewareApp.
-#
-# What it does:
-#   1. Adds a small "Wrong? Fix it" button below the AI verdict label.
-#   2. On click: opens a popup showing the current exe + window title
-#      and four Q buttons to pick the correct quadrant.
-#   3. On confirm:
-#       a. Saves the correction to data/corrections.csv for later retraining.
-#       b. Adds the exe_name → quadrant mapping to CUSTOM_OVERRIDES in memory
-#          so the same app is classified correctly for the rest of the session.
-#       c. Updates the verdict label immediately.
 
 import csv
 import os
