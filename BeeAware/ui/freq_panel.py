@@ -1,6 +1,6 @@
 # ui/freq_panel.py
 # Mixin providing build_app_freq_panel() and update_app_freq_panel()
-# for BeewareApp. Shows most/least used apps with Q badges, live or historical.
+# for BeeAwareApp. Shows most/least used apps with Q badges, live or historical.
 
 import os
 import pandas as pd

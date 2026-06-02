@@ -1,4 +1,4 @@
-﻿# options.py — Compatibility shim for Beeware options
+﻿# options.py — Compatibility shim for BeeAware options
 
 from ui.options import OptionsWindow
 

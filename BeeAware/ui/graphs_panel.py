@@ -1,6 +1,6 @@
 # ui/graphs_panel.py
 # Mixin providing build_graphs_panel(), refresh_graphs(),
-# _switch_chart_view(), _draw_pie_view(), _draw_bar_view() for BeewareApp.
+# _switch_chart_view(), _draw_pie_view(), _draw_bar_view() for BeeAwareApp.
 
 import os
 import customtkinter as ctk
