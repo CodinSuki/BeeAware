@@ -19,7 +19,7 @@ Q_BADGE_LABELS = {0: "Q1", 1: "Q2", 2: "Q3", 3: "Q4"}
 
 class FreqPanelMixin:
 
-    def build_app_freq_panel(self):
+    def build_freq_panel(self):
         """
         Fixed-height panel spanning both columns at row 2.
         Left column: Most Used (top 3). Right column: Least Used (bottom 3).
