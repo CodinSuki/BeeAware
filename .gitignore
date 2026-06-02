@@ -2,3 +2,5 @@ data/raw/dmoz.csv
 /output
 /output
 /Training
+*.csv
+*.log
