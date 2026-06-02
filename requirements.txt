@@ -1,7 +1,9 @@
 customtkinter
 pandas
 matplotlib
-winreg
-win32gui
+psutil
+scikit-learn
+pywin32
 pystray
 Pillow
+pygetwindow
