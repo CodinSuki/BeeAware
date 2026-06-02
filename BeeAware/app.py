@@ -127,7 +127,7 @@ class BeeAwareApp(
         self.build_control_panel()
         self.build_monitor_panel()
         self.build_graphs_panel()
-        self.build_app_freq_panel()
+        self.build_freq_panel()
         self.floating_bar = None 
 
         if not self.models_ready:
