@@ -1,5 +1,5 @@
 # ui/monitor_panel.py
-# Mixin providing build_monitor_panel() and update_live_ui() for BeewareApp.
+# Mixin providing build_monitor_panel() and update_live_ui() for BeeAwareApp.
 
 import customtkinter as ctk
 from config import (
@@ -15,44 +15,45 @@ class MonitorPanelMixin:
 
     def build_monitor_panel(self):
         self.monitor_frame = ctk.CTkFrame(self, corner_radius=15, fg_color=BEE_COMB_LIGHT)
-        self.monitor_frame.grid(row=1, column=0, padx=(20, 10), pady=16, sticky="nsew")
+        # MEGA SQUEEZE: outer vertical padding reduced to 4
+        self.monitor_frame.grid(row=1, column=0, padx=(20, 10), pady=4, sticky="nsew")
         self.monitor_frame.grid_columnconfigure(0, weight=1)
 
         ctk.CTkLabel(
             self.monitor_frame, text="Live Monitor",
             font=ctk.CTkFont(size=18, weight="bold"), text_color=BEE_GOLD,
-        ).pack(pady=(20, 4))
+        ).pack(pady=(4, 0)) 
 
         ctk.CTkLabel(
             self.monitor_frame, text="─" * 28,
             text_color=BEE_BROWN, font=ctk.CTkFont(size=10),
-        ).pack()
+        ).pack(pady=0) 
 
         # ── Focus / Distracted totals ─────────────────────────────────────────
         totals_frame = ctk.CTkFrame(self.monitor_frame, fg_color=BEE_COMB_MID, corner_radius=10)
-        totals_frame.pack(fill="x", padx=16, pady=(10, 6))
+        totals_frame.pack(fill="x", padx=16, pady=2) 
         totals_frame.grid_columnconfigure((0, 1), weight=1)
 
         ctk.CTkLabel(totals_frame, text="Focus",
-                     font=ctk.CTkFont(size=11), text_color=BEE_GRAY).grid(row=0, column=0, pady=(10, 0))
+                     font=ctk.CTkFont(size=11), text_color=BEE_GRAY).grid(row=0, column=0, pady=(4, 0))
         ctk.CTkLabel(totals_frame, text="Distracted",
-                     font=ctk.CTkFont(size=11), text_color=BEE_GRAY).grid(row=0, column=1, pady=(10, 0))
+                     font=ctk.CTkFont(size=11), text_color=BEE_GRAY).grid(row=0, column=1, pady=(4, 0))
 
         self.lbl_live_prod = ctk.CTkLabel(
             totals_frame, text="0m 00s",
             font=ctk.CTkFont(size=20, weight="bold"), text_color=BEE_GREEN,
         )
-        self.lbl_live_prod.grid(row=1, column=0, pady=(0, 10))
+        self.lbl_live_prod.grid(row=1, column=0, pady=(0, 4))
 
         self.lbl_live_dist = ctk.CTkLabel(
             totals_frame, text="0m 00s",
             font=ctk.CTkFont(size=20, weight="bold"), text_color=BEE_RED,
         )
-        self.lbl_live_dist.grid(row=1, column=1, pady=(0, 10))
+        self.lbl_live_dist.grid(row=1, column=1, pady=(0, 4))
 
         # ── Per-quadrant breakdown ────────────────────────────────────────────
         q_frame = ctk.CTkFrame(self.monitor_frame, fg_color=BEE_COMB_MID, corner_radius=10)
-        q_frame.pack(fill="x", padx=16, pady=6)
+        q_frame.pack(fill="x", padx=16, pady=2) 
         q_frame.grid_columnconfigure((0, 1, 2, 3), weight=1)
 
         self.q_time_labels = {}
@@ -60,32 +61,32 @@ class MonitorPanelMixin:
             short = name.split(":")[0]
             ctk.CTkLabel(
                 q_frame, text=short, font=ctk.CTkFont(size=10), text_color=BEE_GRAY,
-            ).grid(row=0, column=i, pady=(8, 0), padx=4)
+            ).grid(row=0, column=i, pady=(2, 0), padx=4)
             lbl = ctk.CTkLabel(
                 q_frame, text="0m 00s",
                 font=ctk.CTkFont(size=12, weight="bold"), text_color=Q_COLORS[q],
             )
-            lbl.grid(row=1, column=i, pady=(0, 8), padx=4)
+            lbl.grid(row=1, column=i, pady=(0, 2), padx=4)
             self.q_time_labels[q] = lbl
 
         ctk.CTkLabel(
             self.monitor_frame, text="─" * 28,
             text_color=BEE_BROWN, font=ctk.CTkFont(size=10),
-        ).pack(pady=(8, 4))
+        ).pack(pady=0)
 
         # ── Active process / window title ─────────────────────────────────────
         active_frame = ctk.CTkFrame(self.monitor_frame, fg_color=BEE_COMB_MID, corner_radius=10)
-        active_frame.pack(fill="x", padx=16, pady=6)
+        active_frame.pack(fill="x", padx=16, pady=2) 
 
         ctk.CTkLabel(active_frame, text="PROCESS",
-                     font=ctk.CTkFont(size=10), text_color=BEE_GRAY).pack(anchor="w", padx=12, pady=(10, 0))
+                     font=ctk.CTkFont(size=10), text_color=BEE_GRAY).pack(anchor="w", padx=12, pady=(4, 0))
 
         self.lbl_exe_val = ctk.CTkLabel(
             active_frame, text="—",
             font=ctk.CTkFont(size=13, weight="bold"), text_color=BEE_CREAM,
             wraplength=300, justify="left",
         )
-        self.lbl_exe_val.pack(anchor="w", padx=12, pady=(2, 8))
+        self.lbl_exe_val.pack(anchor="w", padx=12, pady=(0, 0)) 
 
         ctk.CTkLabel(active_frame, text="WINDOW TITLE",
                      font=ctk.CTkFont(size=10), text_color=BEE_GRAY).pack(anchor="w", padx=12)
@@ -95,27 +96,27 @@ class MonitorPanelMixin:
             font=ctk.CTkFont(size=12), text_color=BEE_CREAM,
             wraplength=300, justify="left",
         )
-        self.lbl_title_val.pack(anchor="w", padx=12, pady=(2, 12))
+        self.lbl_title_val.pack(anchor="w", padx=12, pady=(0, 4)) 
 
         # ── AI verdict ────────────────────────────────────────────────────────
         verdict_frame = ctk.CTkFrame(self.monitor_frame, fg_color=BEE_COMB_MID, corner_radius=10)
-        verdict_frame.pack(fill="x", padx=16, pady=6)
+        verdict_frame.pack(fill="x", padx=16, pady=2) 
 
         ctk.CTkLabel(verdict_frame, text="AI VERDICT",
-                     font=ctk.CTkFont(size=10), text_color=BEE_GRAY).pack(pady=(10, 2))
+                     font=ctk.CTkFont(size=10), text_color=BEE_GRAY).pack(pady=(4, 0))
 
         self.lbl_verdict_val = ctk.CTkLabel(
             verdict_frame, text="Idle",
             font=ctk.CTkFont(size=16, weight="bold"), text_color=BEE_GOLD,
         )
-        self.lbl_verdict_val.pack(pady=(0, 10))
+        self.lbl_verdict_val.pack(pady=(0, 2)) 
 
         # ── Correction button ─────────────────────────────────────────────────
         self.build_correction_button(verdict_frame)
 
         # ── Window switch counter ─────────────────────────────────────────────
         switches_frame = ctk.CTkFrame(self.monitor_frame, fg_color="transparent")
-        switches_frame.pack(fill="x", padx=16, pady=(8, 16))
+        switches_frame.pack(fill="x", padx=16, pady=(0, 4)) 
 
         ctk.CTkLabel(switches_frame, text="Window switches:",
                      font=ctk.CTkFont(size=11), text_color=BEE_GRAY).pack(side="left")

@@ -93,4 +93,4 @@ def show_notification(master=None, title="BeeAware", message="", duration=4000, 
     """
     Helper function to easily trigger a notification from anywhere in the app.
     """
-    BeeNotification(master=master, title=title, message=message, duration=duration, color=color)
+    BeeNotification(master=master, title=title, message=message, duration=duration, color=color)    

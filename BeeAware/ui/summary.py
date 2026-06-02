@@ -17,7 +17,7 @@ class SessionSummaryWindow(ctk.CTkToplevel):
     def __init__(self, master, saved_stats, saved_switches):
         super().__init__(master)
         
-        self.title("Session Summary — Beeware")
+        self.title("Session Summary — BeeAware")
         self.geometry("900x700")
         self.configure(fg_color=BEE_COMB)
         self.resizable(True, True)

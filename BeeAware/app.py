@@ -1,4 +1,4 @@
-# app.py — BeewareApp core class
+# app.py — BeeAwareApp core class
 # Composes all UI mixins and owns all tracking/data logic.
 
 import os
@@ -16,15 +16,16 @@ import psutil
 import pygetwindow as gw
 
 from datetime import datetime
-from tkinter import messagebox
+from tkinter import messagebox      
 from notif import show_notification
 from ui.options import OptionsWindow
 from ui.history import HistoryWindow
 from ui.summary import SessionSummaryWindow
+from ui.floating_bar import FloatingBar
 
 from config import (
     BEE_COMB, BEE_COMB_LIGHT, BEE_GREEN, BEE_GOLD, BEE_RED,
-    BEE_AMBER, BEE_AMBER_DIM, BEE_BROWN, BEE_CREAM,
+    BEE_AMBER, BEE_AMBER_DIM, BEE_BROWN, BEE_CREAM, BEE_GRAY,
     QUADRANTS, Q_COLORS, CUSTOM_OVERRIDES,
     ERROR_LOG_PATH, DAILY_LOG_PATH, APP_HISTORY_PATH, APP_HISTORY_COLS,
     MODEL_PATH, VECTORIZER_PATH, BROWSER_EXES, IDLE_TITLES, IDLE_EXES,
@@ -52,7 +53,7 @@ def get_active_process_name() -> str:
         return "system"
 
 
-class BeewareApp(
+class BeeAwareApp(
     ControlPanelMixin,
     MonitorPanelMixin,
     GraphsPanelMixin,
@@ -63,7 +64,7 @@ class BeewareApp(
     def __init__(self):
         super().__init__()
 
-        self.title("Beeware | Live Productivity Engine")
+        self.title("BeeAware | Live Productivity Engine")
         self.geometry("1280x780")
         self.configure(fg_color=BEE_COMB)
 
@@ -102,8 +103,9 @@ class BeewareApp(
         self.WARNING_THRESHOLD = 1800 
         self.notifications_enabled = True
         self.silent_tracking = False  # Silent mode: track but no notifications
+        self.floating_bar_enabled = True
         self.options_window = None
-        self.history_window = None         
+        self.history_window = None        
 
         try:
             with open(MODEL_PATH, "rb") as f:
@@ -126,6 +128,7 @@ class BeewareApp(
         self.build_monitor_panel()
         self.build_graphs_panel()
         self.build_app_freq_panel()
+        self.floating_bar = None 
 
         if not self.models_ready:
             self.after(200, self._show_model_error_modal)
@@ -141,10 +144,31 @@ class BeewareApp(
         self._tray_thread = None
         self._tray_active = False
 
+    def _destroy_floating_bar(self):
+        if getattr(self, "floating_bar", None) and self.floating_bar.winfo_exists():
+            try:
+                self.floating_bar.destroy()
+            except Exception:
+                pass
+            self.floating_bar = None
+
+    def set_floating_bar_visibility(self, enabled: bool):
+        self.floating_bar_enabled = enabled
+        if getattr(self, "floating_bar", None) and self.floating_bar.winfo_exists():
+            try:
+                if enabled:
+                    self.floating_bar.deiconify()
+                    if self.is_tracking:
+                        self.floating_bar._expand()
+                else:
+                    self.floating_bar.withdraw()
+            except Exception as e:
+                log_error("set_floating_bar_visibility", e)
+
     # Model error modal 
     def _show_model_error_modal(self):
         messagebox.showerror(
-            "Models Not Found — Beeware",
+            "Models Not Found — BeeAware",
             "AI classification models could not be loaded.\n\n"
             "Expected files:\n"
             f"  • {MODEL_PATH}\n"
@@ -228,6 +252,12 @@ class BeewareApp(
 
             self.tracking_thread = threading.Thread(target=self.watcher_loop, daemon=True)
             self.tracking_thread.start()
+            if self.floating_bar_enabled:
+                try:
+                    self.floating_bar = FloatingBar(self)
+                except Exception as e:
+                    log_error("floating_bar_create", e)
+                    self.floating_bar = None
             self.update_live_ui()
         else:
             self.exit_app()
@@ -281,6 +311,8 @@ class BeewareApp(
             )
 
     def exit_app(self):
+        self._destroy_floating_bar()
+
         if self.is_tracking:
             # Stop tracking, SAVE immediately, update UI, then show summary
             self.is_tracking = False
@@ -324,6 +356,13 @@ class BeewareApp(
     def _minimize_to_tray(self):
         if self._tray_active:
             return
+        if getattr(self, "floating_bar_enabled", True) and getattr(self, "floating_bar", None) and self.floating_bar.winfo_exists():
+            try:
+                self.floating_bar._collapse()
+                self.floating_bar.deiconify()
+                self.floating_bar.lift()
+            except Exception:
+                pass
         self.withdraw()
         image = self._create_tray_image()
 
@@ -340,7 +379,7 @@ class BeewareApp(
             pystray.MenuItem("Exit", on_exit),
         )
 
-        self.tray_icon = pystray.Icon("beeware", image, "Beeware", menu)
+        self.tray_icon = pystray.Icon("beeaware", image, "BeeAware", menu)
 
         def run_icon():
             try:
@@ -364,6 +403,13 @@ class BeewareApp(
         finally:
             self.deiconify()
             self.lift()
+            if getattr(self, "floating_bar_enabled", True) and getattr(self, "floating_bar", None) and self.floating_bar.winfo_exists():
+                try:
+                    self.floating_bar.deiconify()
+                    self.floating_bar._collapse()
+                    self.floating_bar.lift()
+                except Exception:
+                    pass
 
     def _exit_from_tray(self):
         # Prompt to save session before exiting
@@ -610,11 +656,6 @@ class BeewareApp(
                     _, active_pid = win32process.GetWindowThreadProcessId(hwnd)
                 except Exception:
                     active_pid = None
-
-                if active_pid == os.getpid() or "beeware" in raw_title.lower():
-                    self.current_verdict = "IDLE / SYSTEM"
-                    time.sleep(1)
-                    continue
 
                 if self.is_paused:
                     self.current_verdict = "HIDDEN (Privacy Mode)"

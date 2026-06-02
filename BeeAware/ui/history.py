@@ -16,7 +16,7 @@ class HistoryWindow(ctk.CTkToplevel):
     def __init__(self, master):
         super().__init__(master)
 
-        self.title("Beeware Usage History")
+        self.title("BeeAware Usage History")
         self.geometry("980x650")
         self.configure(fg_color=BEE_COMB)
         self.resizable(True, True)

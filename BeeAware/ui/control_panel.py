@@ -1,5 +1,5 @@
 # ui/control_panel.py
-# Mixin providing build_control_panel() for BeewareApp.
+# Mixin providing build_control_panel() for BeeAwareApp.
 
 import customtkinter as ctk
 from config import (

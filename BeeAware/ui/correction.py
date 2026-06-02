@@ -1,11 +1,10 @@
-
 import csv
 import os
 from datetime import datetime
 
 import customtkinter as ctk
 
-import config  # imported as module so we can mutate CUSTOM_OVERRIDES at runtime
+import config  # imported as module so we can mutate CUSTOM_OVERRIDES, IDLE_EXES, etc. at runtime
 from config import (
     BEE_AMBER, BEE_AMBER_DIM, BEE_COMB, BEE_COMB_LIGHT, BEE_COMB_MID,
     BEE_BROWN, BEE_CREAM, BEE_GRAY, BEE_RED, BEE_GREEN, BEE_GOLD,
@@ -19,7 +18,7 @@ CORRECTIONS_COLS = [
     "exe_name",
     "window_title",
     "original_verdict",
-    "corrected_label",   # 0-3
+    "corrected_label",   # 0-3, or -1 for Idle
     "corrected_quadrant", # human-readable
 ]
 
@@ -47,8 +46,7 @@ class CorrectionMixin:
     def _open_correction_popup(self):
         """
         Open a Toplevel popup showing the current exe + window title
-        and four Q buttons for the user to pick the correct quadrant.
-        Disabled if not currently tracking or if in privacy mode.
+        and buttons for the user to pick the correct quadrant or flag as idle.
         """
         if not self.is_tracking:
             return
@@ -61,12 +59,14 @@ class CorrectionMixin:
 
         popup = ctk.CTkToplevel(self)
         popup.title("Correct Classification")
-        popup.geometry("420x320")
+        
+        # Increased height to 440 to comfortably fit the new Idle button
+        popup.geometry("420x440")
         popup.configure(fg_color=BEE_COMB)
         popup.resizable(False, False)
         popup.grab_set()   # modal
 
-        # ── Header ────────────────────────────────────────────────────────────
+        #  Header 
         ctk.CTkLabel(
             popup, text="Correct the AI Verdict",
             font=ctk.CTkFont(size=15, weight="bold"), text_color=BEE_GOLD,
@@ -77,7 +77,7 @@ class CorrectionMixin:
             text_color=BEE_BROWN, font=ctk.CTkFont(size=10),
         ).pack()
 
-        # ── Current context ───────────────────────────────────────────────────
+        #  Current context 
         info = ctk.CTkFrame(popup, fg_color=BEE_COMB_MID, corner_radius=8)
         info.pack(fill="x", padx=20, pady=(10, 4))
 
@@ -92,20 +92,20 @@ class CorrectionMixin:
                      font=ctk.CTkFont(size=11), text_color=BEE_CREAM,
                      wraplength=360).pack(anchor="w", padx=12, pady=(0, 8))
 
-        # ── Current verdict ───────────────────────────────────────────────────
+        #  Current verdict
         ctk.CTkLabel(
             popup, text=f"Current verdict:  {orig}",
             font=ctk.CTkFont(size=11), text_color=BEE_GRAY,
         ).pack(pady=(4, 8))
 
-        # ── Q selection buttons ───────────────────────────────────────────────
+        #  Q selection buttons 
         ctk.CTkLabel(
             popup, text="Select the correct quadrant:",
             font=ctk.CTkFont(size=11, weight="bold"), text_color=BEE_CREAM,
         ).pack()
 
         btn_row = ctk.CTkFrame(popup, fg_color="transparent")
-        btn_row.pack(pady=(8, 0))
+        btn_row.pack(pady=(8, 10))
 
         q_labels = {0: "Q1\nURGENT", 1: "Q2\nGROWTH", 2: "Q3\nNOISE", 3: "Q4\nPLAY"}
 
@@ -123,6 +123,18 @@ class CorrectionMixin:
                 ),
             ).pack(side="left", padx=5)
 
+        #  New System/Idle Exclusion Button 
+        ctk.CTkButton(
+            popup,
+            text="🚫 Mark as System / Idle Process",
+            width=240, height=32,
+            fg_color=BEE_COMB_MID,
+            hover_color=BEE_RED,
+            text_color=BEE_GRAY,
+            font=ctk.CTkFont(size=11, weight="bold"),
+            command=lambda: self._mark_as_idle(exe, title, orig, popup),
+        ).pack(pady=(10, 20))
+
     def _apply_correction(
         self,
         exe: str,
@@ -137,26 +149,44 @@ class CorrectionMixin:
         """
         corrected_quadrant = QUADRANTS[corrected_label]
 
-        # ── a. Persist correction for retraining ──────────────────────────────
+        #  a. Persist correction for retraining 
         self._save_correction(exe, title, original_verdict, corrected_label, corrected_quadrant)
 
-        # ── b. Update CUSTOM_OVERRIDES in memory so it sticks this session ────
-        # Key: normalised exe name (strip .exe, lowercase) — same pattern
-        # the watcher uses for window title normalisation
+        #  b. Update CUSTOM_OVERRIDES in memory so it sticks this session 
         override_key = exe.lower().replace(".exe", "").replace(" ", "")
         config.CUSTOM_OVERRIDES[override_key] = corrected_label
-
-        # Also key on the raw exe name in case watcher matches on that
         config.CUSTOM_OVERRIDES[exe.lower()] = corrected_label
-        # And key on the current window title so the correction applies immediately
         title_key = title.lower().replace(" ", "").replace("-", "")
         config.CUSTOM_OVERRIDES[title_key] = corrected_label
 
-        # ── c. Update the live verdict label immediately ───────────────────────
+        #  c. Update the live verdict label immediately 
         self.current_verdict = f"{corrected_quadrant} (Corrected)"
         self.lbl_verdict_val.configure(
             text=self.current_verdict,
             text_color=Q_COLORS[corrected_label],
+        )
+
+        popup.destroy()
+
+    def _mark_as_idle(self, exe: str, title: str, original_verdict: str, popup):
+        """
+        Injects the current exe and title directly into the IDLE sets in memory.
+        The watcher will instantly begin ignoring them for the rest of the session.
+        """
+        # Add to runtime config sets
+        if exe:
+            config.IDLE_EXES.add(exe.lower())
+        if title:
+            config.IDLE_TITLES.add(title)
+
+        # Log to CSV with a special label (-1) so you can review exclusions later
+        self._save_correction(exe, title, original_verdict, -1, "IDLE_EXCLUSION")
+
+        # Update current UI label
+        self.current_verdict = "Idle (Excluded)"
+        self.lbl_verdict_val.configure(
+            text=self.current_verdict,
+            text_color=BEE_GRAY,
         )
 
         popup.destroy()
