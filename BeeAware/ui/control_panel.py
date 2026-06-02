@@ -12,7 +12,7 @@ class ControlPanelMixin:
     def build_control_panel(self):
         frame = ctk.CTkFrame(self, height=70, corner_radius=10, fg_color=BEE_COMB_MID)
         frame.grid(row=0, column=0, columnspan=2, padx=20, pady=(16, 0), sticky="ew")
-        frame.grid_propagate(False)
+        frame.grid_propagate(True)
    
         frame.grid_columnconfigure(4, weight=1)
 
@@ -72,3 +72,7 @@ class ControlPanelMixin:
             font=ctk.CTkFont(size=11),
             text_color=BEE_GRAY if self.models_ready else BEE_RED,
         ).grid(row=0, column=5, padx=16, sticky="e")
+
+        # Add this inside build_control_panel in ui/control_panel.py
+        frame.update() 
+        print(f"Frame Size: {frame.winfo_width()}x{frame.winfo_height()}")
