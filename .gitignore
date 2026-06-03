@@ -7,3 +7,4 @@ data/raw/dmoz.csv
 __pycache__/
 *.pyc
 *.pyo
+corrections.csv
