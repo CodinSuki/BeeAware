@@ -1,154 +1,262 @@
 # ui/freq_panel.py
-# Mixin providing build_app_freq_panel() and update_app_freq_panel()
-# for BeeAwareApp. Shows most/least used apps with Q badges, live or historical.
 
 import os
-import pandas as pd
+import ctypes
+from ctypes import wintypes
+import win32gui
+import win32api
+import win32con
 import customtkinter as ctk
-
+import tkinter as tk
+from PIL import Image
 from config import (
     BEE_GOLD, BEE_COMB_LIGHT, BEE_COMB_MID, BEE_GRAY,
-    BEE_GREEN, BEE_RED, BEE_CREAM, BEE_AMBER, BEE_COMB,
-    APP_HISTORY_PATH,
+    BEE_CREAM, BEE_COMB, Q_COLORS
 )
-from logger import log_error
-
-Q_BADGE_COLORS = {0: BEE_RED, 1: BEE_GREEN, 2: BEE_AMBER, 3: BEE_GOLD}
-Q_BADGE_LABELS = {0: "Q1", 1: "Q2", 2: "Q3", 3: "Q4"}
-
 
 class FreqPanelMixin:
-
     def build_freq_panel(self):
-        """
-        Fixed-height panel spanning both columns at row 2.
-        Left column: Most Used (top 3). Right column: Least Used (bottom 3).
-        Slots are built once at startup; update_app_freq_panel() refreshes labels only.
-        """
+        """Builds the Top App Performance panel (Column 1 of the Insight Row)."""
+        self.icon_cache = {} # Cache CTkImage objects to prevent flicker
         self.freq_frame = ctk.CTkFrame(self, corner_radius=12, fg_color=BEE_COMB_LIGHT)
-        self.freq_frame.grid(row=2, column=0, columnspan=2, sticky="nsew", padx=20, pady=(0, 20))
+        self.freq_frame.grid(row=2, column=1, sticky="nsew", padx=(10, 20), pady=(0, 20))
+        
         self.freq_frame.grid_columnconfigure(0, weight=1)
-        self.freq_frame.grid_columnconfigure(1, weight=1)
+        self.freq_frame.grid_rowconfigure(1, weight=1)
 
-        # Header 
+        # Header
         header = ctk.CTkFrame(self.freq_frame, fg_color="transparent")
-        header.grid(row=0, column=0, columnspan=2, sticky="ew", padx=16, pady=(10, 4))
+        header.grid(row=0, column=0, sticky="ew", padx=16, pady=(12, 6))
 
         ctk.CTkLabel(
-            header, text="App Frequency",
-            font=ctk.CTkFont(size=13, weight="bold"), text_color=BEE_GOLD,
+            header, text="📊 TOP APP PERFORMANCE",
+            font=ctk.CTkFont(family="Segoe UI", size=13, weight="bold"), text_color=BEE_GOLD,
         ).pack(side="left")
 
-        self.lbl_freq_source = ctk.CTkLabel(
-            header, text="— no session yet —",
-            font=ctk.CTkFont(size=10), text_color=BEE_GRAY,
+        # Container for the app rows
+        self.apps_list_frame = ctk.CTkFrame(self.freq_frame, fg_color=BEE_COMB_MID, corner_radius=8)
+        self.apps_list_frame.grid(row=1, column=0, padx=12, pady=(0, 12), sticky="nsew")
+        self.apps_list_frame.grid_columnconfigure(0, weight=1)
+        self.apps_list_frame.grid_rowconfigure(0, weight=1)
+
+        self.apps_list_canvas = tk.Canvas(
+            self.apps_list_frame,
+            bg=BEE_COMB_MID,
+            highlightthickness=0,
         )
-        self.lbl_freq_source.pack(side="left", padx=10)
+        self.apps_list_canvas.grid(row=0, column=0, sticky="nsew", padx=(8, 0), pady=8)
 
-        #  Build columns 
-        self.most_used_rows  = self._build_freq_column(col=0, label="▲  Most Used",  color=BEE_GREEN)
-        self.least_used_rows = self._build_freq_column(col=1, label="▼  Least Used", color=BEE_RED)
-
-    def _build_freq_column(self, col: int, label: str, color: str):
-        """Build one Most/Least column with 3 pre-built app slots. Returns list of (badge, name, time) tuples."""
-        container = ctk.CTkFrame(self.freq_frame, fg_color=BEE_COMB_MID, corner_radius=8)
-        container.grid(
-            row=1, column=col,
-            padx=(12 if col == 0 else 6, 6 if col == 0 else 12),
-            pady=(0, 10), sticky="nsew",
+        self.apps_list_scrollbar = ctk.CTkScrollbar(
+            self.apps_list_frame,
+            orientation="vertical",
+            command=self.apps_list_canvas.yview,
         )
-        container.grid_columnconfigure(0, weight=1)
+        self.apps_list_scrollbar.grid(row=0, column=1, sticky="ns", padx=(6, 10), pady=8)
 
-        ctk.CTkLabel(
-            container, text=label,
-            font=ctk.CTkFont(size=11, weight="bold"), text_color=color,
-        ).grid(row=0, column=0, columnspan=3, sticky="w", padx=10, pady=(8, 4))
+        self.apps_list_canvas.configure(yscrollcommand=self.apps_list_scrollbar.set)
 
-        rows = []
-        for i in range(3):
-            row_frame = ctk.CTkFrame(container, fg_color="transparent")
-            row_frame.grid(row=i + 1, column=0, sticky="ew", padx=8, pady=2)
-            row_frame.grid_columnconfigure(1, weight=1)
+        self.apps_rows_container = ctk.CTkFrame(self.apps_list_canvas, fg_color="transparent")
+        self.app_rows_window = self.apps_list_canvas.create_window(
+            (0, 0), window=self.apps_rows_container, anchor="nw"
+        )
 
-            badge = ctk.CTkLabel(
-                row_frame, text="Q?", width=36, height=20,
-                fg_color=BEE_GRAY, corner_radius=4,
-                font=ctk.CTkFont(size=9, weight="bold"), text_color=BEE_COMB,
+        self.apps_rows_container.bind(
+            "<Configure>",
+            lambda event: self.apps_list_canvas.configure(scrollregion=self.apps_list_canvas.bbox("all")),
+        )
+        self.apps_list_canvas.bind(
+            "<Configure>",
+            lambda event: self.apps_list_canvas.itemconfig(self.app_rows_window, width=event.width),
+        )
+
+        # Pre-create 5 slots for Top Apps
+        self.app_rows = []
+        for i in range(5):
+            row_f = ctk.CTkFrame(self.apps_rows_container, fg_color="transparent")
+            row_f.grid(row=i, column=0, sticky="ew", padx=10, pady=4)
+            row_f.grid_columnconfigure(2, weight=1)
+
+            icon_lbl = ctk.CTkLabel(
+                row_f,
+                text="📦",
+                width=24,
+                height=24,
+                fg_color="transparent",
             )
-            badge.grid(row=0, column=0, padx=(0, 6))
+            icon_lbl.pack(side="left", padx=(0, 8))
+
+            q_badge = ctk.CTkLabel(
+                row_f,
+                text="--",
+                width=35,
+                height=20,
+                corner_radius=4,
+                fg_color=BEE_GRAY,
+                text_color=BEE_COMB,
+                font=("Segoe UI", 10, "bold"),
+            )
+            q_badge.pack(side="left", padx=(0, 10))
 
             name_lbl = ctk.CTkLabel(
-                row_frame, text="—",
-                font=ctk.CTkFont(size=11), text_color=BEE_CREAM, anchor="w",
+                row_f,
+                text="Awaiting data...",
+                font=("Segoe UI", 11),
+                text_color=BEE_CREAM,
             )
-            name_lbl.grid(row=0, column=1, sticky="w")
+            name_lbl.pack(side="left", fill="both", expand=True)
 
             time_lbl = ctk.CTkLabel(
-                row_frame, text="",
-                font=ctk.CTkFont(size=10), text_color=BEE_GRAY, anchor="e",
+                row_f,
+                text="00m 00s",
+                font=("Segoe UI", 10),
+                text_color=BEE_GRAY,
             )
-            time_lbl.grid(row=0, column=2, sticky="e", padx=(6, 0))
+            time_lbl.pack(side="right", padx=(10, 0))
 
-            rows.append((badge, name_lbl, time_lbl))
+            self.app_rows.append(
+                {"frame": row_f, "icon": icon_lbl, "badge": q_badge, "name": name_lbl, "time": time_lbl}
+            )
 
-        ctk.CTkLabel(container, text="", height=6).grid(row=4, column=0)
-        return rows
+    def _get_app_icon(self, exe_path):
+        """Extract icon from EXE path and return a CTkImage."""
+        print(f"_get_app_icon: exe_path={exe_path!r}")
+        if not exe_path or not os.path.exists(exe_path):
+            print("  icon path missing or does not exist")
+            return None
 
-    def update_app_freq_panel(self):
-        """
-        Refresh most/least rows from live app_freq or APP_HISTORY_PATH.
-        Called every second during a session via update_live_ui().
-        Blanks unused slots cleanly so stale data never shows.
-        """
-        most, least = [], []
+        if exe_path in self.icon_cache:
+            print("  icon from cache")
+            return self.icon_cache[exe_path]
 
-        if self.is_tracking and self.app_freq:
-            most, least = self.get_app_freq_summary(top_n=3)
-            self.lbl_freq_source.configure(text="live session", text_color=BEE_GREEN)
+        try:
+            icons = win32gui.ExtractIconEx(exe_path, 0)[1]
+            if not icons:
+                raise RuntimeError("no icon handles returned")
 
-        elif os.path.exists(APP_HISTORY_PATH):
-            try:
-                df = pd.read_csv(APP_HISTORY_PATH)
-                if not df.empty:
-                    latest_ts = df["session_ts"].max()
-                    df = df[df["session_ts"] == latest_ts].copy()
-                    df["total_seconds"] = df[["q1_seconds", "q2_seconds",
-                                              "q3_seconds", "q4_seconds"]].sum(axis=1)
-                    df_sorted = df.sort_values("total_seconds", ascending=False)
+            hicon = icons[0]
+            icon_size = (16, 16)
 
-                    all_apps = [
-                        (row["exe_name"], int(row["total_seconds"]), int(row["dominant_q"]))
-                        for _, row in df_sorted.iterrows()
-                    ]
-                    most  = all_apps[:3]
-                    least = all_apps[-3:][::-1] if len(all_apps) > 3 else []
-                    self.lbl_freq_source.configure(
-                        text=f"last session  ({latest_ts[:10]})", text_color=BEE_GRAY,
-                    )
-                else:
-                    self.lbl_freq_source.configure(text="no history yet", text_color=BEE_GRAY)
-            except Exception as e:
-                log_error("update_app_freq_panel", e)
-        else:
-            self.lbl_freq_source.configure(text="— no session yet —", text_color=BEE_GRAY)
+            hdc = win32gui.GetDC(0)
+            hdc_mem = win32gui.CreateCompatibleDC(hdc)
+            hbmp = win32gui.CreateCompatibleBitmap(hdc, icon_size[0], icon_size[1])
+            old_obj = win32gui.SelectObject(hdc_mem, hbmp)
+            win32gui.DrawIconEx(hdc_mem, 0, 0, hicon, icon_size[0], icon_size[1], 0, 0, win32con.DI_NORMAL)
+            win32gui.SelectObject(hdc_mem, old_obj)
 
-        self._fill_freq_rows(self.most_used_rows,  most)
-        self._fill_freq_rows(self.least_used_rows, least)
+            class BITMAPINFOHEADER(ctypes.Structure):
+                _fields_ = [
+                    ("biSize", wintypes.DWORD),
+                    ("biWidth", wintypes.LONG),
+                    ("biHeight", wintypes.LONG),
+                    ("biPlanes", wintypes.WORD),
+                    ("biBitCount", wintypes.WORD),
+                    ("biCompression", wintypes.DWORD),
+                    ("biSizeImage", wintypes.DWORD),
+                    ("biXPelsPerMeter", wintypes.LONG),
+                    ("biYPelsPerMeter", wintypes.LONG),
+                    ("biClrUsed", wintypes.DWORD),
+                    ("biClrImportant", wintypes.DWORD),
+                ]
 
-    def _fill_freq_rows(self, row_widgets, data):
-        """Write app data into pre-built row slots; blank unused slots."""
-        for i, (badge, name_lbl, time_lbl) in enumerate(row_widgets):
-            if i < len(data):
-                exe, secs, dominant_q = data[i]
-                mins, s  = divmod(secs, 60)
-                time_str = f"{mins}m {s:02d}s" if mins > 0 else f"{s}s"
-                badge.configure(
-                    text=Q_BADGE_LABELS.get(dominant_q, "Q?"),
-                    fg_color=Q_BADGE_COLORS.get(dominant_q, BEE_GRAY),
-                )
-                name_lbl.configure(text=exe.replace(".exe", "")[:18])
-                time_lbl.configure(text=time_str)
+            class BITMAPINFO(ctypes.Structure):
+                _fields_ = [
+                    ("bmiHeader", BITMAPINFOHEADER),
+                    ("bmiColors", wintypes.DWORD * 3),
+                ]
+
+            bmi = BITMAPINFO()
+            bmi.bmiHeader.biSize = ctypes.sizeof(BITMAPINFOHEADER)
+            bmi.bmiHeader.biWidth = icon_size[0]
+            bmi.bmiHeader.biHeight = -icon_size[1]   # top-down DIB
+            bmi.bmiHeader.biPlanes = 1
+            bmi.bmiHeader.biBitCount = 32
+            bmi.bmiHeader.biCompression = win32con.BI_RGB
+            bmi.bmiHeader.biSizeImage = 0
+
+            buffer_size = icon_size[0] * icon_size[1] * 4
+            buffer = ctypes.create_string_buffer(buffer_size)
+
+            gdi32 = ctypes.windll.gdi32
+            gdi32.GetDIBits.argtypes = [
+                ctypes.c_void_p,
+                ctypes.c_void_p,
+                wintypes.UINT,
+                wintypes.UINT,
+                ctypes.c_void_p,
+                ctypes.POINTER(BITMAPINFO),
+                wintypes.UINT,
+            ]
+            gdi32.GetDIBits.restype = wintypes.INT
+
+            result = gdi32.GetDIBits(
+                ctypes.c_void_p(int(hdc_mem)),
+                ctypes.c_void_p(int(hbmp)),
+                0,
+                icon_size[1],
+                buffer,
+                ctypes.byref(bmi),
+                win32con.DIB_RGB_COLORS,
+            )
+            if result == 0:
+                raise RuntimeError("GetDIBits failed")
+
+            raw_bytes = bytes(buffer)
+            img = Image.frombytes("RGBA", icon_size, raw_bytes, "raw", "BGRA")
+            img = img.convert("RGBA")
+
+            ctk_image = ctk.CTkImage(light_image=img, size=icon_size)
+            self.icon_cache[exe_path] = ctk_image
+            print("  icon created successfully")
+            return ctk_image
+
+        except Exception as e:
+            print("  icon load failed:", e)
+            return None
+
+        finally:
+            if "hicon" in locals():
+                win32gui.DestroyIcon(hicon)
+            if "hbmp" in locals():
+                win32gui.DeleteObject(hbmp)
+            if "hdc_mem" in locals():
+                win32gui.DeleteDC(hdc_mem)
+            if "hdc" in locals():
+                win32gui.ReleaseDC(0, hdc)
+
+    def update_freq_panel(self):
+        """Refresh the Top App list with current session data."""
+        most_used, _ = self.get_app_freq_summary(top_n=5)
+        
+        # Reset visibility
+        for row in self.app_rows:
+            row["frame"].grid_remove()
+
+        if not most_used:
+            self.app_rows[0].frame.grid()
+            self.app_rows[0].name.configure(text="No apps tracked yet this session.")
+            self.app_rows[0].badge.configure(fg_color=BEE_GRAY, text="--")
+            return
+
+        for i, (exe, seconds, q_int, path) in enumerate(most_used):
+            if i >= 5: break
+            
+            row = self.app_rows[i]
+            row["frame"].grid()
+            
+            # Handle Icon (Optional: can be expanded with a proper HICON to PIL converter)
+            icon_image = self._get_app_icon(path)
+            if icon_image:
+                row["icon"].configure(image=icon_image, text="")
             else:
-                badge.configure(text="Q?", fg_color=BEE_GRAY)
-                name_lbl.configure(text="—")
-                time_lbl.configure(text="")
+                row["icon"].configure(image=None, text="📦")
+            
+            # Format EXE Name
+            clean_name = exe.replace(".exe", "").capitalize()
+            if len(clean_name) > 18: clean_name = clean_name[:15] + "..."
+            
+            row["name"].configure(text=clean_name)
+            row["time"].configure(text=self.format_time(seconds))
+            
+            # Badge Color based on Quadrant
+            color = Q_COLORS.get(q_int, BEE_GRAY)
+            row["badge"].configure(text=f"Q{q_int+1}", fg_color=color)
