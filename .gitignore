@@ -5,3 +5,4 @@ data/raw/dmoz.csv
 *.csv
 *.log
 BeeAware/ui/__pycache__
+BeeAware/__pycache__
