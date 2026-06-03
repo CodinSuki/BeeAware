@@ -4,5 +4,6 @@ data/raw/dmoz.csv
 /Training
 *.csv
 *.log
-BeeAware/ui/__pycache__/*
-BeeAware/__pycache__/*
+__pycache__/*
+*.pyc
+*.pyo
