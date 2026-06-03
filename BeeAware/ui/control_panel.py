@@ -16,6 +16,8 @@ class ControlPanelMixin:
    
         frame.grid_columnconfigure(4, weight=1)
 
+
+        # Start Session Button
         self.btn_toggle = ctk.CTkButton(
             frame, text="Start Session", width=150, height=38,
             fg_color=BEE_AMBER, hover_color=BEE_AMBER_DIM, text_color=BEE_COMB,
@@ -24,6 +26,7 @@ class ControlPanelMixin:
         )
         self.btn_toggle.grid(row=0, column=0, padx=(16, 8), pady=16)
 
+        # Privacy Pause Button
         self.btn_pause = ctk.CTkButton(
             frame, text="Privacy Pause", width=130, height=38,
             fg_color=BEE_BROWN, hover_color=BEE_COMB_MID, text_color=BEE_CREAM,
@@ -32,15 +35,16 @@ class ControlPanelMixin:
         )
         self.btn_pause.grid(row=0, column=1, padx=8, pady=16)
 
+        # Graph Toggle Button
         self.btn_graphs = ctk.CTkButton(
             frame, text="Hide Charts", width=130, height=38,
-            fg_color=BEE_COMB_MID, hover_color=BEE_BROWN, text_color=BEE_CREAM,
+            fg_color=BEE_BROWN, hover_color=BEE_COMB_MID, text_color=BEE_CREAM,
             font=ctk.CTkFont(size=13),
             command=self.toggle_graphs,
         )
         self.btn_graphs.grid(row=0, column=2, padx=8, pady=16)
 
-       
+       # Options Button
         self.btn_options = ctk.CTkButton(
             frame, 
             text="⚙ Options",
@@ -55,6 +59,8 @@ class ControlPanelMixin:
         status_box = ctk.CTkFrame(frame, fg_color="transparent")
         status_box.grid(row=0, column=4, padx=16, sticky="w")
 
+
+        # Program status components (dot_status and lbl_status)
         self.dot_status = ctk.CTkLabel(
             status_box, text="●", text_color=BEE_GRAY, font=ctk.CTkFont(size=12),
         )
@@ -66,7 +72,7 @@ class ControlPanelMixin:
         )
         self.lbl_status.pack(side="left")
 
-       
+        # AI Model status
         ctk.CTkLabel(
             frame, text=self.ai_status,
             font=ctk.CTkFont(size=11),
@@ -75,4 +81,3 @@ class ControlPanelMixin:
 
         # Add this inside build_control_panel in ui/control_panel.py
         frame.update() 
-        print(f"Frame Size: {frame.winfo_width()}x{frame.winfo_height()}")
