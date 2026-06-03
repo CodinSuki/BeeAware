@@ -19,26 +19,34 @@ class PreviewApp(ctk.CTk):
         self.load_component(component_name)
 
     def discover_components(self):
-        """Scans ui/ folder for all files ending in _panel.py"""
+        """Scans ui/ folder for ALL .py files."""
         mapping = {}
-        # This looks for all files like ui/control_panel.py, ui/graphs_panel.py, etc.
-        ui_files = glob.glob(os.path.join("ui", "*_panel.py"))
+        # Changed from "*_panel.py" to "*.py"
+        ui_files = glob.glob(os.path.join("ui", "*.py"))
         
         for filepath in ui_files:
             filename = os.path.basename(filepath).replace(".py", "")
-            module_name = f"ui.{filename}"
             
-            # Dynamically import the module
+            # Skip the __init__.py file
+            if filename == "__init__":
+                continue
+                
+            module_name = f"ui.{filename}"
             module = importlib.import_module(module_name)
             
-            # Extract the class name (e.g., control_panel.py -> ControlPanelMixin)
-            class_name = "".join([part.capitalize() for part in filename.split("_")]) + "Mixin"
-            mixin_class = getattr(module, class_name)
+            # Update the class naming logic
+            # This handles both "control_panel" -> "ControlPanelMixin" 
+            # and "correction" -> "CorrectionMixin"
+            parts = filename.split("_")
+            class_name = "".join([part.capitalize() for part in parts]) + "Mixin"
             
-            # Generate the build method name
-            method_name = f"build_{filename}"
-            
-            mapping[filename] = (mixin_class, method_name)
+            # Safely get the class if it exists
+            if hasattr(module, class_name):
+                mixin_class = getattr(module, class_name)
+                # This assumes your build methods follow build_{filename}
+                method_name = f"build_{filename}"
+                mapping[filename] = (mixin_class, method_name)
+        
         return mapping
 
     def load_component(self, name):
