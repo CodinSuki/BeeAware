@@ -22,6 +22,8 @@ from ui.options import OptionsWindow
 from ui.history import HistoryWindow
 from ui.summary import SessionSummaryWindow
 from ui.floating_bar import FloatingBar
+from camera import CameraPresenceTracker
+from ui.correction import normalize_exe_key, normalize_title_key
 
 from config import (
     BEE_COMB, BEE_COMB_LIGHT, BEE_GREEN, BEE_GOLD, BEE_RED,
@@ -86,6 +88,11 @@ class BeeAwareApp(
         self.last_date_str   = "No Data"
         self.chart_view      = "pie"
         self.app_freq        = {}
+
+        # Camera tracking state
+        self.camera_enabled = False  # Set by options.py
+        self.camera_tracker = None
+        self.camera_auto_paused = False # Distinguishes between manual pause and camera pause
 
         # Live monitor state (written by watcher thread, read by UI thread)
         self.current_window  = "Waiting..."
@@ -249,9 +256,17 @@ class BeeAwareApp(
             self.btn_pause.configure(state="normal")
             self.lbl_status.configure(text="WATCHING", text_color=BEE_GREEN)
             self.dot_status.configure(text="●", text_color=BEE_GREEN)
-
             self.tracking_thread = threading.Thread(target=self.watcher_loop, daemon=True)
             self.tracking_thread.start()
+            
+            # NEW CAMERA LOGIC 
+            if self.camera_enabled:
+                self.camera_tracker = CameraPresenceTracker(
+                    pause_callback=self._on_user_left,
+                    resume_callback=self._on_user_returned
+                )
+                self.camera_tracker.start()
+          
             if self.floating_bar_enabled:
                 try:
                     self.floating_bar = FloatingBar(self)
@@ -310,13 +325,21 @@ class BeeAwareApp(
                 color=BEE_GREEN
             )
 
+    def _stop_camera(self):
+        if getattr(self, "camera_tracker", None):
+            self.camera_tracker.stop()
+            self.camera_tracker = None
+        self.camera_auto_paused = False
+
     def exit_app(self):
         self._destroy_floating_bar()
 
         if self.is_tracking:
             # Stop tracking, SAVE immediately, update UI, then show summary
             self.is_tracking = False
-            
+
+            self._stop_camera()
+
             # Capture stats BEFORE reset
             saved_stats = self.live_stats.copy()
             saved_switches = self.switch_count
@@ -419,6 +442,7 @@ class BeeAwareApp(
         )
         if try_save:
             self.save_live_session()
+        self._stop_camera()
         try:
             self.quit()
             self.destroy()
@@ -458,6 +482,7 @@ class BeeAwareApp(
                     self.save_live_session()
                 except Exception as e:
                     log_error("save_on_exit", e)
+            self._stop_camera()
             try:
                 self.quit()
                 self.destroy()
@@ -661,6 +686,11 @@ class BeeAwareApp(
                     self.current_verdict = "HIDDEN (Privacy Mode)"
                     time.sleep(1)
                     continue
+                
+                if self.camera_auto_paused:
+                    self.current_verdict = "IDLE (User Away)"
+                    time.sleep(1)
+                    continue
 
                 if raw_title in IDLE_TITLES or exe_name in IDLE_EXES:
                     self.current_verdict = "IDLE / SYSTEM"
@@ -672,19 +702,25 @@ class BeeAwareApp(
                     self.switch_count += 1
                     self.last_window = active_window_key
 
-                normalized_title = raw_title.lower().replace(" ", "").replace("-", "")
-                normalized_exe = exe_name.lower().replace(".exe", "").replace(" ", "")
-
                 override = False
                 active_q_int = None  # Track the integer value of the active quadrant
 
-                for kw, q in CUSTOM_OVERRIDES.items():
-                    if kw in normalized_title or kw in normalized_exe:
-                        self.live_stats[q] += 1
-                        self.current_verdict = f"{QUADRANTS[q]} (Override)"
-                        override = True
-                        active_q_int = q
-                        break
+                # Use the same normalisation as correction.py so keys always match
+                lookup_exe   = normalize_exe_key(exe_name)    # e.g. "chrome"
+                lookup_title = normalize_title_key(raw_title)  # e.g. "github - my repo"
+
+                if lookup_exe in CUSTOM_OVERRIDES:
+                    q = CUSTOM_OVERRIDES[lookup_exe]
+                    self.live_stats[q] += 1
+                    self.current_verdict = f"{QUADRANTS[q]} (Override)"
+                    override = True
+                    active_q_int = q
+                elif lookup_title in CUSTOM_OVERRIDES:
+                    q = CUSTOM_OVERRIDES[lookup_title]
+                    self.live_stats[q] += 1
+                    self.current_verdict = f"{QUADRANTS[q]} (Override)"
+                    override = True
+                    active_q_int = q
 
                 if not override:
                     nlp_input = self.build_nlp_input(exe_name, raw_title)
@@ -864,3 +900,16 @@ class BeeAwareApp(
             self.history_window = HistoryWindow(self)
         else:
             self.history_window.focus()  
+            
+    def _on_user_left(self):
+        if self.is_tracking and not self.is_paused:
+            self.camera_auto_paused = True
+            # Update UI safely from thread
+            self.after(0, lambda: self.lbl_status.configure(text="AWAY (Camera)", text_color=BEE_GOLD))
+            self.after(0, lambda: self.dot_status.configure(text="●", text_color=BEE_GOLD))
+
+    def _on_user_returned(self):
+        if self.is_tracking and self.camera_auto_paused and not self.is_paused:
+            self.camera_auto_paused = False
+            self.after(0, lambda: self.lbl_status.configure(text="WATCHING", text_color=BEE_GREEN))
+            self.after(0, lambda: self.dot_status.configure(text="●", text_color=BEE_GREEN))

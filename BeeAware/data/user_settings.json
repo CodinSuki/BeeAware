@@ -1,0 +1,6 @@
+{
+    "notifications_enabled": true,
+    "strict_mode": false,
+    "floating_bar_enabled": true,
+    "camera_enabled": true
+}

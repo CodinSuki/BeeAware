@@ -1,0 +1,14 @@
+{
+    "idle_exes": [
+        "explorer.exe",
+        "python.exe",
+        "system"
+    ],
+    "idle_titles": [
+        "BeeAware | Live Productivity Engine",
+        "Desktop",
+        "Program Manager",
+        "Settings",
+        "Task Manager"
+    ]
+}

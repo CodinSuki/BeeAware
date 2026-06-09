@@ -1,5 +1,7 @@
+import os
+import json
 import customtkinter as ctk
-import config  
+import config
 
 from config import BEE_AMBER, BEE_AMBER_DIM, BEE_COMB, BEE_COMB_LIGHT, BEE_COMB_MID, BEE_CREAM, BEE_RED, BEE_GRAY
 
@@ -85,14 +87,41 @@ class RulesManagerWindow(ctk.CTkToplevel):
         )       
         btn_del.pack(side="right", padx=6)
 
+    def _save_overrides(self):
+        """Write CUSTOM_OVERRIDES to overrides.json."""
+        path = os.path.abspath(config.OVERRIDES_JSON_PATH)
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(config.CUSTOM_OVERRIDES, f, indent=4)
+        except OSError as e:
+            print(f"[RulesManager] Failed to save overrides: {e}")
+
+    def _save_idle_exclusions(self):
+        """Write IDLE_EXES and IDLE_TITLES to idle_exclusions.json."""
+        path = os.path.abspath(config.IDLE_EXCLUSIONS_PATH)
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump({
+                    "idle_exes":   sorted(config.IDLE_EXES),
+                    "idle_titles": sorted(config.IDLE_TITLES),
+                }, f, indent=4)
+        except OSError as e:
+            print(f"[RulesManager] Failed to save idle exclusions: {e}")
+
+ 
+
     def delete_override(self, key):
         if key in config.CUSTOM_OVERRIDES:
             del config.CUSTOM_OVERRIDES[key]
+        self._save_overrides()
         self.refresh_lists()
 
     def delete_idle(self, item, item_type):
-        if item_type == "exe" and item in config.IDLE_EXES:
+        if item_type == "exe":
             config.IDLE_EXES.discard(item)
-        elif item_type == "title" and item in config.IDLE_TITLES:
+        elif item_type == "title":
             config.IDLE_TITLES.discard(item)
+        self._save_idle_exclusions()
         self.refresh_lists()
