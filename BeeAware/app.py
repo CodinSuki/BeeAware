@@ -38,6 +38,7 @@ from ui.monitor_panel  import MonitorPanelMixin
 from ui.graphs_panel   import GraphsPanelMixin
 from ui.freq_panel     import FreqPanelMixin
 from ui.correction     import CorrectionMixin
+from ui.insight_panel import InsightPanelMixin
 
 
 def get_active_process_name() -> str:
@@ -60,6 +61,7 @@ class BeeAwareApp(
     MonitorPanelMixin,
     GraphsPanelMixin,
     FreqPanelMixin,
+    InsightPanelMixin,
     CorrectionMixin,
     ctk.CTk,
 ):
@@ -134,8 +136,12 @@ class BeeAwareApp(
         self.build_control_panel()
         self.build_monitor_panel()
         self.build_graphs_panel()
-        self.build_app_freq_panel()
+        self.build_freq_panel()
+        self.build_insight_panel()
         self.floating_bar = None 
+
+        # Initial insight update (load historical data if available)
+        self.update_behavioral_insight_panel()
 
         if not self.models_ready:
             self.after(200, self._show_model_error_modal)
@@ -150,6 +156,16 @@ class BeeAwareApp(
         self.tray_icon = None
         self._tray_thread = None
         self._tray_active = False
+
+    def _periodic_insight_refresh(self):
+        """Update the insight panel every 10 seconds while tracking."""
+        if self.is_tracking and not self.is_paused:
+            try:
+                self.update_behavioral_insight_panel()
+                self.update_freq_panel()
+            except Exception as e:
+                log_error("periodic_insight_refresh", e)
+        self.after(10000, self._periodic_insight_refresh)
 
     def _destroy_floating_bar(self):
         if getattr(self, "floating_bar", None) and self.floating_bar.winfo_exists():
@@ -273,7 +289,9 @@ class BeeAwareApp(
                 except Exception as e:
                     log_error("floating_bar_create", e)
                     self.floating_bar = None
+            self._notify_tracking_started()  # ADD THIS
             self.update_live_ui()
+            self._periodic_insight_refresh()
         else:
             self.exit_app()
 
@@ -284,10 +302,12 @@ class BeeAwareApp(
                 self.btn_pause.configure(text="Resume", fg_color=BEE_AMBER_DIM)
                 self.lbl_status.configure(text="PAUSED", text_color=BEE_GOLD)
                 self.dot_status.configure(text="●", text_color=BEE_GOLD)
+                self._notify_tracking_paused()  # ADD THIS
             else:
                 self.btn_pause.configure(text="Privacy Pause", fg_color=BEE_BROWN)
                 self.lbl_status.configure(text="WATCHING", text_color=BEE_GREEN)
                 self.dot_status.configure(text="●", text_color=BEE_GREEN)
+                self._notify_tracking_started()  # ADD THIS
 
     def toggle_graphs(self):
         self.graphs_visible = not self.graphs_visible
@@ -346,6 +366,7 @@ class BeeAwareApp(
             
             try:
                 self.save_live_session()  # Save BEFORE showing summary
+                self.update_behavioral_insight_panel() # Refresh insights with new history
             except Exception as e:
                 log_error("exit_app_save", e)
             
@@ -786,7 +807,14 @@ class BeeAwareApp(
                 )
                 if active_q is not None:
                     if exe_name not in self.app_freq:
-                        self.app_freq[exe_name] = {"seconds": 0, "quadrant_counts": {0: 0, 1: 0, 2: 0, 3: 0}}
+                        # Capture the full path of the EXE for icon extraction
+                        exe_path = None
+                        try:
+                            proc = psutil.Process(active_pid) if active_pid else None
+                            if proc: exe_path = proc.exe()
+                        except Exception:
+                            pass
+                        self.app_freq[exe_name] = {"seconds": 0, "quadrant_counts": {0: 0, 1: 0, 2: 0, 3: 0}, "path": exe_path}
                     self.app_freq[exe_name]["seconds"] += 1
                     self.app_freq[exe_name]["quadrant_counts"][active_q] += 1
 
@@ -873,11 +901,11 @@ class BeeAwareApp(
 
     def get_app_freq_summary(self, top_n: int = 5):
         """
-        Return (most_used, least_used) lists, each entry: (exe, seconds, dominant_q).
+        Return (most_used, least_used) lists, each entry: (exe, seconds, dominant_q, path).
         Dominant quadrant = the Q with the most seconds for that app this session.
         """
         summary = [
-            (exe, data["seconds"], max(data["quadrant_counts"], key=data["quadrant_counts"].get))
+            (exe, data["seconds"], max(data["quadrant_counts"], key=data["quadrant_counts"].get), data.get("path"))
             for exe, data in self.app_freq.items()
         ]
         summary.sort(key=lambda x: x[1], reverse=True)
@@ -899,7 +927,7 @@ class BeeAwareApp(
         if self.history_window is None or not self.history_window.winfo_exists():
             self.history_window = HistoryWindow(self)
         else:
-            self.history_window.focus()  
+            self.history_window.focus()
             
     def _on_user_left(self):
         if self.is_tracking and not self.is_paused:
@@ -913,3 +941,94 @@ class BeeAwareApp(
             self.camera_auto_paused = False
             self.after(0, lambda: self.lbl_status.configure(text="WATCHING", text_color=BEE_GREEN))
             self.after(0, lambda: self.dot_status.configure(text="●", text_color=BEE_GREEN))
+
+    def _notify_window_switch(self, app_name):
+        """Alert on frequent window switching."""
+        if self.switch_count > 15:
+            show_notification(
+                self,
+                title="⚡ High Context Switching",
+                message=f"You've switched {self.switch_count} times. Try focused work blocks.",
+                duration=5000,
+                color=BEE_AMBER
+            )
+
+    def _notify_quadrant_warning(self, quadrant):
+        """Alert when stuck in unproductive quadrants."""
+        if quadrant == 3:  # Q4: Distracted + Structured
+            show_notification(
+                self,
+                title="⚠️ Extended Distraction",
+                message=f"Distracted for 10+ min on structured task. Take a break?",
+                duration=6000,
+                color=BEE_RED
+            )
+        elif quadrant == 2:  # Q3: Distracted + Unstructured
+            show_notification(
+                self,
+                title="⚠️ Deep Distraction",
+                message=f"Unstructured distraction detected. Refocus?",
+                duration=5000,
+                color=BEE_RED
+            )
+
+    def _notify_focus_streak(self, duration_seconds):
+        """Positive reinforcement for deep work."""
+        if duration_seconds >= 1800:  # 30 min
+            show_notification(
+                self,
+                title="🎯 Excellent Focus!",
+                message=f"30+ minutes of deep, focused work. Keep it up!",
+                duration=4000,
+                color=BEE_GREEN
+            )
+
+    def _notify_correction_saved(self):
+        """Feedback after manual correction."""
+        show_notification(
+            self,
+            title="✓ Correction Saved",
+            message="Your feedback improves our AI model.",
+            duration=3000,
+            color=BEE_GOLD
+        )
+
+    def _notify_rule_applied(self, app_name):
+        """When custom rule overrides a verdict."""
+        show_notification(
+            self,
+            title="🔧 Custom Rule Applied",
+            message=f"Override rule for {app_name} applied.",
+            duration=3000,
+            color=BEE_GOLD
+        )
+
+    def _notify_tracking_started(self):
+        """Session started."""
+        show_notification(
+            self,
+            title="▶️ Tracking Active",
+            message="Live monitoring enabled. Focus time: 0m",
+            duration=3000,
+            color=BEE_GREEN
+        )
+
+    def _notify_tracking_paused(self):
+        """Session paused."""
+        show_notification(
+            self,
+            title="⏸️ Tracking Paused",
+            message="Resume monitoring anytime.",
+            duration=3000,
+            color=BEE_AMBER
+        )
+
+    def _notify_daily_goal(self):
+        """Daily focus goal reached."""
+        show_notification(
+            self,
+            title="🏆 Daily Goal Reached!",
+            message="You've hit your daily focus target. Excellent work!",
+            duration=5000,
+            color=BEE_GREEN
+        )
