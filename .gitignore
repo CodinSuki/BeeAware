@@ -4,3 +4,4 @@ data/raw/dmoz.csv
 /Training
 *.csv
 *.log
+__pycache__
