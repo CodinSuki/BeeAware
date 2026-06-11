@@ -7,3 +7,4 @@ pywin32
 pystray
 Pillow
 pygetwindow
+opencv-python
