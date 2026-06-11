@@ -119,13 +119,13 @@ class FreqPanelMixin:
 
     def _get_app_icon(self, exe_path):
         """Extract icon from EXE path and return a CTkImage."""
-        print(f"_get_app_icon: exe_path={exe_path!r}")
+        # print(f"_get_app_icon: exe_path={exe_path!r}")
         if not exe_path or not os.path.exists(exe_path):
             print("  icon path missing or does not exist")
             return None
 
         if exe_path in self.icon_cache:
-            print("  icon from cache")
+            # print("  icon from cache")
             return self.icon_cache[exe_path]
 
         try:
