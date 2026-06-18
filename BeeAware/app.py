@@ -730,14 +730,14 @@ class BeeAwareApp(
                 lookup_exe   = normalize_exe_key(exe_name)    # e.g. "chrome"
                 lookup_title = normalize_title_key(raw_title)  # e.g. "github - my repo"
 
-                if lookup_exe in CUSTOM_OVERRIDES:
-                    q = CUSTOM_OVERRIDES[lookup_exe]
+                if lookup_title in CUSTOM_OVERRIDES:
+                    q = CUSTOM_OVERRIDES[lookup_title]
                     self.live_stats[q] += 1
                     self.current_verdict = f"{QUADRANTS[q]} (Override)"
                     override = True
                     active_q_int = q
-                elif lookup_title in CUSTOM_OVERRIDES:
-                    q = CUSTOM_OVERRIDES[lookup_title]
+                elif lookup_exe in CUSTOM_OVERRIDES:
+                    q = CUSTOM_OVERRIDES[lookup_exe]
                     self.live_stats[q] += 1
                     self.current_verdict = f"{QUADRANTS[q]} (Override)"
                     override = True

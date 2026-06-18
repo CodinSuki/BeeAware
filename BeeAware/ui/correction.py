@@ -9,7 +9,7 @@ import config
 from config import (
     BEE_AMBER, BEE_AMBER_DIM, BEE_COMB, BEE_COMB_LIGHT, BEE_COMB_MID,
     BEE_BROWN, BEE_CREAM, BEE_GRAY, BEE_RED, BEE_GREEN, BEE_GOLD,
-    QUADRANTS, Q_COLORS,
+    QUADRANTS, Q_COLORS, BROWSER_EXES,
 )
 from logger import log_error
 
@@ -150,9 +150,16 @@ class CorrectionMixin:
         # 1. Append to CSV audit log
         self._save_correction(exe, title, original_verdict, corrected_label, corrected_quadrant)
 
-        # 2. Persist override by exe (primary key — stable across title changes)
+        # 2. Persist override by exe (primary key — stable across title changes).
+        #    NOTE: this is only safe for single-purpose apps (e.g. Slack, a game).
+        #    Browsers host many unrelated tabs under one exe name, so writing an
+        #    exe-level override here would make a correction on one tab silently
+        #    overwrite the verdict for every other tab in that browser. Skip it
+        #    for browsers and rely on the title-specific override below instead.
         exe_key = self._normalize_exe_key(exe)
-        self._save_to_json(exe_key, corrected_label)
+        is_browser = exe.lower() in BROWSER_EXES
+        if not is_browser:
+            self._save_to_json(exe_key, corrected_label)
 
         # 3. Also persist by title only when it's specific enough to be useful
         if title and len(title.strip()) > 5:

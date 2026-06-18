@@ -29,3 +29,7 @@ timestamp,exe_name,window_title,original_verdict,corrected_label,corrected_quadr
 2026-06-09 16:05:29,python.exe,BeeAware | Live Productivity Engine,Q2: GROWTH,0,Q1: URGENT
 2026-06-09 16:10:54,python.exe,BeeAware | Live Productivity Engine,Q1: URGENT (Override),-1,IDLE_EXCLUSION
 2026-06-09 16:13:39,code.exe,floating_bar.py - MachineLearninng - Visual Studio Code,Q4: PLAY,1,Q2: GROWTH
+2026-06-18 19:33:40,zen.exe,Vanoss is the MECCHA CHAMELEON - YouTube — Zen Browser,Q3: NOISE,3,Q4: PLAY
+2026-06-18 19:37:45,limbuscompany.exe,LimbusCompany,Q2: GROWTH,3,Q4: PLAY
+2026-06-18 19:44:15,code.exe,main.py - MachineLearninng - Visual Studio Code,Q4: PLAY,1,Q2: GROWTH
+2026-06-18 19:52:50,powerpnt.exe,BeeAware_PitchDeck - PowerPoint,Q4: PLAY,0,Q1: URGENT
