@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import customtkinter as ctk
 import config
@@ -219,6 +220,16 @@ class OptionsWindow(ctk.CTkToplevel):
         )
         self.btn_open_history.grid(row=12, column=0, padx=18, pady=(0, 12), sticky="ew")
 
+        self.btn_retrain = ctk.CTkButton(
+            container,
+            text="Retrain Model Now",
+            command=self.retrain_model_now,
+            fg_color=BEE_AMBER,
+            hover_color=BEE_AMBER_DIM,
+            text_color="white"
+        )
+        self.btn_retrain.grid(row=13, column=0, padx=18, pady=(0, 12), sticky="ew")
+
         close_button = ctk.CTkButton(
             container,
             text="Close",
@@ -226,7 +237,7 @@ class OptionsWindow(ctk.CTkToplevel):
             fg_color=BEE_AMBER,
             hover_color="#ffbf47",
         )
-        close_button.grid(row=13, column=0, padx=18, pady=(8, 18), sticky="ew")
+        close_button.grid(row=14, column=0, padx=18, pady=(8, 18), sticky="ew")
   
 
     def update_camera_status_ui(self, status_text):
@@ -365,6 +376,102 @@ class OptionsWindow(ctk.CTkToplevel):
 
     def open_rules_manager(self):
         RulesManagerWindow(self)
+
+    def retrain_model_now(self):
+        """Execute retrain.py to retrain the model using accumulated corrections."""
+        import subprocess
+        import threading
+        
+        retrain_script = os.path.join(config.BASE_DIR, "retrain.py")
+        
+        if not os.path.exists(retrain_script):
+            show_notification(
+                master=self.app,
+                title="Retrain Failed",
+                message="retrain.py script not found. Cannot proceed with retraining.",
+                duration=5000,
+                color=BEE_RED
+            )
+            return
+        
+        # Disable button and show status
+        self.btn_retrain.configure(state="disabled", text="Retraining...")
+        self.update()
+        
+        def run_retrain():
+            try:
+                # Run retrain.py
+                result = subprocess.run(
+                    [config.sys.executable, retrain_script],
+                    capture_output=True,
+                    text=True,
+                    timeout=300,  # 5 minute timeout
+                    cwd=config.BASE_DIR
+                )
+                
+                # Re-enable button and show result
+                self.btn_retrain.configure(state="normal", text="Retrain Model Now")
+                
+                if result.returncode == 0:
+                    show_notification(
+                        master=self.app,
+                        title="Retraining Complete",
+                        message="Model has been successfully retrained with corrections. Changes will apply on next app restart.",
+                        duration=6000,
+                        color=BEE_GREEN
+                    )
+                    # Optionally reload models
+                    self._reload_models()
+                else:
+                    error_msg = result.stderr[-200:] if result.stderr else "Unknown error"
+                    show_notification(
+                        master=self.app,
+                        title="Retraining Failed",
+                        message=f"Error: {error_msg}",
+                        duration=6000,
+                        color=BEE_RED
+                    )
+            except subprocess.TimeoutExpired:
+                self.btn_retrain.configure(state="normal", text="Retrain Model Now")
+                show_notification(
+                    master=self.app,
+                    title="Retraining Timeout",
+                    message="Retraining took too long (>5 min). Check logs for details.",
+                    duration=6000,
+                    color=BEE_RED
+                )
+            except Exception as e:
+                self.btn_retrain.configure(state="normal", text="Retrain Model Now")
+                show_notification(
+                    master=self.app,
+                    title="Retraining Error",
+                    message=f"Error: {str(e)}",
+                    duration=6000,
+                    color=BEE_RED
+                )
+        
+        # Run retraining in background thread
+        threading.Thread(target=run_retrain, daemon=True).start()
+
+    def _reload_models(self):
+        """Reload model and vectorizer from disk."""
+        import pickle
+        
+        try:
+            with open(config.MODEL_PATH, "rb") as f:
+                self.app.model = pickle.load(f)
+            with open(config.VECTORIZER_PATH, "rb") as f:
+                self.app.vectorizer = pickle.load(f)
+            self.app.models_ready = True
+            self.app.ai_status = "AI Models Loaded (Retrained)"
+        except Exception as e:
+            show_notification(
+                master=self.app,
+                title="Model Reload Error",
+                message=f"Could not reload models: {str(e)}",
+                duration=5000,
+                color=BEE_RED
+            )
 
     def close_window(self):
         # Detach callback reference when closing window to prevent memory leaks or background thread crashing

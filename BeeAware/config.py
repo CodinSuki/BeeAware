@@ -34,7 +34,13 @@ Q_COLORS  = {0: BEE_RED, 1: BEE_GREEN, 2: BEE_AMBER, 3: BEE_GOLD}
 APP_HISTORY_COLS = [
     "date", "session_ts", "exe_name", "total_seconds",
     "q1_seconds", "q2_seconds", "q3_seconds", "q4_seconds",
-    "dominant_q", "frequency_rank",
+    "dominant_q", "predicted_q", "window_title", "feature_text", "frequency_rank",
+]
+
+CORRECTIONS_CSV_PATH  = os.path.join(BASE_DIR, "data", "beeaware_corrections.csv")
+CORRECTIONS_ARCHIVE_PATH = os.path.join(BASE_DIR, "data", "beeaware_corrections_archive.csv")
+CORRECTIONS_COLS = [
+    "timestamp", "window_title", "feature_text", "predicted_q", "corrected_q",
 ]
 
 BROWSER_EXES = {

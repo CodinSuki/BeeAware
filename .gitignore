@@ -2,6 +2,9 @@ data/raw/dmoz.csv
 /output
 /output
 /Training
-*.csv
-*.log
-__pycache__
+data/*.csv
+data/*.log
+__pycache__/
+*.spec
+build/
+dist/ 

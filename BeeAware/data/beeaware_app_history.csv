@@ -1,0 +1,696 @@
+date,session_ts,exe_name,total_seconds,q1_seconds,q2_seconds,q3_seconds,q4_seconds,dominant_q,predicted_q,window_title,feature_text,frequency_rank
+2026-05-26,2026-05-26 10:54:07,zen.exe,20,13,0,7,0,0,,,,1
+2026-05-26,2026-05-26 10:54:07,python.exe,5,5,0,0,0,0,,,,2
+2026-05-28,2026-05-28 14:42:19,code.exe,12,12,0,0,0,0,,,,1
+2026-05-28,2026-05-28 14:42:19,python.exe,10,10,0,0,0,0,,,,2
+2026-05-30,2026-05-30 12:02:51,zen.exe,8929,0,59,6062,2808,2,,,,1
+2026-05-30,2026-05-30 12:02:51,limbuscompany.exe,6811,0,0,0,6811,3,,,,2
+2026-05-30,2026-05-30 12:02:51,python.exe,77,77,0,0,0,0,,,,3
+2026-05-30,2026-05-30 12:02:51,discord.exe,25,0,0,0,25,3,,,,4
+2026-05-30,2026-05-30 12:02:51,winword.exe,14,14,0,0,0,0,,,,5
+2026-05-30,2026-05-30 12:02:51,dwm.exe,9,0,0,0,9,3,,,,6
+2026-05-30,2026-05-30 12:02:51,searchapp.exe,6,0,0,0,6,3,,,,7
+2026-05-30,2026-05-30 12:02:51,mspaint.exe,4,0,0,0,4,3,,,,8
+2026-05-30,2026-05-30 12:02:51,code.exe,4,0,4,0,0,1,,,,9
+2026-05-30,2026-05-30 12:02:51,applicationframehost.exe,4,0,0,0,4,3,,,,10
+2026-05-30,2026-05-30 12:02:51,screenclippinghost.exe,2,0,0,0,2,3,,,,11
+2026-05-30,2026-05-30 12:02:51,steamwebhelper.exe,1,0,0,0,1,3,,,,12
+2026-05-31,2026-05-31 18:48:42,zen.exe,768,0,0,95,673,3,,,,1
+2026-05-31,2026-05-31 18:48:42,python.exe,14,14,0,0,0,0,,,,2
+2026-05-31,2026-05-31 18:48:42,discord.exe,7,0,0,5,2,2,,,,3
+2026-05-31,2026-05-31 19:04:48,python.exe,6143,6143,0,0,0,0,,,,1
+2026-05-31,2026-05-31 19:14:05,python.exe,62280,62280,0,0,0,0,,,,1
+2026-05-31,2026-05-31 19:15:54,zen.exe,20176,1,0,20175,0,2,,,,1
+2026-05-31,2026-05-31 19:15:54,python.exe,15291,15291,0,0,0,0,,,,2
+2026-05-31,2026-05-31 19:15:54,applicationframehost.exe,518,0,0,0,518,3,,,,3
+2026-05-31,2026-05-31 19:15:54,screenclippinghost.exe,87,0,0,0,87,3,,,,4
+2026-05-31,2026-05-31 19:21:55,python.exe,27846,27846,0,0,0,0,,,,1
+2026-05-31,2026-05-31 19:21:55,code.exe,19208,0,19208,0,0,1,,,,2
+2026-05-31,2026-05-31 19:21:55,applicationframehost.exe,3025,0,0,0,3025,3,,,,3
+2026-05-31,2026-05-31 19:21:55,searchapp.exe,2056,2056,0,0,0,0,,,,4
+2026-05-31,2026-05-31 19:21:55,screenclippinghost.exe,1244,0,0,0,1244,3,,,,5
+2026-05-31,2026-05-31 19:34:05,zen.exe,338,0,4,9,325,3,,,,1
+2026-05-31,2026-05-31 19:34:05,code.exe,167,0,167,0,0,1,,,,2
+2026-05-31,2026-05-31 19:34:05,python.exe,25,25,0,0,0,0,,,,3
+2026-05-31,2026-05-31 19:34:05,hdsentinel.exe,10,0,0,0,10,3,,,,4
+2026-05-31,2026-05-31 19:34:05,applicationframehost.exe,6,0,0,0,6,3,,,,5
+2026-05-31,2026-05-31 19:34:05,voicemeeterpro_x64.exe,6,0,0,0,6,3,,,,6
+2026-05-31,2026-05-31 19:36:57,code.exe,142,0,142,0,0,1,,,,1
+2026-05-31,2026-05-31 19:36:57,applicationframehost.exe,3,0,0,0,3,3,,,,2
+2026-05-31,2026-05-31 19:36:57,zen.exe,1,0,0,0,1,3,,,,3
+2026-05-31,2026-05-31 19:37:37,code.exe,19,0,19,0,0,1,,,,1
+2026-06-01,2026-06-01 08:54:37,zen.exe,35,0,0,0,35,3,,,,1
+2026-06-01,2026-06-01 08:54:37,code.exe,4,0,4,0,0,1,,,,2
+2026-06-01,2026-06-01 09:00:00,code.exe,3,0,3,0,0,1,,,,1
+2026-06-01,2026-06-01 09:02:44,zen.exe,35,0,6,9,20,3,,,,1
+2026-06-01,2026-06-01 09:02:44,code.exe,6,0,6,0,0,1,,,,2
+2026-06-01,2026-06-01 09:02:44,githubdesktop.exe,1,1,0,0,0,0,,,,3
+2026-06-01,2026-06-01 09:05:25,code.exe,10,0,10,0,0,1,,,,1
+2026-06-01,2026-06-01 09:05:44,zen.exe,5,0,0,0,5,3,,,,1
+2026-06-01,2026-06-01 20:49:50,code.exe,11,0,11,0,0,1,,,,1
+2026-06-01,2026-06-01 20:52:36,code.exe,3,0,3,0,0,1,,,,1
+2026-06-01,2026-06-01 20:52:36,msedge.exe,1,0,1,0,0,1,,,,2
+2026-06-01,2026-06-01 20:55:12,code.exe,18,0,18,0,0,1,,,,1
+2026-06-01,2026-06-01 20:55:12,discord.exe,9,0,0,0,9,3,,,,2
+2026-06-01,2026-06-01 20:55:12,searchapp.exe,1,0,1,0,0,1,,,,3
+2026-06-01,2026-06-01 21:04:54,code.exe,20,0,20,0,0,1,,,,1
+2026-06-01,2026-06-01 21:04:54,applicationframehost.exe,3,0,3,0,0,1,,,,2
+2026-06-01,2026-06-01 21:04:54,screenclippinghost.exe,2,0,2,0,0,1,,,,3
+2026-06-01,2026-06-01 21:08:10,code.exe,53,0,53,0,0,1,,,,1
+2026-06-01,2026-06-01 21:13:31,code.exe,109,0,109,0,0,1,,,,1
+2026-06-01,2026-06-01 21:13:31,discord.exe,28,0,0,0,28,3,,,,2
+2026-06-01,2026-06-01 21:13:31,applicationframehost.exe,10,0,10,0,0,1,,,,3
+2026-06-01,2026-06-01 21:13:31,screenclippinghost.exe,2,0,2,0,0,1,,,,4
+2026-06-01,2026-06-01 21:16:06,code.exe,86,0,86,0,0,1,,,,1
+2026-06-01,2026-06-01 21:17:04,code.exe,2,0,2,0,0,1,,,,1
+2026-06-01,2026-06-01 21:20:07,code.exe,22,0,22,0,0,1,,,,1
+2026-06-01,2026-06-01 21:27:22,code.exe,10,0,10,0,0,1,,,,1
+2026-06-02,2026-06-02 06:53:24,code.exe,14,0,14,0,0,1,,,,1
+2026-06-02,2026-06-02 07:09:39,python.exe,16,0,15,0,1,1,,,,1
+2026-06-02,2026-06-02 07:09:39,code.exe,5,0,5,0,0,1,,,,2
+2026-06-02,2026-06-02 07:11:57,zen.exe,24,24,0,0,0,0,,,,1
+2026-06-02,2026-06-02 07:11:57,python.exe,12,0,12,0,0,1,,,,2
+2026-06-02,2026-06-02 07:11:57,applicationframehost.exe,3,0,3,0,0,1,,,,3
+2026-06-02,2026-06-02 07:11:57,screenclippinghost.exe,2,0,2,0,0,1,,,,4
+2026-06-02,2026-06-02 07:11:57,searchapp.exe,1,0,1,0,0,1,,,,5
+2026-06-02,2026-06-02 07:25:05,python.exe,21,0,21,0,0,1,,,,1
+2026-06-02,2026-06-02 07:25:05,zen.exe,13,13,0,0,0,0,,,,2
+2026-06-02,2026-06-02 07:25:05,code.exe,1,0,1,0,0,1,,,,3
+2026-06-09,2026-06-09 13:06:19,python.exe,4,4,0,0,0,0,,,,1
+2026-06-09,2026-06-09 13:09:37,python.exe,7,7,0,0,0,0,,,,1
+2026-06-09,2026-06-09 13:09:59,code.exe,4,0,4,0,0,1,,,,1
+2026-06-09,2026-06-09 13:09:59,python.exe,3,3,0,0,0,0,,,,2
+2026-06-09,2026-06-09 13:10:01,python.exe,1,1,0,0,0,0,,,,1
+2026-06-09,2026-06-09 13:10:13,python.exe,10,10,0,0,0,0,,,,1
+2026-06-09,2026-06-09 13:10:30,python.exe,2,2,0,0,0,0,,,,1
+2026-06-09,2026-06-09 13:10:35,python.exe,3,3,0,0,0,0,,,,1
+2026-06-09,2026-06-09 13:11:51,python.exe,4,4,0,0,0,0,,,,1
+2026-06-09,2026-06-09 13:11:51,code.exe,3,0,3,0,0,1,,,,2
+2026-06-09,2026-06-09 13:20:43,code.exe,3,0,3,0,0,1,,,,1
+2026-06-09,2026-06-09 13:20:43,python.exe,2,2,0,0,0,0,,,,2
+2026-06-09,2026-06-09 13:21:13,python.exe,2,2,0,0,0,0,,,,1
+2026-06-09,2026-06-09 13:21:50,python.exe,5,5,0,0,0,0,,,,1
+2026-06-09,2026-06-09 13:21:50,code.exe,3,0,3,0,0,1,,,,2
+2026-06-09,2026-06-09 13:24:47,python.exe,7,7,0,0,0,0,,,,1
+2026-06-09,2026-06-09 13:26:11,python.exe,2,2,0,0,0,0,,,,1
+2026-06-09,2026-06-09 14:43:15,code.exe,33,0,33,0,0,1,,,,1
+2026-06-09,2026-06-09 14:43:15,python.exe,9,9,0,0,0,0,,,,2
+2026-06-09,2026-06-09 14:44:11,code.exe,34,0,34,0,0,1,,,,1
+2026-06-09,2026-06-09 14:49:39,python.exe,18,14,4,0,0,0,,,,1
+2026-06-09,2026-06-09 14:50:11,python.exe,4,3,1,0,0,0,,,,1
+2026-06-09,2026-06-09 14:50:11,code.exe,3,2,1,0,0,0,,,,2
+2026-06-09,2026-06-09 14:58:21,python.exe,17,14,3,0,0,0,,,,1
+2026-06-09,2026-06-09 14:58:21,code.exe,5,1,4,0,0,1,,,,2
+2026-06-09,2026-06-09 14:59:37,python.exe,29,24,5,0,0,0,,,,1
+2026-06-09,2026-06-09 14:59:37,screenclippinghost.exe,4,0,4,0,0,1,,,,2
+2026-06-09,2026-06-09 14:59:37,applicationframehost.exe,3,0,3,0,0,1,,,,3
+2026-06-09,2026-06-09 15:08:42,python.exe,17,8,9,0,0,1,,,,1
+2026-06-09,2026-06-09 15:08:42,applicationframehost.exe,8,0,8,0,0,1,,,,2
+2026-06-09,2026-06-09 15:08:42,screenclippinghost.exe,7,0,7,0,0,1,,,,3
+2026-06-09,2026-06-09 15:08:42,searchapp.exe,1,1,0,0,0,0,,,,4
+2026-06-09,2026-06-09 15:28:37,python.exe,3,2,1,0,0,0,,,,1
+2026-06-09,2026-06-09 15:28:37,code.exe,2,0,2,0,0,1,,,,2
+2026-06-09,2026-06-09 15:31:19,python.exe,3,2,1,0,0,0,,,,1
+2026-06-09,2026-06-09 15:31:56,python.exe,3,2,1,0,0,0,,,,1
+2026-06-09,2026-06-09 15:33:34,python.exe,3,2,1,0,0,0,,,,1
+2026-06-09,2026-06-09 15:35:04,python.exe,4,3,1,0,0,0,,,,1
+2026-06-09,2026-06-09 15:37:15,code.exe,13,0,13,0,0,1,,,,1
+2026-06-09,2026-06-09 15:37:15,python.exe,12,10,2,0,0,0,,,,2
+2026-06-09,2026-06-09 15:37:15,zen.exe,6,0,6,0,0,1,,,,3
+2026-06-09,2026-06-09 15:37:15,discord.exe,2,0,0,0,2,3,,,,4
+2026-06-09,2026-06-09 15:39:48,python.exe,3,2,1,0,0,0,,,,1
+2026-06-09,2026-06-09 16:03:41,code.exe,19,0,0,0,19,3,,,,1
+2026-06-09,2026-06-09 16:03:41,ms-teams.exe,15,0,0,1,14,3,,,,2
+2026-06-09,2026-06-09 16:03:41,python.exe,2,0,2,0,0,1,,,,3
+2026-06-09,2026-06-09 16:05:36,python.exe,33,7,26,0,0,1,,,,1
+2026-06-09,2026-06-09 16:05:36,ms-teams.exe,31,0,0,31,0,2,,,,2
+2026-06-09,2026-06-09 16:05:36,zen.exe,20,0,12,3,5,1,,,,3
+2026-06-09,2026-06-09 16:05:36,winword.exe,6,0,0,0,6,3,,,,4
+2026-06-09,2026-06-09 16:05:36,code.exe,2,0,0,0,2,3,,,,5
+2026-06-09,2026-06-09 16:11:36,zen.exe,17,3,9,5,0,1,,,,1
+2026-06-09,2026-06-09 16:11:36,code.exe,15,0,0,0,15,3,,,,2
+2026-06-09,2026-06-09 16:11:36,python.exe,3,3,0,0,0,0,,,,3
+2026-06-09,2026-06-09 16:14:34,code.exe,36,0,28,0,8,1,,,,1
+2026-06-09,2026-06-09 16:14:34,zen.exe,8,0,8,0,0,1,,,,2
+2026-06-09,2026-06-09 16:14:34,winword.exe,3,0,0,0,3,3,,,,3
+2026-06-09,2026-06-09 16:14:34,discord.exe,1,0,0,0,1,3,,,,4
+2026-06-09,2026-06-09 16:36:17,code.exe,1,0,1,0,0,1,,,,1
+2026-06-17,2026-06-17 10:39:22,applicationframehost.exe,10,0,10,0,0,1,,,,1
+2026-06-17,2026-06-17 10:39:22,winword.exe,8,0,0,0,8,3,,,,2
+2026-06-17,2026-06-17 10:39:22,discord.exe,6,0,0,0,6,3,,,,3
+2026-06-17,2026-06-17 10:39:22,screenclippinghost.exe,2,0,2,0,0,1,,,,4
+2026-06-17,2026-06-17 10:39:22,searchapp.exe,1,0,1,0,0,1,,,,5
+2026-06-18,2026-06-18 19:37:26,zen.exe,232,18,74,33,107,3,,,,1
+2026-06-18,2026-06-18 19:37:26,steamwebhelper.exe,5,0,0,0,5,3,,,,2
+2026-06-18,2026-06-18 19:37:26,limbuscompany.exe,1,0,1,0,0,1,,,,3
+2026-06-18,2026-06-18 19:39:00,limbuscompany.exe,17,0,2,0,15,3,,,,1
+2026-06-18,2026-06-18 19:39:00,zen.exe,6,0,6,0,0,1,,,,2
+2026-06-18,2026-06-18 19:39:00,dwm.exe,5,0,5,0,0,1,,,,3
+2026-06-18,2026-06-18 19:39:00,searchapp.exe,2,0,0,0,2,3,,,,4
+2026-06-18,2026-06-18 19:39:00,startmenuexperiencehost.exe,1,0,0,0,1,3,,,,5
+2026-06-18,2026-06-18 19:41:32,obs64.exe,7,0,7,0,0,1,,,,1
+2026-06-18,2026-06-18 19:41:32,zen.exe,4,0,0,0,4,3,,,,2
+2026-06-18,2026-06-18 19:44:30,zen.exe,44,0,20,0,24,3,,,,1
+2026-06-18,2026-06-18 19:44:30,code.exe,16,0,5,0,11,3,,,,2
+2026-06-18,2026-06-18 19:44:30,limbuscompany.exe,13,0,0,0,13,3,,,,3
+2026-06-18,2026-06-18 19:44:30,obs64.exe,5,0,5,0,0,1,,,,4
+2026-06-18,2026-06-18 19:46:33,zen.exe,2,0,2,0,0,1,,,,1
+2026-06-18,2026-06-18 19:48:07,zen.exe,51,3,31,0,17,1,,,,1
+2026-06-18,2026-06-18 19:48:07,obs64.exe,3,0,3,0,0,1,,,,2
+2026-06-18,2026-06-18 19:49:06,obs64.exe,1,0,1,0,0,1,,,,1
+2026-06-18,2026-06-18 19:50:36,zen.exe,27,0,1,26,0,2,,,,1
+2026-06-18,2026-06-18 19:50:36,obs64.exe,7,0,7,0,0,1,,,,2
+2026-06-18,2026-06-18 19:53:03,zen.exe,43,0,17,19,7,2,,,,1
+2026-06-18,2026-06-18 19:53:03,powerpnt.exe,15,6,0,0,9,3,,,,2
+2026-06-18,2026-06-18 19:53:03,code.exe,5,0,5,0,0,1,,,,3
+2026-08-26,2026-08-26 02:34:00,discord.exe,2498,0,0,2498,0,2,,,,1
+2026-08-26,2026-08-26 02:34:00,zen.exe,644,12,276,177,179,1,,,,2
+2026-08-26,2026-08-26 02:34:00,obs64.exe,28,0,21,1,6,1,,,,3
+2026-08-26,2026-08-26 02:34:00,steamwebhelper.exe,8,0,0,0,8,3,,,,4
+2026-08-26,2026-08-26 02:34:00,screenclippinghost.exe,7,0,7,0,0,1,,,,5
+2026-08-26,2026-08-26 02:34:00,code.exe,5,0,5,0,0,1,,,,6
+2026-08-26,2026-08-26 02:34:00,winword.exe,4,0,0,0,4,3,,,,7
+2026-08-26,2026-08-26 02:34:00,searchapp.exe,2,0,0,0,2,3,,,,8
+2026-08-26,2026-08-26 08:05:05,zen.exe,3,0,3,0,0,1,1,View Assessment — Zen Browser,zen | web browser | app | browser | unknown | View Assessment — Zen Browser,1
+date,session_ts,exe_name,total_seconds,q1_seconds,q2_seconds,q3_seconds,q4_seconds,dominant_q,predicted_q,window_title,feature_text,frequency_rank
+2026-08-12,2026-08-12 15:26:00,zen.exe,2123,20,33,2,2068,3,2,game guide,zen | web browser | game | browser | unknown | game guide,1
+2026-06-08,2026-06-08 15:29:55,python.exe,819,2,752,27,38,1,3,Python test run,python | app | app | unknown | unknown | Python test run,6
+2026-08-14,2026-08-14 15:48:48,excel.exe,568,562,1,3,2,0,0,training data review,excel | app | office | unknown | unknown | training data review,9
+2026-07-25,2026-07-25 10:30:25,code.exe,1898,88,1661,89,60,1,1,debugging session,code | app | dev | unknown | unknown | debugging session,10
+2026-08-12,2026-08-12 20:40:29,zen.exe,955,69,14,872,0,2,2,community notifications,zen | web browser | communication | social | discord | community notifications,2
+2026-08-04,2026-08-04 14:52:02,zen.exe,191,24,1,165,1,2,2,group discussion,zen | web browser | communication | social | discord | group discussion,12
+2026-06-30,2026-06-30 16:29:47,zen.exe,2370,21,70,1,2278,3,1,gaming community,zen | web browser | game | browser | unknown | gaming community,12
+2026-08-18,2026-08-18 16:58:42,zen.exe,1989,32,187,1445,325,2,2,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,3
+2026-06-27,2026-06-27 15:14:16,zen.exe,942,162,1,770,9,2,2,group discussion,zen | web browser | communication | social | discord | group discussion,6
+2026-07-30,2026-07-30 18:02:19,python.exe,2512,0,2412,2,98,1,1,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,1
+2026-07-16,2026-07-16 19:11:56,powerpnt.exe,93,62,0,2,29,0,0,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,5
+2026-08-11,2026-08-11 11:53:11,limbuscompany.exe,620,4,6,11,599,3,3,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,9
+2026-08-17,2026-08-17 11:39:54,zen.exe,1878,174,11,1690,3,2,2,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,11
+2026-07-16,2026-07-16 15:17:55,powerpnt.exe,2471,2405,17,31,18,0,0,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,3
+2026-08-05,2026-08-05 09:25:01,limbuscompany.exe,1793,70,6,145,1572,3,3,LimbusCompany update,limbuscompany | app | game | unknown | unknown | LimbusCompany update,12
+2026-06-26,2026-06-26 10:00:18,python.exe,2397,112,2263,14,8,1,1,training script,python | app | app | unknown | unknown | training script,5
+2026-07-10,2026-07-10 13:34:16,limbuscompany.exe,1370,126,2,4,1238,3,3,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,7
+2026-06-26,2026-06-26 14:02:56,excel.exe,1278,847,171,154,106,0,0,correction summary,excel | app | office | unknown | unknown | correction summary,3
+2026-06-29,2026-06-29 10:50:40,code.exe,2671,14,2109,35,513,1,1,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,7
+2026-07-21,2026-07-21 10:52:41,slack.exe,1055,6,0,929,120,2,0,project notifications,slack | app | communication | unknown | unknown | project notifications,7
+2026-08-19,2026-08-19 17:26:50,powerpnt.exe,184,167,4,7,6,0,0,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,8
+2026-06-29,2026-06-29 15:27:58,excel.exe,289,287,1,1,0,0,2,correction summary,excel | app | office | unknown | unknown | correction summary,6
+2026-06-20,2026-06-20 14:31:47,zen.exe,2688,26,129,149,2384,3,3,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,5
+2026-07-23,2026-07-23 10:38:02,limbuscompany.exe,185,3,2,17,163,3,3,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,10
+2026-08-04,2026-08-04 14:09:50,powerpnt.exe,1452,1184,54,164,50,0,0,project pitch deck,powerpnt | app | office | unknown | unknown | project pitch deck,6
+2026-07-22,2026-07-22 08:32:08,python.exe,1834,18,1658,0,158,1,1,training script,python | app | app | unknown | unknown | training script,7
+2026-07-18,2026-07-18 15:08:15,zen.exe,536,4,12,459,61,2,0,community notifications,zen | web browser | communication | social | discord | community notifications,8
+2026-07-15,2026-07-15 08:25:23,zen.exe,1723,18,200,1336,169,2,2,community notifications,zen | web browser | communication | social | discord | community notifications,11
+2026-06-04,2026-06-04 09:10:45,limbuscompany.exe,1933,0,0,16,1917,3,3,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,6
+2026-06-05,2026-06-05 15:31:12,excel.exe,1310,1230,61,16,3,0,0,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,4
+2026-06-06,2026-06-06 13:51:27,zen.exe,2160,53,1455,648,4,1,1,Python documentation,zen | web browser | dev | dev | github | Python documentation,11
+2026-06-03,2026-06-03 15:08:00,excel.exe,2102,1908,26,1,167,0,0,correction summary,excel | app | office | unknown | unknown | correction summary,4
+2026-07-18,2026-07-18 13:21:45,zen.exe,1625,2,1210,9,404,1,0,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,10
+2026-07-25,2026-07-25 16:56:59,zen.exe,1018,75,40,84,819,3,3,Online game session,zen | web browser | game | browser | unknown | Online game session,11
+2026-08-07,2026-08-07 11:47:28,powerpnt.exe,741,586,40,45,70,0,1,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,9
+2026-08-25,2026-08-25 10:59:04,zen.exe,740,5,723,4,8,1,1,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,9
+2026-08-19,2026-08-19 09:44:42,zen.exe,2184,27,14,1810,333,2,2,community notifications,zen | web browser | communication | social | discord | community notifications,10
+2026-06-09,2026-06-09 15:45:08,zen.exe,2631,46,675,65,1845,3,0,Online game session,zen | web browser | game | browser | unknown | Online game session,9
+2026-06-20,2026-06-20 11:03:48,zen.exe,1377,0,1280,96,1,1,1,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,11
+2026-06-02,2026-06-02 13:26:23,zen.exe,1138,160,0,9,969,3,3,Roblox experience,zen | web browser | game | browser | unknown | Roblox experience,1
+2026-07-18,2026-07-18 15:42:00,zen.exe,2000,11,1956,31,2,1,1,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,12
+2026-07-18,2026-07-18 15:36:38,excel.exe,401,285,33,49,34,0,0,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,8
+2026-06-09,2026-06-09 13:46:06,zen.exe,2547,9,178,17,2343,3,3,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,3
+2026-08-20,2026-08-20 11:58:40,zen.exe,2111,36,1,13,2061,3,0,game guide,zen | web browser | game | browser | unknown | game guide,8
+2026-06-12,2026-06-12 15:41:46,zen.exe,1573,3,0,11,1559,3,1,recommended videos,zen | web browser | media | media | youtube | recommended videos,4
+2026-06-17,2026-06-17 19:59:54,zen.exe,1825,99,0,375,1351,3,3,music video,zen | web browser | media | media | youtube | music video,7
+2026-08-22,2026-08-22 17:32:26,zen.exe,2553,449,2061,36,7,1,1,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,7
+2026-06-18,2026-06-18 19:02:14,limbuscompany.exe,1853,36,76,42,1699,3,1,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,9
+2026-06-05,2026-06-05 13:02:14,python.exe,1577,312,1103,70,92,1,1,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,6
+2026-08-21,2026-08-21 19:54:51,excel.exe,1485,1263,168,44,10,0,0,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,4
+2026-06-04,2026-06-04 12:15:24,code.exe,2251,85,1871,108,187,1,1,model evaluation,code | app | dev | unknown | unknown | model evaluation,4
+2026-08-01,2026-08-01 15:01:13,excel.exe,1775,1383,10,50,332,0,0,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,1
+2026-07-24,2026-07-24 19:16:30,zen.exe,1776,12,199,187,1378,3,1,recommended videos,zen | web browser | media | media | youtube | recommended videos,7
+2026-07-29,2026-07-29 18:37:50,excel.exe,1958,1683,15,98,162,0,0,training data review,excel | app | office | unknown | unknown | training data review,12
+2026-07-30,2026-07-30 13:06:20,winword.exe,532,5,394,112,21,1,1,Research report,winword | app | office | unknown | unknown | Research report,3
+2026-08-04,2026-08-04 10:22:43,zen.exe,2174,9,20,1924,221,2,1,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,7
+2026-08-13,2026-08-13 14:35:43,zen.exe,2075,114,120,1606,235,2,2,group discussion,zen | web browser | communication | social | discord | group discussion,10
+2026-07-11,2026-07-11 08:16:07,zen.exe,1821,110,1703,1,7,1,1,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,2
+2026-06-16,2026-06-16 14:01:28,winword.exe,1771,207,1209,34,321,1,1,project write-up,winword | app | office | unknown | unknown | project write-up,7
+2026-07-06,2026-07-06 16:01:13,winword.exe,339,0,334,2,3,1,1,assignment draft,winword | app | office | unknown | unknown | assignment draft,5
+2026-07-08,2026-07-08 17:40:07,limbuscompany.exe,2497,25,48,59,2365,3,3,LimbusCompany update,limbuscompany | app | game | unknown | unknown | LimbusCompany update,8
+2026-06-12,2026-06-12 17:05:42,zen.exe,2098,29,1679,232,158,1,1,Python documentation,zen | web browser | dev | dev | github | Python documentation,5
+2026-08-14,2026-08-14 17:19:41,powerpnt.exe,1374,1202,1,146,25,0,0,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,2
+2026-08-22,2026-08-22 12:40:06,zen.exe,2359,107,412,1744,96,2,2,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,12
+2026-08-08,2026-08-08 12:25:37,winword.exe,520,1,518,0,1,1,3,project write-up,winword | app | office | unknown | unknown | project write-up,7
+2026-07-07,2026-07-07 13:01:22,code.exe,974,1,728,244,1,1,1,debugging session,code | app | dev | unknown | unknown | debugging session,1
+2026-08-13,2026-08-13 10:47:25,python.exe,1462,51,1331,77,3,1,0,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,4
+2026-07-04,2026-07-04 10:45:59,limbuscompany.exe,1342,3,19,0,1320,3,2,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,2
+2026-08-10,2026-08-10 14:11:37,zen.exe,679,2,2,64,611,3,3,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,3
+2026-06-29,2026-06-29 14:37:11,zen.exe,1530,35,1479,15,1,1,1,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,9
+2026-06-11,2026-06-11 16:39:23,python.exe,585,4,576,0,5,1,0,training script,python | app | app | unknown | unknown | training script,4
+2026-07-27,2026-07-27 19:24:31,excel.exe,380,332,14,33,1,0,2,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,3
+2026-08-21,2026-08-21 16:09:40,winword.exe,2248,228,1841,108,71,1,2,assignment draft,winword | app | office | unknown | unknown | assignment draft,5
+2026-07-30,2026-07-30 10:02:45,zen.exe,2032,18,24,1957,33,2,2,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,9
+2026-07-30,2026-07-30 15:34:37,excel.exe,1904,1575,170,1,158,0,0,correction summary,excel | app | office | unknown | unknown | correction summary,4
+2026-08-21,2026-08-21 14:01:31,limbuscompany.exe,2514,159,59,14,2282,3,3,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,9
+2026-08-21,2026-08-21 19:47:02,excel.exe,1685,1248,355,4,78,0,0,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,2
+2026-08-04,2026-08-04 12:48:59,excel.exe,2259,1578,558,25,98,0,0,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,10
+2026-08-07,2026-08-07 19:49:25,slack.exe,175,0,0,143,32,2,2,course group chat,slack | app | communication | unknown | unknown | course group chat,11
+2026-07-31,2026-07-31 08:48:13,limbuscompany.exe,2120,3,41,16,2060,3,3,game session,limbuscompany | app | game | unknown | unknown | game session,9
+2026-08-26,2026-08-26 14:14:23,winword.exe,1199,1,1198,0,0,1,1,assignment draft,winword | app | office | unknown | unknown | assignment draft,4
+2026-06-17,2026-06-17 16:15:05,code.exe,2558,5,2237,304,12,1,1,debugging session,code | app | dev | unknown | unknown | debugging session,3
+2026-06-04,2026-06-04 20:19:57,excel.exe,2543,1772,12,128,631,0,0,training data review,excel | app | office | unknown | unknown | training data review,12
+2026-07-01,2026-07-01 10:33:26,zen.exe,1975,15,1528,52,380,1,1,Python documentation,zen | web browser | dev | dev | github | Python documentation,8
+2026-06-26,2026-06-26 15:11:54,excel.exe,977,833,94,49,1,0,0,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,4
+2026-07-29,2026-07-29 13:52:33,limbuscompany.exe,754,151,0,28,575,3,3,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,7
+2026-08-10,2026-08-10 10:44:32,slack.exe,2168,0,2,2162,4,2,2,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,2
+2026-08-07,2026-08-07 17:19:07,excel.exe,864,790,74,0,0,0,0,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,11
+2026-07-18,2026-07-18 20:54:07,zen.exe,2445,64,327,15,2039,3,2,game guide,zen | web browser | game | browser | unknown | game guide,11
+2026-06-23,2026-06-23 13:25:56,slack.exe,1688,464,1,1189,34,2,2,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,5
+2026-07-24,2026-07-24 11:18:26,slack.exe,1543,57,29,1402,55,2,2,course group chat,slack | app | communication | unknown | unknown | course group chat,2
+2026-07-11,2026-07-11 16:15:50,zen.exe,2222,60,34,83,2045,3,2,gaming community,zen | web browser | game | browser | unknown | gaming community,9
+2026-06-12,2026-06-12 16:03:04,python.exe,539,56,384,5,94,1,0,training script,python | app | app | unknown | unknown | training script,2
+2026-07-03,2026-07-03 12:34:02,winword.exe,512,14,469,8,21,1,1,Research report,winword | app | office | unknown | unknown | Research report,1
+2026-06-01,2026-06-01 11:24:37,slack.exe,1318,2,32,1265,19,2,2,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,8
+2026-08-06,2026-08-06 13:10:44,slack.exe,1025,11,30,955,29,2,2,course group chat,slack | app | communication | unknown | unknown | course group chat,1
+2026-07-16,2026-07-16 11:41:40,python.exe,1610,0,1607,0,3,1,1,data processing job,python | app | app | unknown | unknown | data processing job,10
+2026-07-18,2026-07-18 11:16:55,zen.exe,876,43,765,47,21,1,1,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,1
+2026-08-15,2026-08-15 11:13:42,zen.exe,1254,24,1206,0,24,1,1,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,5
+2026-07-27,2026-07-27 15:15:56,zen.exe,2033,1,1927,69,36,1,1,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,2
+2026-06-25,2026-06-25 19:32:15,code.exe,348,20,238,5,85,1,1,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,5
+2026-08-24,2026-08-24 13:29:01,python.exe,2586,1,2311,99,175,1,1,training script,python | app | app | unknown | unknown | training script,11
+2026-08-11,2026-08-11 14:24:04,winword.exe,2414,61,1976,249,128,1,1,assignment draft,winword | app | office | unknown | unknown | assignment draft,9
+2026-08-06,2026-08-06 13:27:29,zen.exe,2420,5,2413,1,1,1,1,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,7
+2026-08-07,2026-08-07 16:45:11,python.exe,1058,29,994,21,14,1,1,data processing job,python | app | app | unknown | unknown | data processing job,1
+2026-06-19,2026-06-19 15:13:02,python.exe,1843,29,1703,53,58,1,1,Python test run,python | app | app | unknown | unknown | Python test run,5
+2026-08-11,2026-08-11 14:40:43,slack.exe,1154,54,15,1025,60,2,0,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,2
+2026-06-18,2026-06-18 15:41:50,zen.exe,2381,81,2027,140,133,1,0,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,6
+2026-06-17,2026-06-17 16:06:41,python.exe,1777,94,1566,31,86,1,2,data processing job,python | app | app | unknown | unknown | data processing job,1
+2026-06-19,2026-06-19 13:24:17,zen.exe,2690,25,2111,150,404,1,1,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,5
+2026-08-17,2026-08-17 09:39:07,winword.exe,115,16,78,0,21,1,3,assignment draft,winword | app | office | unknown | unknown | assignment draft,6
+2026-07-28,2026-07-28 12:58:34,zen.exe,1565,5,1554,5,1,1,1,Python documentation,zen | web browser | dev | dev | github | Python documentation,8
+2026-08-25,2026-08-25 13:28:08,zen.exe,1829,48,1345,404,32,1,1,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,12
+2026-07-22,2026-07-22 13:02:52,code.exe,1315,198,1040,17,60,1,1,debugging session,code | app | dev | unknown | unknown | debugging session,2
+2026-06-16,2026-06-16 10:46:20,zen.exe,2495,0,0,12,2483,3,3,gaming community,zen | web browser | game | browser | unknown | gaming community,2
+2026-08-12,2026-08-12 18:06:57,python.exe,1480,6,1466,8,0,1,1,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,12
+2026-07-20,2026-07-20 10:12:53,python.exe,1439,0,1233,25,181,1,1,data processing job,python | app | app | unknown | unknown | data processing job,8
+2026-06-18,2026-06-18 17:03:56,zen.exe,1744,213,224,14,1293,3,3,game guide,zen | web browser | game | browser | unknown | game guide,12
+2026-06-09,2026-06-09 13:27:32,zen.exe,1304,7,102,0,1195,3,3,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,12
+2026-06-12,2026-06-12 15:15:36,zen.exe,323,31,7,3,282,3,2,recommended videos,zen | web browser | media | media | youtube | recommended videos,12
+2026-08-10,2026-08-10 11:52:58,code.exe,1685,6,1319,18,342,1,1,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,8
+2026-06-18,2026-06-18 14:30:11,limbuscompany.exe,1714,33,9,17,1655,3,3,game session,limbuscompany | app | game | unknown | unknown | game session,8
+2026-07-30,2026-07-30 13:30:35,zen.exe,2300,211,211,24,1854,3,3,Roblox experience,zen | web browser | game | browser | unknown | Roblox experience,8
+2026-07-14,2026-07-14 10:17:09,limbuscompany.exe,2073,278,2,18,1775,3,3,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,8
+2026-07-08,2026-07-08 15:36:47,python.exe,2000,105,1806,85,4,1,1,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,7
+2026-07-11,2026-07-11 18:01:25,powerpnt.exe,1161,962,187,6,6,0,0,project pitch deck,powerpnt | app | office | unknown | unknown | project pitch deck,4
+2026-08-07,2026-08-07 14:16:05,zen.exe,2445,86,102,5,2252,3,3,gaming community,zen | web browser | game | browser | unknown | gaming community,5
+2026-06-12,2026-06-12 13:22:05,zen.exe,864,3,49,66,746,3,3,gaming community,zen | web browser | game | browser | unknown | gaming community,1
+2026-08-15,2026-08-15 20:16:39,code.exe,1668,242,1365,18,43,1,1,model evaluation,code | app | dev | unknown | unknown | model evaluation,7
+2026-08-26,2026-08-26 17:31:40,limbuscompany.exe,182,49,1,1,131,3,3,game session,limbuscompany | app | game | unknown | unknown | game session,1
+2026-08-07,2026-08-07 16:55:46,limbuscompany.exe,2184,15,24,36,2109,3,3,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,12
+2026-06-02,2026-06-02 08:55:41,code.exe,2520,57,1938,434,91,1,1,data preparation,code | app | dev | unknown | unknown | data preparation,11
+2026-06-03,2026-06-03 13:13:25,python.exe,2608,89,2161,285,73,1,1,data processing job,python | app | app | unknown | unknown | data processing job,7
+2026-08-25,2026-08-25 11:56:08,powerpnt.exe,1273,1203,20,47,3,0,0,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,4
+2026-07-18,2026-07-18 14:43:45,zen.exe,1119,17,68,26,1008,3,3,Online game session,zen | web browser | game | browser | unknown | Online game session,2
+2026-07-13,2026-07-13 12:24:06,limbuscompany.exe,2081,66,40,284,1691,3,3,game session,limbuscompany | app | game | unknown | unknown | game session,7
+2026-08-26,2026-08-26 08:32:49,zen.exe,2392,108,1927,78,279,1,3,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,2
+2026-07-10,2026-07-10 10:47:25,python.exe,1563,46,1484,12,21,1,1,data processing job,python | app | app | unknown | unknown | data processing job,4
+2026-07-24,2026-07-24 18:40:01,code.exe,960,56,656,179,69,1,1,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,3
+2026-08-19,2026-08-19 14:49:31,zen.exe,1466,234,11,1193,28,2,2,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,8
+2026-06-11,2026-06-11 11:08:16,code.exe,965,27,858,35,45,1,1,debugging session,code | app | dev | unknown | unknown | debugging session,4
+2026-08-15,2026-08-15 10:36:54,zen.exe,504,2,16,485,1,2,2,community notifications,zen | web browser | communication | social | discord | community notifications,4
+2026-08-17,2026-08-17 12:41:13,zen.exe,2589,120,309,199,1961,3,0,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,9
+2026-06-02,2026-06-02 12:07:13,winword.exe,576,28,419,93,36,1,1,assignment draft,winword | app | office | unknown | unknown | assignment draft,9
+2026-08-10,2026-08-10 14:26:12,code.exe,625,72,475,24,54,1,1,debugging session,code | app | dev | unknown | unknown | debugging session,11
+2026-06-15,2026-06-15 14:08:29,zen.exe,666,9,64,576,17,2,2,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,11
+2026-07-06,2026-07-06 17:29:23,zen.exe,1356,87,1073,45,151,1,1,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,5
+2026-07-22,2026-07-22 15:37:42,zen.exe,1116,3,1109,1,3,1,1,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,7
+2026-07-06,2026-07-06 15:27:10,excel.exe,428,333,14,80,1,0,0,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,11
+2026-06-24,2026-06-24 11:37:09,zen.exe,46,5,30,0,11,1,1,Python documentation,zen | web browser | dev | dev | github | Python documentation,5
+2026-08-17,2026-08-17 18:15:24,zen.exe,1179,77,240,858,4,2,2,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,1
+2026-06-22,2026-06-22 12:23:12,zen.exe,2244,58,29,13,2144,3,3,recommended videos,zen | web browser | media | media | youtube | recommended videos,12
+2026-08-18,2026-08-18 11:49:19,zen.exe,867,4,18,827,18,2,2,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,4
+2026-08-13,2026-08-13 14:19:08,winword.exe,2690,210,2289,33,158,1,1,Research report,winword | app | office | unknown | unknown | Research report,8
+2026-07-01,2026-07-01 11:25:04,zen.exe,134,2,118,9,5,1,1,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,8
+2026-07-25,2026-07-25 15:00:38,winword.exe,2192,100,1822,50,220,1,1,literature review,winword | app | office | unknown | unknown | literature review,3
+2026-07-09,2026-07-09 11:26:28,zen.exe,1557,112,123,97,1225,3,0,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,7
+2026-08-20,2026-08-20 10:35:57,winword.exe,2137,446,1652,27,12,1,1,assignment draft,winword | app | office | unknown | unknown | assignment draft,5
+2026-06-01,2026-06-01 14:28:38,excel.exe,2624,2272,9,54,289,0,0,correction summary,excel | app | office | unknown | unknown | correction summary,7
+2026-08-18,2026-08-18 16:38:12,powerpnt.exe,632,570,19,24,19,0,0,project pitch deck,powerpnt | app | office | unknown | unknown | project pitch deck,4
+2026-07-31,2026-07-31 15:52:09,zen.exe,856,1,780,54,21,1,1,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,2
+2026-06-01,2026-06-01 15:33:06,zen.exe,2122,233,1531,354,4,1,1,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,8
+2026-06-23,2026-06-23 13:20:19,code.exe,1317,82,959,114,162,1,1,data preparation,code | app | dev | unknown | unknown | data preparation,8
+2026-08-17,2026-08-17 09:21:19,powerpnt.exe,2386,2149,16,191,30,0,0,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,10
+2026-07-21,2026-07-21 11:48:55,python.exe,872,2,853,13,4,1,1,Python test run,python | app | app | unknown | unknown | Python test run,4
+2026-06-01,2026-06-01 17:41:44,code.exe,185,40,140,3,2,1,0,debugging session,code | app | dev | unknown | unknown | debugging session,11
+2026-07-16,2026-07-16 14:10:58,zen.exe,287,5,248,8,26,1,1,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,8
+2026-07-18,2026-07-18 18:15:26,powerpnt.exe,2020,1765,46,166,43,0,0,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,3
+2026-07-10,2026-07-10 12:52:36,zen.exe,1456,22,5,1405,24,2,2,community notifications,zen | web browser | communication | social | discord | community notifications,5
+2026-08-24,2026-08-24 11:52:57,slack.exe,2652,8,15,2562,67,2,2,project notifications,slack | app | communication | unknown | unknown | project notifications,11
+2026-07-08,2026-07-08 18:53:48,zen.exe,1475,28,1358,65,24,1,1,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,8
+2026-06-02,2026-06-02 15:38:01,python.exe,778,98,609,42,29,1,1,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,12
+2026-07-07,2026-07-07 15:50:46,excel.exe,2298,1869,241,29,159,0,0,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,6
+2026-07-29,2026-07-29 17:48:42,limbuscompany.exe,287,5,22,13,247,3,3,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,7
+2026-08-21,2026-08-21 14:14:24,zen.exe,898,6,0,863,29,2,2,group discussion,zen | web browser | communication | social | discord | group discussion,11
+2026-07-18,2026-07-18 18:50:17,zen.exe,2035,53,1960,13,9,1,1,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,3
+2026-08-06,2026-08-06 10:39:03,zen.exe,734,44,61,109,520,3,1,music video,zen | web browser | media | media | youtube | music video,3
+2026-07-28,2026-07-28 10:09:23,zen.exe,1148,52,143,951,2,2,2,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,12
+2026-06-27,2026-06-27 11:53:47,zen.exe,2301,46,1903,64,288,1,1,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,2
+2026-06-11,2026-06-11 14:00:25,zen.exe,841,2,0,2,837,3,3,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,9
+2026-06-20,2026-06-20 14:06:15,zen.exe,1335,6,13,241,1075,3,3,gaming community,zen | web browser | game | browser | unknown | gaming community,1
+2026-07-18,2026-07-18 19:36:11,code.exe,993,15,929,44,5,1,1,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,9
+2026-08-24,2026-08-24 08:13:37,zen.exe,346,9,243,0,94,1,1,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,7
+2026-07-03,2026-07-03 16:00:12,limbuscompany.exe,2041,491,31,4,1515,3,0,game session,limbuscompany | app | game | unknown | unknown | game session,3
+2026-07-15,2026-07-15 17:08:56,zen.exe,1252,9,357,31,855,3,0,gaming community,zen | web browser | game | browser | unknown | gaming community,1
+2026-08-17,2026-08-17 09:20:04,winword.exe,2023,194,1513,92,224,1,1,assignment draft,winword | app | office | unknown | unknown | assignment draft,8
+2026-07-29,2026-07-29 11:30:58,zen.exe,1534,81,1315,54,84,1,1,scikit-learn guide,zen | web browser | dev | dev | github | scikit-learn guide,10
+2026-07-20,2026-07-20 18:51:47,limbuscompany.exe,364,0,40,0,324,3,3,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,9
+2026-07-11,2026-07-11 11:44:36,zen.exe,1212,47,159,993,13,2,0,group discussion,zen | web browser | communication | social | discord | group discussion,6
+2026-08-11,2026-08-11 11:55:04,powerpnt.exe,2552,2338,186,19,9,0,0,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,4
+2026-08-19,2026-08-19 14:31:03,python.exe,1640,27,1321,17,275,1,1,data processing job,python | app | app | unknown | unknown | data processing job,1
+2026-06-06,2026-06-06 11:42:46,limbuscompany.exe,236,4,20,4,208,3,3,game session,limbuscompany | app | game | unknown | unknown | game session,6
+2026-08-24,2026-08-24 10:07:28,limbuscompany.exe,263,38,22,14,189,3,3,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,5
+2026-08-07,2026-08-07 10:31:00,python.exe,1125,100,825,162,38,1,1,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,1
+2026-06-24,2026-06-24 08:07:57,slack.exe,2433,89,236,2067,41,2,2,course group chat,slack | app | communication | unknown | unknown | course group chat,2
+2026-06-23,2026-06-23 18:20:49,code.exe,1375,7,1195,21,152,1,1,data preparation,code | app | dev | unknown | unknown | data preparation,9
+2026-06-15,2026-06-15 17:36:28,zen.exe,2240,7,178,327,1728,3,3,recommended videos,zen | web browser | media | media | youtube | recommended videos,12
+2026-08-18,2026-08-18 10:49:55,zen.exe,1250,38,11,64,1137,3,2,recommended videos,zen | web browser | media | media | youtube | recommended videos,7
+2026-06-01,2026-06-01 11:18:28,zen.exe,875,102,41,9,723,3,3,gaming community,zen | web browser | game | browser | unknown | gaming community,6
+2026-06-19,2026-06-19 13:04:35,zen.exe,742,40,5,31,666,3,3,gaming community,zen | web browser | game | browser | unknown | gaming community,4
+2026-08-15,2026-08-15 19:30:14,zen.exe,1417,0,12,4,1401,3,3,Online game session,zen | web browser | game | browser | unknown | Online game session,2
+2026-06-08,2026-06-08 11:03:11,powerpnt.exe,545,413,49,62,21,0,0,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,5
+2026-08-08,2026-08-08 15:49:49,limbuscompany.exe,917,4,6,65,842,3,3,LimbusCompany update,limbuscompany | app | game | unknown | unknown | LimbusCompany update,6
+2026-07-09,2026-07-09 12:34:37,python.exe,2400,32,1965,82,321,1,1,training script,python | app | app | unknown | unknown | training script,3
+2026-07-14,2026-07-14 14:20:13,zen.exe,1570,232,7,17,1314,3,3,recommended videos,zen | web browser | media | media | youtube | recommended videos,10
+2026-07-06,2026-07-06 15:26:28,python.exe,1811,55,1688,65,3,1,1,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,7
+2026-07-13,2026-07-13 10:11:35,zen.exe,1473,2,51,15,1405,3,3,game guide,zen | web browser | game | browser | unknown | game guide,4
+2026-06-13,2026-06-13 11:20:00,powerpnt.exe,1763,1746,0,8,9,0,2,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,6
+2026-06-05,2026-06-05 11:23:14,excel.exe,2313,2160,77,36,40,0,0,training data review,excel | app | office | unknown | unknown | training data review,9
+2026-06-22,2026-06-22 09:46:53,slack.exe,1325,147,74,1101,3,2,2,project notifications,slack | app | communication | unknown | unknown | project notifications,10
+2026-06-06,2026-06-06 19:50:31,slack.exe,1881,113,9,1744,15,2,2,project notifications,slack | app | communication | unknown | unknown | project notifications,5
+2026-07-17,2026-07-17 10:53:09,zen.exe,427,9,24,6,388,3,3,game guide,zen | web browser | game | browser | unknown | game guide,5
+2026-07-30,2026-07-30 11:09:22,zen.exe,1349,41,0,41,1267,3,1,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,7
+2026-06-13,2026-06-13 14:53:06,python.exe,953,1,946,6,0,1,1,data processing job,python | app | app | unknown | unknown | data processing job,10
+2026-08-08,2026-08-08 18:48:31,slack.exe,217,0,17,188,12,2,2,stand-up messages,slack | app | communication | unknown | unknown | stand-up messages,8
+2026-08-01,2026-08-01 09:16:18,excel.exe,2463,2258,67,34,104,0,0,correction summary,excel | app | office | unknown | unknown | correction summary,12
+2026-06-29,2026-06-29 15:52:38,zen.exe,836,37,0,789,10,2,2,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,3
+2026-06-17,2026-06-17 16:25:28,zen.exe,1245,27,1198,19,1,1,1,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,3
+2026-08-12,2026-08-12 09:13:25,zen.exe,2022,253,72,1529,168,2,0,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,11
+2026-06-02,2026-06-02 09:42:12,winword.exe,1424,5,1112,272,35,1,1,literature review,winword | app | office | unknown | unknown | literature review,12
+2026-08-08,2026-08-08 18:40:49,zen.exe,1823,90,1644,34,55,1,3,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,9
+2026-06-11,2026-06-11 13:13:02,excel.exe,1328,954,355,1,18,0,0,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,1
+2026-06-04,2026-06-04 09:17:39,zen.exe,1378,44,1231,60,43,1,1,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,4
+2026-06-11,2026-06-11 13:27:22,zen.exe,488,32,49,21,386,3,3,gaming community,zen | web browser | game | browser | unknown | gaming community,11
+2026-07-20,2026-07-20 16:55:47,zen.exe,565,54,25,387,99,2,2,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,9
+2026-07-08,2026-07-08 15:49:28,zen.exe,2054,48,1919,57,30,1,1,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,7
+2026-08-17,2026-08-17 10:05:36,zen.exe,1521,0,511,1009,1,2,2,community notifications,zen | web browser | communication | social | discord | community notifications,6
+2026-07-23,2026-07-23 15:40:28,python.exe,1817,155,1363,260,39,1,1,data processing job,python | app | app | unknown | unknown | data processing job,10
+2026-08-13,2026-08-13 17:11:33,winword.exe,1830,0,1692,0,138,1,2,project write-up,winword | app | office | unknown | unknown | project write-up,4
+2026-06-18,2026-06-18 19:45:04,zen.exe,2343,33,102,23,2185,3,3,game guide,zen | web browser | game | browser | unknown | game guide,1
+2026-07-20,2026-07-20 14:39:04,zen.exe,333,6,311,15,1,1,1,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,8
+2026-08-07,2026-08-07 18:09:18,zen.exe,1972,323,1473,144,32,1,1,Python documentation,zen | web browser | dev | dev | github | Python documentation,5
+2026-06-10,2026-06-10 15:10:40,winword.exe,2380,7,2280,25,68,1,1,assignment draft,winword | app | office | unknown | unknown | assignment draft,11
+2026-07-16,2026-07-16 16:25:48,zen.exe,2080,104,310,103,1563,3,3,gaming community,zen | web browser | game | browser | unknown | gaming community,7
+2026-06-13,2026-06-13 15:52:59,python.exe,1119,103,935,75,6,1,1,data processing job,python | app | app | unknown | unknown | data processing job,7
+2026-06-29,2026-06-29 15:47:47,code.exe,102,7,83,12,0,1,1,model evaluation,code | app | dev | unknown | unknown | model evaluation,6
+2026-06-22,2026-06-22 12:24:51,zen.exe,1422,8,1089,283,42,1,3,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,6
+2026-06-27,2026-06-27 12:15:43,code.exe,2166,71,1885,1,209,1,1,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,6
+2026-06-30,2026-06-30 19:17:05,zen.exe,999,40,92,7,860,3,3,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,9
+2026-06-08,2026-06-08 20:34:13,code.exe,1772,18,1614,0,140,1,3,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,3
+2026-07-16,2026-07-16 11:17:31,python.exe,1152,158,920,27,47,1,1,training script,python | app | app | unknown | unknown | training script,7
+2026-06-19,2026-06-19 10:52:39,zen.exe,1423,151,48,1177,47,2,2,group discussion,zen | web browser | communication | social | discord | group discussion,9
+2026-08-04,2026-08-04 18:49:35,limbuscompany.exe,2289,45,194,290,1760,3,3,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,5
+2026-08-24,2026-08-24 14:48:09,zen.exe,1852,260,1401,45,146,1,1,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,7
+2026-08-14,2026-08-14 19:18:52,zen.exe,520,9,2,490,19,2,1,community notifications,zen | web browser | communication | social | discord | community notifications,6
+2026-06-11,2026-06-11 14:16:42,slack.exe,1404,43,8,1084,269,2,2,stand-up messages,slack | app | communication | unknown | unknown | stand-up messages,8
+2026-06-11,2026-06-11 19:05:38,excel.exe,2578,2433,50,77,18,0,0,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,8
+2026-07-09,2026-07-09 11:14:15,limbuscompany.exe,1965,56,166,118,1625,3,3,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,8
+2026-06-27,2026-06-27 13:19:21,powerpnt.exe,1136,1009,42,2,83,0,0,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,9
+2026-06-13,2026-06-13 13:21:18,zen.exe,2393,134,6,2251,2,2,2,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,11
+2026-08-07,2026-08-07 15:32:19,zen.exe,2032,17,4,59,1952,3,3,game guide,zen | web browser | game | browser | unknown | game guide,9
+2026-07-23,2026-07-23 16:30:05,zen.exe,164,1,0,160,3,2,0,group discussion,zen | web browser | communication | social | discord | group discussion,4
+2026-06-25,2026-06-25 10:12:59,zen.exe,2603,50,2236,17,300,1,0,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,5
+2026-06-12,2026-06-12 11:11:02,zen.exe,1072,284,4,18,766,3,3,game guide,zen | web browser | game | browser | unknown | game guide,3
+2026-08-08,2026-08-08 09:22:59,zen.exe,192,9,11,40,132,3,3,Online game session,zen | web browser | game | browser | unknown | Online game session,5
+2026-07-10,2026-07-10 19:51:14,zen.exe,427,3,407,13,4,1,1,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,12
+2026-06-19,2026-06-19 21:23:51,slack.exe,736,0,0,650,86,2,2,stand-up messages,slack | app | communication | unknown | unknown | stand-up messages,10
+2026-07-27,2026-07-27 13:00:59,zen.exe,48,3,1,44,0,2,2,group discussion,zen | web browser | communication | social | discord | group discussion,4
+2026-06-29,2026-06-29 12:26:50,excel.exe,1052,733,2,6,311,0,0,training data review,excel | app | office | unknown | unknown | training data review,12
+2026-07-06,2026-07-06 14:09:32,zen.exe,1746,167,76,1,1502,3,1,music video,zen | web browser | media | media | youtube | music video,2
+2026-07-13,2026-07-13 10:34:28,excel.exe,1325,1025,283,16,1,0,0,correction summary,excel | app | office | unknown | unknown | correction summary,3
+2026-06-18,2026-06-18 15:05:14,winword.exe,332,20,291,4,17,1,1,assignment draft,winword | app | office | unknown | unknown | assignment draft,8
+2026-06-04,2026-06-04 11:19:06,powerpnt.exe,2344,1920,0,387,37,0,0,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,2
+2026-06-26,2026-06-26 14:31:32,excel.exe,2646,2038,8,39,561,0,0,correction summary,excel | app | office | unknown | unknown | correction summary,7
+2026-07-07,2026-07-07 16:34:05,powerpnt.exe,1740,1732,0,3,5,0,0,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,12
+2026-06-04,2026-06-04 14:12:11,zen.exe,1068,0,17,2,1049,3,3,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,9
+2026-08-11,2026-08-11 14:31:45,zen.exe,1805,91,10,0,1704,3,3,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,9
+2026-06-12,2026-06-12 16:04:30,limbuscompany.exe,1194,204,54,6,930,3,1,LimbusCompany update,limbuscompany | app | game | unknown | unknown | LimbusCompany update,7
+2026-06-10,2026-06-10 14:30:18,powerpnt.exe,2306,1955,19,312,20,0,0,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,5
+2026-08-20,2026-08-20 11:40:17,zen.exe,541,6,46,32,457,3,3,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,5
+2026-07-13,2026-07-13 11:28:53,zen.exe,1373,121,922,30,300,1,1,scikit-learn guide,zen | web browser | dev | dev | github | scikit-learn guide,8
+2026-06-23,2026-06-23 09:51:51,zen.exe,2116,1,133,169,1813,3,3,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,10
+2026-08-04,2026-08-04 17:22:45,zen.exe,1841,7,1695,135,4,1,1,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,12
+2026-08-13,2026-08-13 12:03:34,python.exe,356,35,274,38,9,1,1,training script,python | app | app | unknown | unknown | training script,11
+2026-06-12,2026-06-12 17:55:40,python.exe,515,55,376,43,41,1,1,training script,python | app | app | unknown | unknown | training script,9
+2026-08-01,2026-08-01 11:24:30,zen.exe,2567,170,10,116,2271,3,3,Roblox experience,zen | web browser | game | browser | unknown | Roblox experience,11
+2026-08-11,2026-08-11 11:18:49,winword.exe,680,25,631,6,18,1,1,assignment draft,winword | app | office | unknown | unknown | assignment draft,12
+2026-07-30,2026-07-30 09:15:57,slack.exe,1518,3,285,1068,162,2,2,stand-up messages,slack | app | communication | unknown | unknown | stand-up messages,10
+2026-06-24,2026-06-24 09:11:26,zen.exe,2613,133,49,203,2228,3,1,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,5
+2026-07-04,2026-07-04 15:56:43,zen.exe,1362,367,25,0,970,3,3,game guide,zen | web browser | game | browser | unknown | game guide,5
+2026-08-08,2026-08-08 12:54:13,powerpnt.exe,1011,892,31,39,49,0,0,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,11
+2026-07-06,2026-07-06 10:56:13,powerpnt.exe,953,933,1,1,18,0,0,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,2
+2026-07-07,2026-07-07 14:58:31,zen.exe,1546,7,1339,185,15,1,1,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,2
+2026-08-22,2026-08-22 09:08:05,slack.exe,2092,6,60,2025,1,2,2,project notifications,slack | app | communication | unknown | unknown | project notifications,5
+2026-07-11,2026-07-11 16:42:09,zen.exe,2166,65,1914,7,180,1,1,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,1
+2026-07-02,2026-07-02 15:16:48,code.exe,1702,45,1517,93,47,1,1,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,10
+2026-06-02,2026-06-02 11:04:10,zen.exe,1614,31,279,103,1201,3,1,music video,zen | web browser | media | media | youtube | music video,2
+2026-08-04,2026-08-04 13:08:08,excel.exe,2109,1941,77,4,87,0,0,correction summary,excel | app | office | unknown | unknown | correction summary,9
+2026-08-11,2026-08-11 15:45:08,zen.exe,1106,97,14,180,815,3,3,music video,zen | web browser | media | media | youtube | music video,7
+2026-06-09,2026-06-09 14:44:09,excel.exe,1322,905,381,0,36,0,0,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,10
+2026-08-03,2026-08-03 11:47:14,zen.exe,221,9,8,3,201,3,3,game guide,zen | web browser | game | browser | unknown | game guide,3
+2026-08-11,2026-08-11 12:48:34,slack.exe,1996,285,68,1604,39,2,2,project notifications,slack | app | communication | unknown | unknown | project notifications,10
+2026-06-11,2026-06-11 13:14:38,code.exe,892,0,892,0,0,1,1,data preparation,code | app | dev | unknown | unknown | data preparation,1
+2026-07-29,2026-07-29 08:01:59,zen.exe,2601,310,1958,135,198,1,1,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,9
+2026-07-23,2026-07-23 15:49:50,excel.exe,2076,1391,667,0,18,0,0,training data review,excel | app | office | unknown | unknown | training data review,6
+2026-08-19,2026-08-19 15:01:10,zen.exe,858,62,723,72,1,1,1,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,3
+2026-07-14,2026-07-14 11:31:46,excel.exe,2014,1808,96,29,81,0,3,correction summary,excel | app | office | unknown | unknown | correction summary,10
+2026-06-22,2026-06-22 12:00:41,limbuscompany.exe,1506,79,22,137,1268,3,3,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,4
+2026-07-25,2026-07-25 10:10:36,code.exe,2691,0,2463,192,36,1,1,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,1
+2026-08-22,2026-08-22 15:44:05,python.exe,1365,21,1026,90,228,1,3,Python test run,python | app | app | unknown | unknown | Python test run,10
+2026-08-05,2026-08-05 09:41:19,powerpnt.exe,1691,1549,2,99,41,0,0,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,11
+2026-08-21,2026-08-21 08:46:43,code.exe,1456,296,1157,1,2,1,2,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,12
+2026-07-27,2026-07-27 14:35:17,python.exe,2149,50,1549,100,450,1,3,training script,python | app | app | unknown | unknown | training script,1
+2026-07-16,2026-07-16 16:42:46,powerpnt.exe,1158,868,19,191,80,0,0,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,8
+2026-07-02,2026-07-02 17:02:25,python.exe,847,146,691,0,10,1,1,training script,python | app | app | unknown | unknown | training script,2
+2026-07-20,2026-07-20 12:18:33,zen.exe,277,12,231,2,32,1,3,Python documentation,zen | web browser | dev | dev | github | Python documentation,9
+2026-07-02,2026-07-02 15:20:57,zen.exe,1568,1,1307,25,235,1,2,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,8
+2026-06-04,2026-06-04 15:32:42,excel.exe,351,274,8,40,29,0,0,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,6
+2026-06-24,2026-06-24 13:53:06,winword.exe,1476,13,1454,4,5,1,1,literature review,winword | app | office | unknown | unknown | literature review,11
+2026-07-02,2026-07-02 14:27:05,zen.exe,2060,27,1928,42,63,1,1,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,5
+2026-08-25,2026-08-25 20:06:52,zen.exe,744,18,1,67,658,3,3,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,10
+2026-07-21,2026-07-21 11:00:59,code.exe,1276,5,1131,2,138,1,3,debugging session,code | app | dev | unknown | unknown | debugging session,6
+2026-08-25,2026-08-25 13:38:01,zen.exe,585,29,543,0,13,1,1,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,3
+2026-07-16,2026-07-16 10:07:15,zen.exe,1153,10,158,762,223,2,2,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,6
+2026-06-08,2026-06-08 14:13:57,zen.exe,347,27,43,236,41,2,2,group discussion,zen | web browser | communication | social | discord | group discussion,3
+2026-06-13,2026-06-13 13:24:23,zen.exe,1526,59,129,22,1316,3,3,game guide,zen | web browser | game | browser | unknown | game guide,5
+2026-07-31,2026-07-31 17:24:32,zen.exe,574,65,386,104,19,1,1,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,10
+2026-07-17,2026-07-17 11:09:34,zen.exe,963,8,2,187,766,3,3,Online game session,zen | web browser | game | browser | unknown | Online game session,9
+2026-07-07,2026-07-07 17:50:18,code.exe,1222,206,997,1,18,1,1,debugging session,code | app | dev | unknown | unknown | debugging session,1
+2026-06-17,2026-06-17 15:44:09,zen.exe,2693,2,6,813,1872,3,1,gaming community,zen | web browser | game | browser | unknown | gaming community,9
+2026-07-04,2026-07-04 15:55:26,excel.exe,499,363,5,123,8,0,1,training data review,excel | app | office | unknown | unknown | training data review,11
+2026-06-20,2026-06-20 15:12:11,zen.exe,651,3,635,8,5,1,1,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,12
+2026-07-08,2026-07-08 09:25:15,zen.exe,2196,631,1540,22,3,1,0,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,9
+2026-08-26,2026-08-26 10:02:10,python.exe,2484,26,2353,3,102,1,3,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,4
+2026-07-22,2026-07-22 15:44:35,limbuscompany.exe,285,1,2,97,185,3,3,game session,limbuscompany | app | game | unknown | unknown | game session,3
+2026-08-12,2026-08-12 10:56:51,zen.exe,1426,104,3,2,1317,3,3,game guide,zen | web browser | game | browser | unknown | game guide,3
+2026-08-01,2026-08-01 12:45:10,zen.exe,112,0,30,2,80,3,2,gaming community,zen | web browser | game | browser | unknown | gaming community,1
+2026-07-06,2026-07-06 11:42:39,zen.exe,2500,74,152,2263,11,2,1,group discussion,zen | web browser | communication | social | discord | group discussion,12
+2026-08-14,2026-08-14 17:44:43,zen.exe,2374,1,193,2067,113,2,2,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,8
+2026-08-04,2026-08-04 15:18:00,zen.exe,2492,3,37,50,2402,3,0,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,7
+2026-06-20,2026-06-20 12:39:38,python.exe,2017,15,1730,216,56,1,1,data processing job,python | app | app | unknown | unknown | data processing job,6
+2026-08-13,2026-08-13 14:19:55,excel.exe,1791,1392,33,200,166,0,3,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,12
+2026-08-08,2026-08-08 15:14:20,zen.exe,1763,25,2,1394,342,2,2,group discussion,zen | web browser | communication | social | discord | group discussion,11
+2026-07-08,2026-07-08 13:21:10,zen.exe,2087,20,2052,14,1,1,3,Python documentation,zen | web browser | dev | dev | github | Python documentation,9
+2026-06-19,2026-06-19 20:13:59,python.exe,981,125,737,83,36,1,1,data processing job,python | app | app | unknown | unknown | data processing job,6
+2026-06-03,2026-06-03 09:28:20,excel.exe,2656,2655,1,0,0,0,0,training data review,excel | app | office | unknown | unknown | training data review,7
+2026-06-30,2026-06-30 13:18:20,winword.exe,1881,301,1384,39,157,1,1,Research report,winword | app | office | unknown | unknown | Research report,4
+2026-08-03,2026-08-03 10:56:06,python.exe,1298,77,1053,82,86,1,1,training script,python | app | app | unknown | unknown | training script,12
+2026-07-15,2026-07-15 08:45:32,zen.exe,2649,71,10,127,2441,3,1,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,7
+2026-06-15,2026-06-15 16:58:13,powerpnt.exe,2134,2012,0,2,120,0,0,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,4
+2026-07-31,2026-07-31 12:13:28,code.exe,1391,90,1299,0,2,1,0,debugging session,code | app | dev | unknown | unknown | debugging session,8
+2026-07-09,2026-07-09 20:14:58,python.exe,742,0,661,77,4,1,1,data processing job,python | app | app | unknown | unknown | data processing job,2
+2026-06-05,2026-06-05 16:02:04,zen.exe,979,4,311,9,655,3,3,game guide,zen | web browser | game | browser | unknown | game guide,2
+2026-07-31,2026-07-31 16:46:05,zen.exe,2023,87,1861,72,3,1,1,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,2
+2026-08-25,2026-08-25 17:36:32,zen.exe,2304,385,54,56,1809,3,3,music video,zen | web browser | media | media | youtube | music video,12
+2026-08-10,2026-08-10 15:13:21,winword.exe,601,32,434,43,92,1,1,assignment draft,winword | app | office | unknown | unknown | assignment draft,4
+2026-06-10,2026-06-10 10:20:01,powerpnt.exe,507,476,1,30,0,0,3,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,5
+2026-08-26,2026-08-26 19:02:58,powerpnt.exe,1841,1306,31,246,258,0,3,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,12
+2026-07-20,2026-07-20 09:19:00,zen.exe,1753,1,183,1565,4,2,3,community notifications,zen | web browser | communication | social | discord | community notifications,7
+2026-08-03,2026-08-03 14:33:12,zen.exe,960,45,911,2,2,1,1,Python documentation,zen | web browser | dev | dev | github | Python documentation,4
+2026-07-21,2026-07-21 10:24:23,excel.exe,2527,1837,646,37,7,0,0,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,6
+2026-08-05,2026-08-05 14:52:39,zen.exe,1926,38,69,1740,79,2,2,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,11
+2026-06-26,2026-06-26 16:17:26,excel.exe,1602,1324,81,49,148,0,3,training data review,excel | app | office | unknown | unknown | training data review,6
+2026-06-27,2026-06-27 16:10:00,slack.exe,2426,410,34,1944,38,2,2,stand-up messages,slack | app | communication | unknown | unknown | stand-up messages,4
+2026-07-15,2026-07-15 15:58:46,excel.exe,2297,1843,215,43,196,0,0,training data review,excel | app | office | unknown | unknown | training data review,11
+2026-07-30,2026-07-30 09:37:51,zen.exe,86,0,0,0,86,3,3,game guide,zen | web browser | game | browser | unknown | game guide,9
+2026-06-18,2026-06-18 20:13:50,zen.exe,1485,192,1169,26,98,1,1,scikit-learn guide,zen | web browser | dev | dev | github | scikit-learn guide,10
+2026-06-04,2026-06-04 13:32:33,zen.exe,2110,2,12,132,1964,3,1,music video,zen | web browser | media | media | youtube | music video,9
+2026-08-26,2026-08-26 12:09:01,zen.exe,374,38,0,336,0,2,2,community notifications,zen | web browser | communication | social | discord | community notifications,11
+2026-06-24,2026-06-24 20:36:19,winword.exe,2582,465,1930,30,157,1,1,Research report,winword | app | office | unknown | unknown | Research report,1
+2026-06-30,2026-06-30 11:52:21,powerpnt.exe,2209,1959,31,7,212,0,0,project pitch deck,powerpnt | app | office | unknown | unknown | project pitch deck,4
+2026-08-25,2026-08-25 12:04:09,limbuscompany.exe,2112,72,138,82,1820,3,1,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,9
+2026-07-14,2026-07-14 08:01:13,python.exe,476,6,469,1,0,1,1,training script,python | app | app | unknown | unknown | training script,7
+2026-08-01,2026-08-01 09:33:46,winword.exe,2269,67,2101,52,49,1,1,assignment draft,winword | app | office | unknown | unknown | assignment draft,11
+2026-07-01,2026-07-01 15:15:43,excel.exe,243,196,0,47,0,0,0,correction summary,excel | app | office | unknown | unknown | correction summary,6
+2026-08-18,2026-08-18 15:19:44,powerpnt.exe,2512,1804,153,539,16,0,0,project pitch deck,powerpnt | app | office | unknown | unknown | project pitch deck,7
+2026-07-04,2026-07-04 21:29:46,excel.exe,2576,2138,210,94,134,0,0,training data review,excel | app | office | unknown | unknown | training data review,12
+2026-07-03,2026-07-03 13:51:14,zen.exe,1508,56,3,104,1345,3,3,Roblox experience,zen | web browser | game | browser | unknown | Roblox experience,7
+2026-06-19,2026-06-19 19:42:23,limbuscompany.exe,530,0,0,65,465,3,3,LimbusCompany update,limbuscompany | app | game | unknown | unknown | LimbusCompany update,7
+2026-08-25,2026-08-25 15:24:06,zen.exe,1068,19,955,8,86,1,2,scikit-learn guide,zen | web browser | dev | dev | github | scikit-learn guide,8
+2026-08-24,2026-08-24 11:17:35,limbuscompany.exe,164,6,3,4,151,3,3,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,6
+2026-08-03,2026-08-03 14:12:20,powerpnt.exe,1023,852,122,31,18,0,0,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,1
+2026-08-15,2026-08-15 14:27:58,zen.exe,2321,134,2124,46,17,1,1,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,4
+2026-07-02,2026-07-02 13:49:53,code.exe,1277,8,1076,91,102,1,3,debugging session,code | app | dev | unknown | unknown | debugging session,5
+2026-08-01,2026-08-01 15:58:24,zen.exe,972,172,2,148,650,3,1,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,3
+2026-08-03,2026-08-03 19:57:41,winword.exe,1004,4,718,276,6,1,1,assignment draft,winword | app | office | unknown | unknown | assignment draft,12
+2026-07-20,2026-07-20 08:09:52,powerpnt.exe,525,465,43,16,1,0,3,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,2
+2026-06-24,2026-06-24 11:02:32,zen.exe,2659,168,598,1889,4,2,2,community notifications,zen | web browser | communication | social | discord | community notifications,2
+2026-07-02,2026-07-02 15:35:25,python.exe,232,11,179,33,9,1,1,Python test run,python | app | app | unknown | unknown | Python test run,7
+2026-06-16,2026-06-16 12:49:35,powerpnt.exe,909,798,6,46,59,0,0,project pitch deck,powerpnt | app | office | unknown | unknown | project pitch deck,2
+2026-07-08,2026-07-08 14:53:15,slack.exe,1904,5,8,1852,39,2,2,course group chat,slack | app | communication | unknown | unknown | course group chat,5
+2026-08-07,2026-08-07 09:36:06,zen.exe,542,28,18,475,21,2,2,community notifications,zen | web browser | communication | social | discord | community notifications,8
+2026-06-11,2026-06-11 15:26:27,limbuscompany.exe,2055,1,382,40,1632,3,0,LimbusCompany update,limbuscompany | app | game | unknown | unknown | LimbusCompany update,10
+2026-07-06,2026-07-06 13:54:33,winword.exe,727,9,660,1,57,1,1,project write-up,winword | app | office | unknown | unknown | project write-up,7
+2026-07-21,2026-07-21 18:23:04,zen.exe,2041,259,39,1736,7,2,2,community notifications,zen | web browser | communication | social | discord | community notifications,7
+2026-07-03,2026-07-03 17:26:25,zen.exe,812,13,58,93,648,3,3,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,11
+2026-08-04,2026-08-04 14:31:56,zen.exe,609,7,602,0,0,1,3,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,5
+2026-07-22,2026-07-22 19:09:30,zen.exe,637,10,500,122,5,1,1,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,1
+2026-06-05,2026-06-05 11:32:59,winword.exe,1674,192,1390,19,73,1,1,assignment draft,winword | app | office | unknown | unknown | assignment draft,3
+2026-06-27,2026-06-27 19:57:50,excel.exe,832,635,123,70,4,0,0,training data review,excel | app | office | unknown | unknown | training data review,6
+2026-06-06,2026-06-06 10:31:11,zen.exe,1714,58,263,245,1148,3,1,Online game session,zen | web browser | game | browser | unknown | Online game session,9
+2026-06-13,2026-06-13 19:48:39,powerpnt.exe,1502,1185,70,155,92,0,0,project pitch deck,powerpnt | app | office | unknown | unknown | project pitch deck,10
+2026-06-02,2026-06-02 15:21:47,zen.exe,58,0,58,0,0,1,1,Python documentation,zen | web browser | dev | dev | github | Python documentation,12
+2026-08-13,2026-08-13 14:39:12,code.exe,917,92,709,95,21,1,1,debugging session,code | app | dev | unknown | unknown | debugging session,6
+2026-06-26,2026-06-26 17:46:39,python.exe,1711,80,1613,17,1,1,1,training script,python | app | app | unknown | unknown | training script,12
+2026-07-18,2026-07-18 11:57:20,powerpnt.exe,2638,2583,14,5,36,0,0,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,5
+2026-07-14,2026-07-14 18:41:35,limbuscompany.exe,1015,49,25,16,925,3,3,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,8
+2026-06-16,2026-06-16 08:53:35,zen.exe,480,7,6,462,5,2,2,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,6
+2026-08-05,2026-08-05 15:35:04,winword.exe,1653,6,1514,37,96,1,1,Research report,winword | app | office | unknown | unknown | Research report,9
+2026-07-09,2026-07-09 19:30:16,limbuscompany.exe,1145,0,49,21,1075,3,3,game session,limbuscompany | app | game | unknown | unknown | game session,12
+2026-06-05,2026-06-05 14:00:53,zen.exe,2648,81,555,37,1975,3,1,gaming community,zen | web browser | game | browser | unknown | gaming community,5
+2026-07-07,2026-07-07 15:58:32,slack.exe,1771,128,103,1180,360,2,2,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,4
+2026-07-21,2026-07-21 16:42:11,winword.exe,1482,1,1384,89,8,1,1,literature review,winword | app | office | unknown | unknown | literature review,7
+2026-07-06,2026-07-06 13:41:49,winword.exe,2040,196,1683,17,144,1,1,project write-up,winword | app | office | unknown | unknown | project write-up,8
+2026-06-20,2026-06-20 09:42:54,limbuscompany.exe,1248,153,37,0,1058,3,3,LimbusCompany update,limbuscompany | app | game | unknown | unknown | LimbusCompany update,6
+2026-08-10,2026-08-10 16:39:57,code.exe,1913,18,1850,17,28,1,1,debugging session,code | app | dev | unknown | unknown | debugging session,2
+2026-07-22,2026-07-22 11:21:36,code.exe,2363,321,1735,14,293,1,1,data preparation,code | app | dev | unknown | unknown | data preparation,4
+2026-06-22,2026-06-22 11:08:20,code.exe,717,53,556,15,93,1,1,data preparation,code | app | dev | unknown | unknown | data preparation,6
+2026-07-06,2026-07-06 17:38:59,zen.exe,436,22,353,40,21,1,0,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,8
+2026-06-27,2026-06-27 18:19:51,slack.exe,1978,314,55,1332,277,2,2,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,4
+2026-07-15,2026-07-15 11:40:23,zen.exe,1506,18,93,9,1386,3,3,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,2
+2026-06-30,2026-06-30 15:49:46,slack.exe,1412,86,0,1306,20,2,0,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,10
+2026-06-08,2026-06-08 15:23:58,zen.exe,386,25,351,2,8,1,3,scikit-learn guide,zen | web browser | dev | dev | github | scikit-learn guide,2
+2026-08-13,2026-08-13 11:08:36,zen.exe,2545,116,40,23,2366,3,3,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,11
+2026-07-14,2026-07-14 14:57:41,excel.exe,382,378,1,3,0,0,0,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,5
+2026-06-05,2026-06-05 14:52:08,zen.exe,1265,69,92,34,1070,3,3,Online game session,zen | web browser | game | browser | unknown | Online game session,4
+2026-06-29,2026-06-29 10:35:13,zen.exe,1199,4,237,920,38,2,2,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,12
+2026-07-07,2026-07-07 13:03:30,zen.exe,2353,107,2022,63,161,1,1,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,6
+2026-07-28,2026-07-28 15:32:24,limbuscompany.exe,2395,115,9,11,2260,3,3,game session,limbuscompany | app | game | unknown | unknown | game session,6
+2026-08-06,2026-08-06 16:11:53,code.exe,1688,19,1365,300,4,1,1,debugging session,code | app | dev | unknown | unknown | debugging session,2
+2026-07-04,2026-07-04 19:11:49,winword.exe,823,67,641,112,3,1,1,assignment draft,winword | app | office | unknown | unknown | assignment draft,6
+2026-08-17,2026-08-17 16:48:14,winword.exe,2306,519,1741,10,36,1,1,assignment draft,winword | app | office | unknown | unknown | assignment draft,5
+2026-06-02,2026-06-02 17:56:35,zen.exe,1074,84,1,113,876,3,3,Online game session,zen | web browser | game | browser | unknown | Online game session,12
+2026-07-28,2026-07-28 16:42:18,zen.exe,1991,186,1416,143,246,1,1,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,12
+2026-07-03,2026-07-03 10:46:54,zen.exe,1310,236,22,989,63,2,1,group discussion,zen | web browser | communication | social | discord | group discussion,9
+2026-08-05,2026-08-05 16:47:36,zen.exe,2669,2,2526,28,113,1,3,Python documentation,zen | web browser | dev | dev | github | Python documentation,6
+2026-07-10,2026-07-10 14:04:17,code.exe,1676,154,1393,126,3,1,1,data preparation,code | app | dev | unknown | unknown | data preparation,1
+2026-06-03,2026-06-03 09:10:04,zen.exe,2153,112,1855,39,147,1,1,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,2
+2026-08-20,2026-08-20 20:28:27,zen.exe,492,37,0,455,0,2,2,group discussion,zen | web browser | communication | social | discord | group discussion,11
+2026-06-12,2026-06-12 16:02:12,code.exe,1883,76,1442,138,227,1,0,debugging session,code | app | dev | unknown | unknown | debugging session,10
+2026-08-20,2026-08-20 12:33:08,code.exe,1180,110,1023,35,12,1,1,data preparation,code | app | dev | unknown | unknown | data preparation,3
+2026-07-13,2026-07-13 16:04:03,zen.exe,456,39,402,8,7,1,1,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,4
+2026-06-25,2026-06-25 20:22:14,code.exe,2585,151,2178,175,81,1,1,debugging session,code | app | dev | unknown | unknown | debugging session,3
+2026-08-14,2026-08-14 15:01:40,winword.exe,206,0,181,25,0,1,3,Research report,winword | app | office | unknown | unknown | Research report,2
+2026-08-15,2026-08-15 08:28:02,powerpnt.exe,940,881,43,8,8,0,3,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,6
+2026-06-09,2026-06-09 14:34:34,zen.exe,1308,2,27,67,1212,3,3,Online game session,zen | web browser | game | browser | unknown | Online game session,5
+2026-08-08,2026-08-08 17:53:51,zen.exe,139,0,138,0,1,1,1,Python documentation,zen | web browser | dev | dev | github | Python documentation,3
+2026-08-07,2026-08-07 13:02:36,zen.exe,104,0,1,3,100,3,3,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,7
+2026-06-16,2026-06-16 09:23:11,code.exe,590,0,569,18,3,1,1,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,12
+2026-08-18,2026-08-18 15:36:51,zen.exe,1805,297,65,1375,68,2,2,community notifications,zen | web browser | communication | social | discord | community notifications,12
+2026-08-19,2026-08-19 10:56:27,zen.exe,1200,286,92,802,20,2,1,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,4
+2026-07-01,2026-07-01 16:26:03,code.exe,493,0,439,38,16,1,1,model evaluation,code | app | dev | unknown | unknown | model evaluation,7
+2026-08-15,2026-08-15 15:22:40,zen.exe,575,25,518,1,31,1,1,Python documentation,zen | web browser | dev | dev | github | Python documentation,11
+2026-07-10,2026-07-10 19:24:48,excel.exe,59,45,2,0,12,0,0,correction summary,excel | app | office | unknown | unknown | correction summary,4
+2026-07-20,2026-07-20 15:18:59,zen.exe,501,43,110,338,10,2,0,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,2
+2026-07-01,2026-07-01 17:42:58,excel.exe,1086,955,55,24,52,0,0,training data review,excel | app | office | unknown | unknown | training data review,7
+2026-08-24,2026-08-24 11:11:16,winword.exe,241,4,222,0,15,1,2,assignment draft,winword | app | office | unknown | unknown | assignment draft,4
+2026-06-02,2026-06-02 14:13:36,limbuscompany.exe,1764,140,395,1,1228,3,3,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,3
+2026-08-01,2026-08-01 14:57:41,code.exe,1058,5,975,72,6,1,1,data preparation,code | app | dev | unknown | unknown | data preparation,11
+2026-08-06,2026-08-06 11:23:55,winword.exe,1898,0,1895,1,2,1,1,literature review,winword | app | office | unknown | unknown | literature review,2
+2026-07-23,2026-07-23 16:03:13,zen.exe,2279,13,66,1571,629,2,0,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,5
+2026-06-18,2026-06-18 08:59:46,excel.exe,2397,2379,0,7,11,0,0,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,6
+2026-06-01,2026-06-01 16:08:20,python.exe,2061,127,1586,192,156,1,1,training script,python | app | app | unknown | unknown | training script,7
+2026-06-20,2026-06-20 10:39:39,code.exe,1056,21,974,25,36,1,1,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,11
+2026-08-05,2026-08-05 16:40:07,zen.exe,1559,4,334,20,1201,3,3,recommended videos,zen | web browser | media | media | youtube | recommended videos,3
+2026-06-30,2026-06-30 19:25:08,code.exe,2496,83,1669,650,94,1,0,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,11
+2026-07-03,2026-07-03 10:52:16,zen.exe,1586,105,1127,38,316,1,1,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,9
+2026-07-11,2026-07-11 14:22:39,winword.exe,104,4,96,0,4,1,2,literature review,winword | app | office | unknown | unknown | literature review,4
+2026-08-26,2026-08-26 15:20:46,zen.exe,2404,15,414,283,1692,3,3,gaming community,zen | web browser | game | browser | unknown | gaming community,11
+2026-08-01,2026-08-01 16:40:18,zen.exe,2494,319,1905,97,173,1,1,Python documentation,zen | web browser | dev | dev | github | Python documentation,1
+2026-08-12,2026-08-12 20:44:56,zen.exe,203,8,148,44,3,1,1,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,9
+2026-08-25,2026-08-25 11:47:39,code.exe,2460,228,2146,20,66,1,1,debugging session,code | app | dev | unknown | unknown | debugging session,2
+2026-06-25,2026-06-25 11:29:36,code.exe,2191,208,1750,145,88,1,1,data preparation,code | app | dev | unknown | unknown | data preparation,10
+2026-07-20,2026-07-20 19:09:47,code.exe,1866,43,1373,371,79,1,1,data preparation,code | app | dev | unknown | unknown | data preparation,7
+2026-07-11,2026-07-11 14:13:12,python.exe,145,2,139,0,4,1,3,Python test run,python | app | app | unknown | unknown | Python test run,6
+2026-06-12,2026-06-12 15:23:43,winword.exe,2454,1,1825,594,34,1,1,project write-up,winword | app | office | unknown | unknown | project write-up,6
+2026-08-06,2026-08-06 15:12:14,zen.exe,1426,0,13,1345,68,2,2,group discussion,zen | web browser | communication | social | discord | group discussion,10
+2026-08-18,2026-08-18 11:01:41,powerpnt.exe,2268,2092,17,159,0,0,0,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,11
+2026-08-21,2026-08-21 11:31:57,zen.exe,794,3,696,88,7,1,3,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,10
+2026-08-26,2026-08-26 10:52:22,zen.exe,1430,119,1197,96,18,1,1,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,4
+2026-07-31,2026-07-31 15:25:42,excel.exe,2605,2408,51,73,73,0,0,training data review,excel | app | office | unknown | unknown | training data review,6
+2026-08-17,2026-08-17 19:31:10,winword.exe,978,312,647,9,10,1,1,Research report,winword | app | office | unknown | unknown | Research report,12
+2026-06-18,2026-06-18 17:34:47,winword.exe,1187,48,1040,17,82,1,1,Research report,winword | app | office | unknown | unknown | Research report,3
+2026-06-17,2026-06-17 16:40:59,zen.exe,1476,177,4,1,1294,3,1,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,8
+2026-07-06,2026-07-06 10:30:00,zen.exe,2611,563,131,28,1889,3,3,music video,zen | web browser | media | media | youtube | music video,11
+2026-06-24,2026-06-24 15:40:43,python.exe,462,19,382,47,14,1,1,data processing job,python | app | app | unknown | unknown | data processing job,3
+2026-08-04,2026-08-04 14:09:43,zen.exe,1487,189,1109,19,170,1,1,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,1
+2026-07-24,2026-07-24 10:09:59,limbuscompany.exe,1648,63,207,36,1342,3,3,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,1
+2026-08-14,2026-08-14 12:36:42,zen.exe,2066,379,1666,6,15,1,1,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,10
+2026-07-21,2026-07-21 19:14:01,code.exe,1590,24,1362,202,2,1,3,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,10
+2026-06-11,2026-06-11 18:19:48,zen.exe,832,21,3,88,720,3,3,recommended videos,zen | web browser | media | media | youtube | recommended videos,10
+2026-07-22,2026-07-22 12:21:41,zen.exe,198,3,171,15,9,1,0,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,7
+2026-08-17,2026-08-17 11:59:09,winword.exe,1772,22,1678,71,1,1,1,project write-up,winword | app | office | unknown | unknown | project write-up,9
+2026-06-06,2026-06-06 08:07:06,excel.exe,814,611,0,153,50,0,0,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,12
+2026-07-24,2026-07-24 16:39:54,excel.exe,816,805,4,6,1,0,0,training data review,excel | app | office | unknown | unknown | training data review,8
+2026-08-21,2026-08-21 18:50:27,slack.exe,1230,48,0,1125,57,2,2,project notifications,slack | app | communication | unknown | unknown | project notifications,3
+2026-07-29,2026-07-29 16:01:31,powerpnt.exe,2123,1739,256,15,113,0,0,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,7
+2026-08-21,2026-08-21 10:48:20,zen.exe,2450,1,52,751,1646,3,3,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,1
+2026-07-07,2026-07-07 17:05:09,zen.exe,2492,72,166,1784,470,2,2,group discussion,zen | web browser | communication | social | discord | group discussion,8
+2026-07-18,2026-07-18 11:28:47,zen.exe,1949,46,1725,140,38,1,1,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,8
+2026-07-31,2026-07-31 19:28:39,zen.exe,1260,16,43,13,1188,3,3,music video,zen | web browser | media | media | youtube | music video,6
+2026-06-11,2026-06-11 10:35:22,python.exe,1685,133,1512,14,26,1,3,data processing job,python | app | app | unknown | unknown | data processing job,4
+2026-07-03,2026-07-03 17:00:31,zen.exe,415,8,2,335,70,2,2,community notifications,zen | web browser | communication | social | discord | community notifications,9
+2026-06-05,2026-06-05 21:58:02,limbuscompany.exe,195,0,16,4,175,3,3,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,12
+2026-08-14,2026-08-14 15:15:08,zen.exe,1344,33,11,39,1261,3,2,gaming community,zen | web browser | game | browser | unknown | gaming community,8
+2026-08-08,2026-08-08 17:08:51,zen.exe,630,48,2,56,524,3,3,gaming community,zen | web browser | game | browser | unknown | gaming community,5
+2026-07-27,2026-07-27 11:44:01,zen.exe,2139,2,28,208,1901,3,3,music video,zen | web browser | media | media | youtube | music video,5
+2026-08-11,2026-08-11 09:22:01,zen.exe,2073,53,410,176,1434,3,1,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,6
+2026-08-07,2026-08-07 16:55:50,excel.exe,2076,2064,3,9,0,0,0,correction summary,excel | app | office | unknown | unknown | correction summary,5
+2026-06-09,2026-06-09 13:26:39,winword.exe,167,3,131,5,28,1,1,Research report,winword | app | office | unknown | unknown | Research report,4
+2026-09-01,2026-09-01 12:26:26,zen.exe,246,28,87,96,35,2,2,(9) Instagram — Zen Browser,zen | web browser | app | social | instagram | (9) Instagram — Zen Browser,1
+2026-09-01,2026-09-01 12:26:26,winword.exe,14,0,14,0,0,1,1,BeeAware_Data_Mining_Dataset_Proposal.docx  -  Last saved by user  -  Compatibility Mode - Word,winword | app | office | unknown | unknown | BeeAware_Data_Mining_Dataset_Proposal.docx  -  Last saved by user  -  Compatibility Mode - Word,2
+2026-09-01,2026-09-01 12:26:26,voicemeeterpro_x64.exe,6,0,6,0,0,1,1,Voicemeeter Banana,voicemeeterpro_x64 | app | communication | unknown | unknown | Voicemeeter Banana,3
+2026-09-01,2026-09-01 12:26:26,excel.exe,4,4,0,0,0,0,0,diabetes_risk_prediction_dataset.xlsx  -  Protected View - Excel,excel | app | office | unknown | unknown | diabetes_risk_prediction_dataset.xlsx  -  Protected View - Excel,4
+2026-09-01,2026-09-01 12:26:26,screenclippinghost.exe,3,0,0,1,2,3,3,[Clouded Revelation] Version 2.1 Update Overview -- Where Winds Meet NGP - skymargate@gmail.com - Gmail — Zen Browser,screenclippinghost | app | communication | unknown | unknown | [Clouded Revelation] Version 2.1 Update Overview -- Where Winds Meet NGP - skymargate@gmail.com - Gmail — Zen Browser,5
+2026-09-01,2026-09-01 12:26:26,applicationframehost.exe,3,0,3,0,0,1,1,Snip & Sketch,applicationframehost | app | app | unknown | unknown | Snip & Sketch,6
+2026-09-01,2026-09-01 12:26:26,code.exe,2,0,2,0,0,1,1,main.py - MachineLearninng - Visual Studio Code,code | app | dev | unknown | unknown | main.py - MachineLearninng - Visual Studio Code,7
+2026-09-01,2026-09-01 12:26:26,shellexperiencehost.exe,1,0,0,0,1,3,3,Did you just log in near Davao City on a new device? - skymargate@gmail.com - Gmail — Zen Browser,shellexperiencehost | app | communication | unknown | unknown | Did you just log in near Davao City on a new device? - skymargate@gmail.com - Gmail — Zen Browser,8
+2026-09-01,2026-09-01 12:40:34,code.exe,501,0,501,0,0,1,1,beeaware_daily_log.csv - MachineLearninng - Visual Studio Code,code | app | dev | unknown | unknown | beeaware_daily_log.csv - MachineLearninng - Visual Studio Code,1
+2026-09-01,2026-09-01 12:40:34,zen.exe,291,6,83,184,18,2,2,Group yourselves into 3 | Messenger — Zen Browser,zen | web browser | app | browser | unknown | Group yourselves into 3 | Messenger — Zen Browser,2
+2026-09-01,2026-09-01 12:40:34,voicemeeterpro_x64.exe,4,0,4,0,0,1,1,Voicemeeter Banana,voicemeeterpro_x64 | app | communication | unknown | unknown | Voicemeeter Banana,3
+2026-09-01,2026-09-01 12:40:34,screenclippinghost.exe,2,0,0,2,0,2,2,Ready: High-Impact Business Writing - skymargate@gmail.com - Gmail — Zen Browser,screenclippinghost | app | communication | unknown | unknown | Ready: High-Impact Business Writing - skymargate@gmail.com - Gmail — Zen Browser,4
+2026-09-01,2026-09-01 12:40:34,excel.exe,1,1,0,0,0,0,0,diabetes_risk_prediction_dataset.xlsx  -  Protected View - Excel,excel | app | office | unknown | unknown | diabetes_risk_prediction_dataset.xlsx  -  Protected View - Excel,5
+2026-09-01,2026-09-01 14:48:09,code.exe,410,0,410,0,0,1,1,beeaware_corrections.csv - MachineLearninng - Visual Studio Code,code | app | dev | unknown | unknown | beeaware_corrections.csv - MachineLearninng - Visual Studio Code,1
+2026-09-01,2026-09-01 14:48:09,powerpnt.exe,288,288,0,0,0,0,0,BeeAware_DataMining_Proposal_Deck.pptx - PowerPoint,powerpnt | app | office | unknown | unknown | BeeAware_DataMining_Proposal_Deck.pptx - PowerPoint,2
+2026-09-01,2026-09-01 14:48:09,zen.exe,156,10,23,123,0,2,2,🚨 LAZADA 12.12 SAME DAY SAMGYUPSAL DELIVERY 🚨 | Messenger — Zen Browser,zen | web browser | app | browser | unknown | 🚨 LAZADA 12.12 SAME DAY SAMGYUPSAL DELIVERY 🚨 | Messenger — Zen Browser,3
+2026-09-01,2026-09-01 14:48:09,ms-teams.exe,27,0,27,0,0,1,1,DATA MINING RESEARCH PROPOSAL | Microsoft Teams,ms-teams | app | communication | unknown | unknown | DATA MINING RESEARCH PROPOSAL | Microsoft Teams,4
+2026-09-01,2026-09-01 14:48:09,applicationframehost.exe,5,0,5,0,0,1,1,Calculator,applicationframehost | app | app | unknown | unknown | Calculator,5
+2026-09-01,2026-09-01 14:48:09,winword.exe,1,0,1,0,0,1,1,BeeAware_Data_Mining_Dataset_Proposal.docx  -  Last saved by user  -  Compatibility Mode - Word,winword | app | office | unknown | unknown | BeeAware_Data_Mining_Dataset_Proposal.docx  -  Last saved by user  -  Compatibility Mode - Word,6
+2026-09-01,2026-09-01 14:48:09,searchapp.exe,1,0,0,0,1,3,3,beeaware_corrections.csv - MachineLearninng - Visual Studio Code,searchapp | app | dev | unknown | unknown | beeaware_corrections.csv - MachineLearninng - Visual Studio Code,7
+2026-09-01,2026-09-01 14:48:09,screenclippinghost.exe,1,0,1,0,0,1,1,pizza fire burning mmeme - Google Search — Zen Browser,screenclippinghost | app | app | unknown | unknown | pizza fire burning mmeme - Google Search — Zen Browser,8

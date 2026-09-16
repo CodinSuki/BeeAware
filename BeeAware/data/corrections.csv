@@ -33,3 +33,29 @@ timestamp,exe_name,window_title,original_verdict,corrected_label,corrected_quadr
 2026-06-18 19:37:45,limbuscompany.exe,LimbusCompany,Q2: GROWTH,3,Q4: PLAY
 2026-06-18 19:44:15,code.exe,main.py - MachineLearninng - Visual Studio Code,Q4: PLAY,1,Q2: GROWTH
 2026-06-18 19:52:50,powerpnt.exe,BeeAware_PitchDeck - PowerPoint,Q4: PLAY,0,Q1: URGENT
+2026-08-26 01:58:42,zen.exe,Rich Nigords Association | Messenger — Zen Browser,Q2: GROWTH,2,Q3: NOISE
+2026-08-26 15:57:35,winword.exe,BeeAware_Data_Mining_Dataset_Proposal.docx  -  Compatibility Mode - Word,Q4: PLAY,1,Q2: GROWTH
+2026-08-26 15:58:24,ms-teams.exe,"Meeting in ""General"" | Microsoft Teams",Q3: NOISE,1,Q2: GROWTH
+2026-09-01 12:21:28,system,Desktop,IDLE / SYSTEM,2,Q3: NOISE
+2026-09-01 12:21:48,zen.exe,dye trader likes terraria - Google Search — Zen Browser,Q1: URGENT,3,Q4: PLAY
+2026-09-01 12:21:53,python.exe,BeeAware | Live Productivity Engine,IDLE / SYSTEM,3,Q4: PLAY
+2026-09-01 12:21:58,zen.exe,early game farms terraria 1.4.5 - Google Search — Zen Browser,Q1: URGENT,3,Q4: PLAY
+2026-09-01 12:22:55,python.exe,BeeAware | Live Productivity Engine,IDLE / SYSTEM,0,Q1: URGENT
+2026-09-01 12:23:38,zen.exe,[GitHub] Please verify your device - skymargate@gmail.com - Gmail — Zen Browser,Q4: PLAY,0,Q1: URGENT
+2026-09-01 12:24:03,zen.exe,ANNOUNCEMENT | Official Registration Now Open: UKFP Manila Shinsa October 2026 - skymargate@gmail.com - Gmail — Zen Browser,Q3: NOISE,0,Q1: URGENT
+2026-09-01 12:24:10,zen.exe,ANNOUNCEMENT | Opening of Registration – 8th Philippine National Kendo Tournament (8th PNKT) - skymargate@gmail.com - Gmail — Zen Browser,Q3: NOISE,0,Q1: URGENT
+2026-09-01 12:24:15,zen.exe,⚠️ Your Gmail storage is 93% full - skymargate@gmail.com - Gmail — Zen Browser,Q3: NOISE,0,Q1: URGENT
+2026-09-01 12:24:19,zen.exe,Aldrhei John Dela Cruz and others share their thoughts on LinkedIn - skymargate@gmail.com - Gmail — Zen Browser,Q3: NOISE,1,Q2: GROWTH
+2026-09-01 12:24:50,zen.exe,Daisy Solomon and others share their thoughts on LinkedIn - skymargate@gmail.com - Gmail — Zen Browser,Q3: NOISE,0,Q1: URGENT
+2026-09-01 12:32:41,zen.exe,Have Minecraft Horror Mods Gotten Better? - YouTube — Zen Browser,Q3: NOISE,3,Q4: PLAY
+2026-09-01 12:33:14,zen.exe,FREE CCNA // What is a Network? // Day 0 - YouTube — Zen Browser,Q4: PLAY,1,Q2: GROWTH
+2026-09-01 12:33:21,zen.exe,What is a SWITCH? // FREE CCNA // Day 1 - YouTube — Zen Browser,Q4: PLAY,1,Q2: GROWTH
+2026-09-01 12:33:27,zen.exe,What is a ROUTER? // FREE CCNA // EP 2 - YouTube — Zen Browser,Q3: NOISE,1,Q2: GROWTH
+2026-09-01 12:33:34,zen.exe,what is TCP/IP and OSI? // FREE CCNA // EP 3 - YouTube — Zen Browser,Q3: NOISE,1,Q2: GROWTH
+2026-09-01 12:33:41,zen.exe,REAL LIFE example!! (TCP/IP and OSI layers) // FREE CCNA // EP 4 - YouTube — Zen Browser,Q4: PLAY,1,Q2: GROWTH
+2026-09-01 12:34:04,zen.exe,Every Network Protocol Explained in 18 Minutes - YouTube — Zen Browser,Q3: NOISE,1,Q2: GROWTH
+2026-09-01 12:34:12,zen.exe,Every Network Device Explained in 13 Minutes! - YouTube — Zen Browser,Q3: NOISE,1,Q2: GROWTH
+2026-09-01 12:34:34,zen.exe,Intro to Computer Networking! - YouTube — Zen Browser,Q3: NOISE,1,Q2: GROWTH
+2026-09-16 08:32:30,zen.exe,"Think Fast, Talk Smart: Communication Techniques - YouTube — Zen Browser",Q3: NOISE,1,Q2: GROWTH
+2026-09-16 08:34:11,zen.exe,Group yourselves into 3 | Messenger — Zen Browser,Q3: NOISE,2,Q3: NOISE
+2026-09-16 08:34:20,zen.exe,Group yourselves into 3 | Messenger — Zen Browser,Q3: NOISE (Override),1,Q2: GROWTH

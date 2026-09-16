@@ -1,0 +1,543 @@
+timestamp,window_title,feature_text,predicted_q,corrected_q
+2026-06-01 07:09:21,BeeAware_Sprint8.docx - Word,winword | app | office | unknown | unknown | BeeAware_Sprint8.docx - Word,3,1
+2026-06-01 07:09:27,BeeAware_Sprint8.docx - Word,winword | app | office | unknown | unknown | BeeAware_Sprint8.docx - Word,3,1
+2026-06-01 07:13:24,BeeAware_Sprint8.docx - Word,winword | app | office | unknown | unknown | BeeAware_Sprint8.docx - Word,3,1
+2026-06-01 07:57:00,(1) Blair | Play on Roblox — Zen Browser,zen | web browser | game | browser | unknown | (1) Blair | Play on Roblox — Zen Browser,2,3
+2026-06-01 07:57:21,AS Margate | Messenger — Zen Browser,zen | web browser | app | browser | unknown | AS Margate | Messenger — Zen Browser,3,2
+2026-06-01 08:11:55,Sprint 8 deliverable and Beeware app - Claude — Zen Browser,zen | web browser | app | browser | unknown | Sprint 8 deliverable and Beeware app - Claude — Zen Browser,1,1
+2026-06-01 08:12:13,(4) Discord | #💟︱waifu | Hotel Barriga 2.0 — Zen Browser,zen | web browser | communication | social | discord | (4) Discord | #💟︱waifu | Hotel Barriga 2.0 — Zen Browser,1,2
+2026-06-01 08:12:37,Institution Page — Zen Browser,zen | web browser | app | browser | unknown | Institution Page — Zen Browser,2,1
+2026-06-01 08:12:43,"Mairimashita Iruma-Kun, Chapter 380 - Mairimashita Iruma-Kun Manga Online — Zen Browser","zen | web browser | app | browser | unknown | Mairimashita Iruma-Kun, Chapter 380 - Mairimashita Iruma-Kun Manga Online — Zen Browser",1,2
+2026-06-01 08:15:34,Assessment Feedback — Zen Browser,zen | web browser | app | browser | unknown | Assessment Feedback — Zen Browser,2,1
+2026-06-01 09:01:46,Beeware | Live Productivity Engine,python | app | app | unknown | unknown | Beeware | Live Productivity Engine,1,1
+2026-06-01 09:01:54,beeware_daily_log.csv - MachineLearninng - Visual Studio Code,code | app | dev | unknown | unknown | beeware_daily_log.csv - MachineLearninng - Visual Studio Code,1,1
+2026-06-09 16:05:29,BeeAware | Live Productivity Engine,python | app | app | unknown | unknown | BeeAware | Live Productivity Engine,1,0
+2026-06-09 16:13:39,floating_bar.py - MachineLearninng - Visual Studio Code,code | app | dev | unknown | unknown | floating_bar.py - MachineLearninng - Visual Studio Code,3,1
+2026-06-18 19:33:40,Vanoss is the MECCHA CHAMELEON - YouTube — Zen Browser,zen | web browser | media | media | youtube | Vanoss is the MECCHA CHAMELEON - YouTube — Zen Browser,2,3
+2026-06-18 19:37:45,LimbusCompany,limbuscompany | app | app | unknown | unknown | LimbusCompany,1,3
+2026-06-18 19:44:15,main.py - MachineLearninng - Visual Studio Code,code | app | dev | unknown | unknown | main.py - MachineLearninng - Visual Studio Code,3,1
+2026-06-18 19:52:50,BeeAware_PitchDeck - PowerPoint,powerpnt | app | office | unknown | unknown | BeeAware_PitchDeck - PowerPoint,3,0
+2026-08-26 01:58:42,Rich Nigords Association | Messenger — Zen Browser,zen | web browser | app | browser | unknown | Rich Nigords Association | Messenger — Zen Browser,1,2
+timestamp,window_title,feature_text,predicted_q,corrected_q
+2026-06-10 15:09:32,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,0,2
+2026-06-23 10:55:02,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,1,3
+2026-08-12 13:14:53,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,2,0
+2026-08-18 17:49:34,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,1,2
+2026-08-08 11:34:48,course group chat,slack | app | communication | unknown | unknown | course group chat,2,2
+2026-08-07 14:23:52,Python documentation,zen | web browser | dev | dev | github | Python documentation,2,1
+2026-06-22 16:15:28,training data review,excel | app | office | unknown | unknown | training data review,0,0
+2026-07-29 10:25:36,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,1,1
+2026-07-17 16:27:14,assignment draft,winword | app | office | unknown | unknown | assignment draft,1,1
+2026-07-23 17:30:19,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,2,2
+2026-06-01 14:45:29,model evaluation,code | app | dev | unknown | unknown | model evaluation,1,1
+2026-06-03 16:49:26,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,0,0
+2026-07-04 19:07:32,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,0,1
+2026-07-30 11:28:35,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,1,1
+2026-08-10 16:23:41,training data review,excel | app | office | unknown | unknown | training data review,0,0
+2026-06-03 17:06:57,LimbusCompany update,limbuscompany | app | game | unknown | unknown | LimbusCompany update,3,3
+2026-07-21 13:21:51,training script,python | app | app | unknown | unknown | training script,3,1
+2026-08-03 11:34:06,stand-up messages,slack | app | communication | unknown | unknown | stand-up messages,2,2
+2026-07-06 10:18:06,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,0,0
+2026-06-18 14:14:15,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,1,1
+2026-06-19 14:57:28,debugging session,code | app | dev | unknown | unknown | debugging session,3,1
+2026-08-05 16:05:47,stand-up messages,slack | app | communication | unknown | unknown | stand-up messages,2,2
+2026-07-04 10:58:54,model evaluation,code | app | dev | unknown | unknown | model evaluation,3,1
+2026-06-16 11:43:38,project notifications,slack | app | communication | unknown | unknown | project notifications,2,2
+2026-06-10 11:19:15,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,0,0
+2026-07-18 15:55:43,stand-up messages,slack | app | communication | unknown | unknown | stand-up messages,2,2
+2026-07-30 19:04:10,project pitch deck,powerpnt | app | office | unknown | unknown | project pitch deck,1,0
+2026-06-12 11:10:20,music video,zen | web browser | media | media | youtube | music video,3,3
+2026-07-25 09:37:07,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,2,3
+2026-06-09 16:58:57,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,0,2
+2026-08-08 10:39:43,stand-up messages,slack | app | communication | unknown | unknown | stand-up messages,1,2
+2026-06-20 18:16:35,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,3,3
+2026-07-22 10:40:50,gaming community,zen | web browser | game | browser | unknown | gaming community,1,3
+2026-08-05 10:51:49,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,1,0
+2026-06-02 09:50:02,Roblox experience,zen | web browser | game | browser | unknown | Roblox experience,3,3
+2026-07-25 09:49:41,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,2,2
+2026-07-30 15:55:59,training script,python | app | app | unknown | unknown | training script,1,1
+2026-08-15 11:51:45,Python documentation,zen | web browser | dev | dev | github | Python documentation,3,1
+2026-08-22 11:23:32,literature review,winword | app | office | unknown | unknown | literature review,1,1
+2026-06-09 15:47:38,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,2,2
+2026-08-12 09:17:54,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,1,1
+2026-07-21 17:26:52,game session,limbuscompany | app | game | unknown | unknown | game session,3,3
+2026-06-16 16:39:29,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,0,0
+2026-07-11 19:39:51,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,1,1
+2026-07-24 17:38:41,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,1,2
+2026-06-15 15:15:20,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,1,1
+2026-06-25 17:01:25,Online game session,zen | web browser | game | browser | unknown | Online game session,3,3
+2026-08-15 13:27:28,game session,limbuscompany | app | game | unknown | unknown | game session,1,3
+2026-08-11 13:29:31,debugging session,code | app | dev | unknown | unknown | debugging session,1,1
+2026-06-25 12:39:33,course group chat,slack | app | communication | unknown | unknown | course group chat,2,2
+2026-07-24 13:42:26,game guide,zen | web browser | game | browser | unknown | game guide,3,3
+2026-07-15 10:37:09,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,3,3
+2026-08-04 15:52:38,data preparation,code | app | dev | unknown | unknown | data preparation,1,1
+2026-07-14 14:06:26,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,1,1
+2026-07-10 19:25:26,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,2,2
+2026-07-30 15:33:11,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,1,1
+2026-08-24 11:17:32,Research report,winword | app | office | unknown | unknown | Research report,1,1
+2026-06-25 10:43:34,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,0,0
+2026-07-07 15:52:17,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,2,1
+2026-07-04 13:37:27,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,1,1
+2026-07-20 16:05:49,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,1,1
+2026-08-08 18:51:22,Online game session,zen | web browser | game | browser | unknown | Online game session,3,3
+2026-06-01 17:25:06,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,1,1
+2026-06-29 13:12:35,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,0,0
+2026-08-19 19:07:52,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,1,1
+2026-06-18 12:33:00,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,3,3
+2026-07-16 13:44:36,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,0,2
+2026-08-11 10:49:51,correction summary,excel | app | office | unknown | unknown | correction summary,0,0
+2026-06-30 09:10:50,project notifications,slack | app | communication | unknown | unknown | project notifications,0,2
+2026-06-11 14:02:14,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,0,1
+2026-08-11 19:54:30,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,1,1
+2026-07-22 09:28:09,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,0,2
+2026-08-18 14:03:57,debugging session,code | app | dev | unknown | unknown | debugging session,1,1
+2026-07-15 08:54:06,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,3,3
+2026-06-06 19:31:25,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,1,1
+2026-08-21 17:26:59,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,0,0
+2026-08-10 13:14:44,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,1,1
+2026-06-11 08:08:43,data processing job,python | app | app | unknown | unknown | data processing job,3,1
+2026-06-05 10:37:56,community notifications,zen | web browser | communication | social | discord | community notifications,2,2
+2026-08-24 10:24:52,correction summary,excel | app | office | unknown | unknown | correction summary,0,0
+2026-06-30 13:20:03,course group chat,slack | app | communication | unknown | unknown | course group chat,2,2
+2026-07-27 15:27:57,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,0,0
+2026-08-19 15:49:33,music video,zen | web browser | media | media | youtube | music video,3,3
+2026-07-24 17:02:24,project write-up,winword | app | office | unknown | unknown | project write-up,1,1
+2026-08-21 16:47:59,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,0,0
+2026-06-13 14:04:55,Research report,winword | app | office | unknown | unknown | Research report,3,1
+2026-07-20 16:40:16,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,2,3
+2026-08-25 10:18:35,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,3,3
+2026-07-31 15:46:11,assignment draft,winword | app | office | unknown | unknown | assignment draft,1,1
+2026-08-13 16:40:53,scikit-learn guide,zen | web browser | dev | dev | github | scikit-learn guide,1,1
+2026-06-20 10:10:29,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,0,0
+2026-07-15 17:33:09,game session,limbuscompany | app | game | unknown | unknown | game session,3,3
+2026-07-21 15:22:23,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,0,0
+2026-06-06 17:27:10,assignment draft,winword | app | office | unknown | unknown | assignment draft,2,1
+2026-08-26 14:51:06,Python test run,python | app | app | unknown | unknown | Python test run,1,1
+2026-06-13 14:41:04,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,0,0
+2026-07-17 11:18:08,model evaluation,code | app | dev | unknown | unknown | model evaluation,3,1
+2026-08-10 09:56:30,Research report,winword | app | office | unknown | unknown | Research report,3,1
+2026-07-22 14:04:47,course group chat,slack | app | communication | unknown | unknown | course group chat,2,2
+2026-06-02 11:42:40,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,3,3
+2026-08-05 10:14:38,gaming community,zen | web browser | game | browser | unknown | gaming community,3,3
+2026-07-10 20:33:26,correction summary,excel | app | office | unknown | unknown | correction summary,2,0
+2026-06-12 13:39:27,Roblox experience,zen | web browser | game | browser | unknown | Roblox experience,1,3
+2026-07-13 09:57:56,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,3,3
+2026-06-06 10:21:20,course group chat,slack | app | communication | unknown | unknown | course group chat,2,2
+2026-06-12 15:09:40,project write-up,winword | app | office | unknown | unknown | project write-up,1,1
+2026-06-03 09:47:55,Research report,winword | app | office | unknown | unknown | Research report,1,1
+2026-08-11 18:39:26,stand-up messages,slack | app | communication | unknown | unknown | stand-up messages,2,2
+2026-07-01 11:42:37,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,1,1
+2026-06-25 17:20:42,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,3,3
+2026-06-01 09:50:27,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,1,1
+2026-08-10 10:51:48,community notifications,zen | web browser | communication | social | discord | community notifications,2,2
+2026-08-22 14:45:52,LimbusCompany update,limbuscompany | app | game | unknown | unknown | LimbusCompany update,3,3
+2026-07-20 14:58:43,Python test run,python | app | app | unknown | unknown | Python test run,1,1
+2026-06-24 10:10:01,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,3,3
+2026-06-12 10:47:45,gaming community,zen | web browser | game | browser | unknown | gaming community,3,3
+2026-07-23 10:20:23,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,1,1
+2026-07-10 12:37:21,community notifications,zen | web browser | communication | social | discord | community notifications,2,2
+2026-08-13 09:10:46,game session,limbuscompany | app | game | unknown | unknown | game session,3,3
+2026-07-27 18:37:58,Python test run,python | app | app | unknown | unknown | Python test run,1,1
+2026-06-11 13:28:46,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,0,0
+2026-07-13 10:33:49,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,1,1
+2026-08-13 09:05:37,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,2,2
+2026-07-31 10:00:48,course group chat,slack | app | communication | unknown | unknown | course group chat,2,2
+2026-06-04 14:07:34,Online game session,zen | web browser | game | browser | unknown | Online game session,3,3
+2026-08-04 15:00:51,scikit-learn guide,zen | web browser | dev | dev | github | scikit-learn guide,2,1
+2026-08-12 15:42:33,group discussion,zen | web browser | communication | social | discord | group discussion,2,2
+2026-07-03 10:44:53,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,1,1
+2026-06-19 14:31:42,game session,limbuscompany | app | game | unknown | unknown | game session,3,3
+2026-07-24 08:16:42,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,2,2
+2026-08-14 13:27:40,debugging session,code | app | dev | unknown | unknown | debugging session,1,1
+2026-08-24 17:14:33,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,1,1
+2026-07-17 10:57:07,music video,zen | web browser | media | media | youtube | music video,3,3
+2026-08-17 10:01:55,music video,zen | web browser | media | media | youtube | music video,3,3
+2026-07-30 10:57:34,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,2,2
+2026-07-18 09:11:54,model evaluation,code | app | dev | unknown | unknown | model evaluation,0,1
+2026-07-07 14:27:19,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,0,0
+2026-08-06 15:27:05,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,3,3
+2026-08-21 14:28:15,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,3,1
+2026-06-06 10:17:52,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,3,2
+2026-08-15 17:47:23,project notifications,slack | app | communication | unknown | unknown | project notifications,2,2
+2026-07-20 10:19:10,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,2,2
+2026-06-13 11:16:32,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,3,0
+2026-07-23 14:22:03,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,3,3
+2026-07-17 20:54:57,Online game session,zen | web browser | game | browser | unknown | Online game session,3,3
+2026-07-20 10:06:06,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,3,2
+2026-06-01 11:01:37,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,0,0
+2026-06-17 12:05:58,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,0,2
+2026-07-06 11:38:58,recommended videos,zen | web browser | media | media | youtube | recommended videos,3,3
+2026-07-27 14:23:18,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,1,1
+2026-06-10 11:38:46,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,0,0
+2026-08-14 11:22:37,project pitch deck,powerpnt | app | office | unknown | unknown | project pitch deck,0,0
+2026-07-22 21:22:32,course group chat,slack | app | communication | unknown | unknown | course group chat,2,2
+2026-07-28 18:13:20,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,0,0
+2026-06-01 11:25:19,training data review,excel | app | office | unknown | unknown | training data review,0,0
+2026-07-15 10:35:24,correction summary,excel | app | office | unknown | unknown | correction summary,0,0
+2026-08-08 09:33:47,game session,limbuscompany | app | game | unknown | unknown | game session,1,3
+2026-08-26 18:26:07,data processing job,python | app | app | unknown | unknown | data processing job,1,1
+2026-07-18 14:02:28,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,0,0
+2026-07-16 15:22:07,game session,limbuscompany | app | game | unknown | unknown | game session,3,3
+2026-08-25 08:40:11,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,0,0
+2026-08-22 15:45:12,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,2,3
+2026-07-15 13:50:39,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,1,1
+2026-08-12 15:43:28,recommended videos,zen | web browser | media | media | youtube | recommended videos,3,3
+2026-06-29 10:35:23,scikit-learn guide,zen | web browser | dev | dev | github | scikit-learn guide,1,1
+2026-07-07 11:08:41,Python test run,python | app | app | unknown | unknown | Python test run,1,1
+2026-06-06 15:52:15,project notifications,slack | app | communication | unknown | unknown | project notifications,2,2
+2026-08-14 10:56:02,project notifications,slack | app | communication | unknown | unknown | project notifications,2,2
+2026-08-04 14:43:49,model evaluation,code | app | dev | unknown | unknown | model evaluation,1,1
+2026-06-05 18:09:16,model evaluation,code | app | dev | unknown | unknown | model evaluation,1,1
+2026-06-17 10:53:20,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,3,1
+2026-06-26 15:01:10,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,0,0
+2026-06-05 17:18:44,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,3,3
+2026-06-04 13:17:44,game guide,zen | web browser | game | browser | unknown | game guide,1,3
+2026-08-19 17:10:27,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,1,1
+2026-07-10 14:31:13,training data review,excel | app | office | unknown | unknown | training data review,0,0
+2026-06-13 18:17:44,debugging session,code | app | dev | unknown | unknown | debugging session,1,1
+2026-06-12 14:03:47,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,1,1
+2026-07-06 09:31:24,debugging session,code | app | dev | unknown | unknown | debugging session,3,1
+2026-06-22 14:30:02,training script,python | app | app | unknown | unknown | training script,1,1
+2026-06-27 16:38:57,Python test run,python | app | app | unknown | unknown | Python test run,1,1
+2026-06-11 09:03:34,data preparation,code | app | dev | unknown | unknown | data preparation,2,1
+2026-08-17 11:39:00,project notifications,slack | app | communication | unknown | unknown | project notifications,2,2
+2026-06-25 17:30:18,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,0,0
+2026-07-20 13:12:14,scikit-learn guide,zen | web browser | dev | dev | github | scikit-learn guide,1,1
+2026-07-09 08:55:50,Online game session,zen | web browser | game | browser | unknown | Online game session,1,3
+2026-07-17 12:26:30,training script,python | app | app | unknown | unknown | training script,1,1
+2026-06-17 15:39:35,Python test run,python | app | app | unknown | unknown | Python test run,1,1
+2026-08-15 18:57:08,gaming community,zen | web browser | game | browser | unknown | gaming community,3,3
+2026-08-20 11:05:51,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,1,1
+2026-06-08 12:59:59,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,3,3
+2026-07-27 14:02:22,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,1,1
+2026-08-15 20:54:20,data processing job,python | app | app | unknown | unknown | data processing job,0,1
+2026-07-25 17:25:48,Online game session,zen | web browser | game | browser | unknown | Online game session,3,3
+2026-06-02 17:20:08,project pitch deck,powerpnt | app | office | unknown | unknown | project pitch deck,0,0
+2026-07-10 18:26:13,assignment draft,winword | app | office | unknown | unknown | assignment draft,1,1
+2026-08-24 13:28:54,training script,python | app | app | unknown | unknown | training script,1,1
+2026-08-08 10:28:03,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,1,1
+2026-08-21 14:15:29,recommended videos,zen | web browser | media | media | youtube | recommended videos,3,3
+2026-06-09 13:25:33,Python documentation,zen | web browser | dev | dev | github | Python documentation,1,1
+2026-08-26 14:25:29,data processing job,python | app | app | unknown | unknown | data processing job,1,1
+2026-07-11 21:09:41,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,3,3
+2026-07-27 10:47:54,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,0,0
+2026-06-17 17:49:56,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,3,3
+2026-08-17 13:36:55,Roblox experience,zen | web browser | game | browser | unknown | Roblox experience,3,3
+2026-07-18 19:54:39,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,1,1
+2026-08-12 14:13:55,project notifications,slack | app | communication | unknown | unknown | project notifications,3,2
+2026-06-29 10:43:58,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,0,2
+2026-07-15 20:23:06,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,0,0
+2026-08-18 18:04:45,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,0,2
+2026-08-22 09:37:38,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,2,1
+2026-07-28 16:19:39,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,1,1
+2026-06-18 15:09:11,project notifications,slack | app | communication | unknown | unknown | project notifications,0,2
+2026-06-24 18:48:06,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,3,3
+2026-07-27 14:02:57,project write-up,winword | app | office | unknown | unknown | project write-up,0,1
+2026-06-17 10:43:23,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,0,3
+2026-06-18 18:45:49,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,1,1
+2026-06-11 10:19:00,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,0,0
+2026-07-08 20:51:33,model evaluation,code | app | dev | unknown | unknown | model evaluation,1,1
+2026-08-26 17:57:55,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,1,1
+2026-07-06 14:42:33,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,1,0
+2026-06-20 10:09:59,scikit-learn guide,zen | web browser | dev | dev | github | scikit-learn guide,1,1
+2026-08-04 21:40:32,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,3,3
+2026-08-08 15:57:02,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,0,0
+2026-08-22 15:40:59,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,3,1
+2026-08-19 13:25:57,scikit-learn guide,zen | web browser | dev | dev | github | scikit-learn guide,1,1
+2026-07-15 15:14:48,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,3,1
+2026-06-19 10:14:12,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,2,1
+2026-08-03 10:27:18,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,1,1
+2026-08-18 15:19:55,recommended videos,zen | web browser | media | media | youtube | recommended videos,3,3
+2026-08-17 08:14:44,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,3,3
+2026-08-06 17:32:17,Python test run,python | app | app | unknown | unknown | Python test run,1,1
+2026-07-24 10:39:41,literature review,winword | app | office | unknown | unknown | literature review,1,1
+2026-08-20 15:57:36,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,0,0
+2026-08-01 19:22:10,data processing job,python | app | app | unknown | unknown | data processing job,1,1
+2026-08-22 13:40:13,training script,python | app | app | unknown | unknown | training script,3,1
+2026-08-25 14:13:59,data preparation,code | app | dev | unknown | unknown | data preparation,1,1
+2026-06-27 16:31:25,Python test run,python | app | app | unknown | unknown | Python test run,2,1
+2026-07-02 11:30:35,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,3,3
+2026-08-24 11:12:26,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,3,3
+2026-07-16 17:56:48,game guide,zen | web browser | game | browser | unknown | game guide,3,3
+2026-07-17 16:51:35,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,1,1
+2026-07-31 13:09:57,course group chat,slack | app | communication | unknown | unknown | course group chat,2,2
+2026-07-04 11:17:09,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,0,0
+2026-08-12 16:25:21,data processing job,python | app | app | unknown | unknown | data processing job,3,1
+2026-08-05 14:50:59,training data review,excel | app | office | unknown | unknown | training data review,0,0
+2026-07-13 15:09:00,literature review,winword | app | office | unknown | unknown | literature review,1,1
+2026-08-24 17:24:50,literature review,winword | app | office | unknown | unknown | literature review,2,1
+2026-07-11 18:46:30,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,0,0
+2026-06-24 11:53:04,course group chat,slack | app | communication | unknown | unknown | course group chat,2,2
+2026-07-30 10:05:01,community notifications,zen | web browser | communication | social | discord | community notifications,2,2
+2026-07-29 14:33:03,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,0,3
+2026-08-26 14:49:06,data processing job,python | app | app | unknown | unknown | data processing job,1,1
+2026-07-16 09:30:14,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,3,3
+2026-06-29 17:30:33,model evaluation,code | app | dev | unknown | unknown | model evaluation,1,1
+2026-06-16 13:18:50,Python test run,python | app | app | unknown | unknown | Python test run,3,1
+2026-08-18 17:04:24,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,1,1
+2026-07-01 10:13:07,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,0,0
+2026-07-07 12:37:49,game session,limbuscompany | app | game | unknown | unknown | game session,3,3
+2026-06-18 09:02:14,Roblox experience,zen | web browser | game | browser | unknown | Roblox experience,3,3
+2026-06-13 16:51:00,Python documentation,zen | web browser | dev | dev | github | Python documentation,1,1
+2026-06-23 16:10:23,Python documentation,zen | web browser | dev | dev | github | Python documentation,1,1
+2026-07-07 10:04:41,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,3,3
+2026-06-12 19:43:23,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,3,3
+2026-07-03 15:43:46,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,1,1
+2026-06-01 16:13:04,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,3,3
+2026-06-15 17:27:00,project notifications,slack | app | communication | unknown | unknown | project notifications,2,2
+2026-08-11 17:45:13,recommended videos,zen | web browser | media | media | youtube | recommended videos,3,3
+2026-08-08 17:24:03,data processing job,python | app | app | unknown | unknown | data processing job,1,1
+2026-07-16 10:21:15,training data review,excel | app | office | unknown | unknown | training data review,0,0
+2026-08-26 15:19:07,gaming community,zen | web browser | game | browser | unknown | gaming community,3,3
+2026-07-06 14:53:22,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,0,0
+2026-06-17 20:20:09,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,2,1
+2026-06-16 15:08:01,Research report,winword | app | office | unknown | unknown | Research report,1,1
+2026-06-02 17:06:36,community notifications,zen | web browser | communication | social | discord | community notifications,2,2
+2026-06-22 11:42:00,group discussion,zen | web browser | communication | social | discord | group discussion,2,2
+2026-08-03 10:36:32,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,0,2
+2026-08-18 14:50:22,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,3,1
+2026-08-05 14:04:22,literature review,winword | app | office | unknown | unknown | literature review,1,1
+2026-07-23 09:28:42,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,2,2
+2026-08-19 18:36:30,game guide,zen | web browser | game | browser | unknown | game guide,3,3
+2026-08-03 13:37:21,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,1,1
+2026-08-22 11:30:45,assignment draft,winword | app | office | unknown | unknown | assignment draft,1,1
+2026-07-04 12:17:26,music video,zen | web browser | media | media | youtube | music video,2,3
+2026-08-08 19:18:02,data processing job,python | app | app | unknown | unknown | data processing job,1,1
+2026-06-11 14:02:55,Python test run,python | app | app | unknown | unknown | Python test run,1,1
+2026-07-04 17:23:20,model evaluation,code | app | dev | unknown | unknown | model evaluation,1,1
+2026-07-06 13:54:34,course group chat,slack | app | communication | unknown | unknown | course group chat,2,2
+2026-06-26 16:06:54,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,0,0
+2026-07-14 11:06:05,Roblox experience,zen | web browser | game | browser | unknown | Roblox experience,3,3
+2026-07-07 12:41:48,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,0,1
+2026-06-01 17:31:55,game session,limbuscompany | app | game | unknown | unknown | game session,1,3
+2026-07-10 18:22:11,community notifications,zen | web browser | communication | social | discord | community notifications,3,2
+2026-06-24 14:39:46,course group chat,slack | app | communication | unknown | unknown | course group chat,2,2
+2026-06-25 14:27:56,stand-up messages,slack | app | communication | unknown | unknown | stand-up messages,2,2
+2026-07-21 16:07:28,recommended videos,zen | web browser | media | media | youtube | recommended videos,3,3
+2026-07-22 10:00:29,project notifications,slack | app | communication | unknown | unknown | project notifications,2,2
+2026-07-17 12:59:36,Roblox experience,zen | web browser | game | browser | unknown | Roblox experience,2,3
+2026-06-13 17:38:24,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,3,3
+2026-06-11 14:49:20,data processing job,python | app | app | unknown | unknown | data processing job,1,1
+2026-07-16 13:22:00,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,0,0
+2026-08-01 10:49:33,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,1,1
+2026-08-07 20:52:49,assignment draft,winword | app | office | unknown | unknown | assignment draft,1,1
+2026-06-12 10:06:08,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,3,2
+2026-06-19 20:53:36,community notifications,zen | web browser | communication | social | discord | community notifications,1,2
+2026-08-22 11:41:59,scikit-learn guide,zen | web browser | dev | dev | github | scikit-learn guide,1,1
+2026-07-01 11:53:38,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,1,1
+2026-06-08 21:13:25,project write-up,winword | app | office | unknown | unknown | project write-up,1,1
+2026-07-31 19:27:58,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,1,2
+2026-07-09 16:11:43,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,3,1
+2026-08-18 14:15:48,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,1,1
+2026-08-20 11:51:43,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,3,3
+2026-07-16 15:47:53,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,3,3
+2026-06-23 15:30:52,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,0,0
+2026-06-06 17:14:07,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,0,0
+2026-06-13 13:28:33,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,1,1
+2026-07-06 15:31:41,project pitch deck,powerpnt | app | office | unknown | unknown | project pitch deck,0,0
+2026-06-01 11:35:50,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,2,2
+2026-06-19 10:11:11,Python test run,python | app | app | unknown | unknown | Python test run,1,1
+2026-07-17 18:11:29,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,1,1
+2026-06-11 11:45:01,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,1,3
+2026-06-25 10:20:20,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,3,3
+2026-06-20 20:06:11,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,3,3
+2026-06-30 18:42:59,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,0,0
+2026-08-21 21:36:19,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,3,1
+2026-06-18 12:49:08,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,0,2
+2026-06-19 10:14:30,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,2,2
+2026-07-01 11:51:08,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,3,3
+2026-08-15 11:10:54,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,0,0
+2026-07-13 15:43:48,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,1,1
+2026-06-20 14:38:24,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,1,1
+2026-08-22 11:10:29,training data review,excel | app | office | unknown | unknown | training data review,0,0
+2026-08-21 15:00:48,Python documentation,zen | web browser | dev | dev | github | Python documentation,3,1
+2026-06-29 10:28:02,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,1,1
+2026-06-15 17:05:20,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,1,1
+2026-07-08 17:31:30,recommended videos,zen | web browser | media | media | youtube | recommended videos,3,3
+2026-06-22 14:36:58,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,0,0
+2026-07-06 15:43:20,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,3,0
+2026-06-23 16:53:24,Python test run,python | app | app | unknown | unknown | Python test run,3,1
+2026-06-03 12:33:15,data preparation,code | app | dev | unknown | unknown | data preparation,1,1
+2026-08-07 21:28:53,data processing job,python | app | app | unknown | unknown | data processing job,1,1
+2026-07-21 12:52:20,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,2,0
+2026-07-22 10:56:40,group discussion,zen | web browser | communication | social | discord | group discussion,2,2
+2026-07-28 19:33:11,data mining slides,powerpnt | app | office | unknown | unknown | data mining slides,0,0
+2026-06-25 17:44:33,community notifications,zen | web browser | communication | social | discord | community notifications,2,2
+2026-08-07 18:28:55,project write-up,winword | app | office | unknown | unknown | project write-up,2,1
+2026-08-11 14:29:04,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,1,1
+2026-07-10 10:01:09,debugging session,code | app | dev | unknown | unknown | debugging session,1,1
+2026-08-24 11:14:16,debugging session,code | app | dev | unknown | unknown | debugging session,3,1
+2026-07-25 12:14:12,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,3,3
+2026-06-30 14:20:41,training script,python | app | app | unknown | unknown | training script,1,1
+2026-07-06 14:57:27,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,1,1
+2026-06-03 15:15:09,data preparation,code | app | dev | unknown | unknown | data preparation,0,1
+2026-06-01 17:36:13,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,0,2
+2026-06-01 15:03:55,Research report,winword | app | office | unknown | unknown | Research report,1,1
+2026-06-03 11:07:08,course group chat,slack | app | communication | unknown | unknown | course group chat,2,2
+2026-08-07 12:11:48,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,1,1
+2026-06-01 13:15:00,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,1,1
+2026-07-11 17:45:06,model evaluation,code | app | dev | unknown | unknown | model evaluation,1,1
+2026-06-03 10:42:06,project notifications,slack | app | communication | unknown | unknown | project notifications,2,2
+2026-08-13 19:06:23,model evaluation,code | app | dev | unknown | unknown | model evaluation,1,1
+2026-07-31 08:47:14,project notifications,slack | app | communication | unknown | unknown | project notifications,2,2
+2026-06-10 14:32:13,Roblox experience,zen | web browser | game | browser | unknown | Roblox experience,1,3
+2026-08-05 15:18:04,project pitch deck,powerpnt | app | office | unknown | unknown | project pitch deck,0,0
+2026-06-24 16:59:03,Dataset analysis,excel | app | office | unknown | unknown | Dataset analysis,0,0
+2026-08-17 14:00:10,music video,zen | web browser | media | media | youtube | music video,0,3
+2026-07-25 18:01:00,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,1,1
+2026-08-22 16:21:48,Research report,winword | app | office | unknown | unknown | Research report,1,1
+2026-06-30 14:25:40,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,1,1
+2026-08-05 15:48:40,training script,python | app | app | unknown | unknown | training script,1,1
+2026-07-13 15:11:04,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,1,1
+2026-08-20 15:26:03,training script,python | app | app | unknown | unknown | training script,1,1
+2026-07-29 10:43:04,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,1,1
+2026-07-18 11:06:13,gaming community,zen | web browser | game | browser | unknown | gaming community,3,3
+2026-06-15 16:52:28,Discord project chat,zen | web browser | communication | social | discord | Discord project chat,2,2
+2026-08-19 10:49:57,recommended videos,zen | web browser | media | media | youtube | recommended videos,3,3
+2026-07-17 16:53:02,data preparation,code | app | dev | unknown | unknown | data preparation,2,1
+2026-07-09 09:16:13,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,1,1
+2026-07-07 16:35:06,YouTube tutorial,zen | web browser | media | media | youtube | YouTube tutorial,3,3
+2026-07-07 13:42:15,game session,limbuscompany | app | game | unknown | unknown | game session,3,3
+2026-06-09 17:14:49,game session,limbuscompany | app | game | unknown | unknown | game session,3,3
+2026-07-04 09:58:26,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,1,1
+2026-06-11 18:19:09,project write-up,winword | app | office | unknown | unknown | project write-up,0,1
+2026-08-18 13:37:29,project write-up,winword | app | office | unknown | unknown | project write-up,3,1
+2026-06-10 15:47:08,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,2,2
+2026-07-09 16:49:27,gaming community,zen | web browser | game | browser | unknown | gaming community,3,3
+2026-08-01 12:41:53,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,1,1
+2026-06-23 16:00:38,correction summary,excel | app | office | unknown | unknown | correction summary,0,0
+2026-06-25 09:05:19,music video,zen | web browser | media | media | youtube | music video,3,3
+2026-07-24 09:14:27,gaming community,zen | web browser | game | browser | unknown | gaming community,3,3
+2026-06-16 13:58:17,Roblox experience,zen | web browser | game | browser | unknown | Roblox experience,3,3
+2026-06-15 16:18:14,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,3,3
+2026-06-23 14:27:23,literature review,winword | app | office | unknown | unknown | literature review,1,1
+2026-08-15 13:36:55,music video,zen | web browser | media | media | youtube | music video,0,3
+2026-07-22 17:35:53,community notifications,zen | web browser | communication | social | discord | community notifications,2,2
+2026-06-22 12:15:36,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,1,1
+2026-07-03 16:05:54,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,1,1
+2026-07-20 11:09:22,training script,python | app | app | unknown | unknown | training script,1,1
+2026-08-25 10:05:26,project pitch deck,powerpnt | app | office | unknown | unknown | project pitch deck,0,0
+2026-07-25 15:41:36,group discussion,zen | web browser | communication | social | discord | group discussion,2,2
+2026-07-21 17:13:14,BeeAware - Live Productivity Engine,python | app | app | unknown | unknown | BeeAware - Live Productivity Engine,3,1
+2026-07-31 18:07:04,gaming community,zen | web browser | game | browser | unknown | gaming community,3,3
+2026-08-03 16:02:18,project pitch deck,powerpnt | app | office | unknown | unknown | project pitch deck,0,0
+2026-08-26 09:51:53,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,1,1
+2026-08-05 14:23:11,correction summary,excel | app | office | unknown | unknown | correction summary,0,0
+2026-08-12 13:40:24,data processing job,python | app | app | unknown | unknown | data processing job,2,1
+2026-07-07 13:23:43,assignment draft,winword | app | office | unknown | unknown | assignment draft,1,1
+2026-08-22 10:44:22,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,3,1
+2026-06-30 20:55:53,literature review,winword | app | office | unknown | unknown | literature review,3,1
+2026-06-05 19:18:47,community notifications,zen | web browser | communication | social | discord | community notifications,2,2
+2026-07-11 10:44:24,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,3,1
+2026-07-07 19:43:44,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,1,1
+2026-07-08 14:40:37,recommended videos,zen | web browser | media | media | youtube | recommended videos,3,3
+2026-07-01 14:01:58,project notifications,slack | app | communication | unknown | unknown | project notifications,2,2
+2026-07-15 14:11:52,community notifications,zen | web browser | communication | social | discord | community notifications,2,2
+2026-06-09 15:30:41,recommended videos,zen | web browser | media | media | youtube | recommended videos,3,3
+2026-06-03 09:13:03,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,1,1
+2026-06-11 10:39:38,LimbusCompany update,limbuscompany | app | game | unknown | unknown | LimbusCompany update,3,3
+2026-07-14 13:28:48,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,3,3
+2026-06-04 10:38:38,project pitch deck,powerpnt | app | office | unknown | unknown | project pitch deck,0,0
+2026-06-25 11:44:54,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,0,1
+2026-08-13 14:16:06,stand-up messages,slack | app | communication | unknown | unknown | stand-up messages,2,2
+2026-06-26 17:17:17,assignment draft,winword | app | office | unknown | unknown | assignment draft,1,1
+2026-08-10 16:01:28,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,0,0
+2026-07-20 15:04:41,Python test run,python | app | app | unknown | unknown | Python test run,1,1
+2026-07-03 14:57:08,model evaluation,code | app | dev | unknown | unknown | model evaluation,1,1
+2026-06-25 20:34:30,data preparation,code | app | dev | unknown | unknown | data preparation,1,1
+2026-06-16 19:40:41,LimbusCompany update,limbuscompany | app | game | unknown | unknown | LimbusCompany update,3,3
+2026-07-03 13:21:18,training data review,excel | app | office | unknown | unknown | training data review,0,0
+2026-07-16 10:51:41,group discussion,zen | web browser | communication | social | discord | group discussion,2,2
+2026-06-05 14:04:30,training data review,excel | app | office | unknown | unknown | training data review,0,0
+2026-07-02 11:01:10,data processing job,python | app | app | unknown | unknown | data processing job,1,1
+2026-07-23 08:19:40,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,1,1
+2026-08-06 13:59:44,data processing job,python | app | app | unknown | unknown | data processing job,1,1
+2026-07-02 09:48:10,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,1,1
+2026-06-11 19:28:56,Python test run,python | app | app | unknown | unknown | Python test run,2,1
+2026-07-09 21:20:27,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,0,1
+2026-07-02 21:39:50,community notifications,zen | web browser | communication | social | discord | community notifications,0,2
+2026-06-23 09:08:06,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,2,0
+2026-07-16 15:55:34,assignment draft,winword | app | office | unknown | unknown | assignment draft,1,1
+2026-07-21 13:00:20,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,2,3
+2026-08-26 15:52:20,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,3,3
+2026-07-15 19:42:22,training data review,excel | app | office | unknown | unknown | training data review,3,0
+2026-07-10 10:00:45,Python documentation,zen | web browser | dev | dev | github | Python documentation,3,1
+2026-07-25 15:14:09,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,0,0
+2026-06-05 08:00:53,BeeAware proposal,powerpnt | app | office | unknown | unknown | BeeAware proposal,1,0
+2026-06-18 17:33:12,LimbusCompany update,limbuscompany | app | game | unknown | unknown | LimbusCompany update,0,3
+2026-08-06 14:08:48,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,0,1
+2026-06-03 10:24:57,Research report,winword | app | office | unknown | unknown | Research report,1,1
+2026-07-13 09:23:50,project notifications,slack | app | communication | unknown | unknown | project notifications,1,2
+2026-08-05 15:23:09,Research report,winword | app | office | unknown | unknown | Research report,3,1
+2026-08-05 16:44:46,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,1,1
+2026-07-20 14:55:23,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,1,1
+2026-06-29 10:50:54,stand-up messages,slack | app | communication | unknown | unknown | stand-up messages,2,2
+2026-08-06 11:00:04,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,3,3
+2026-06-19 20:47:49,metrics worksheet,excel | app | office | unknown | unknown | metrics worksheet,0,0
+2026-07-11 13:55:11,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,3,3
+2026-07-30 09:38:05,Messenger conversation,zen | web browser | communication | social | discord | Messenger conversation,2,2
+2026-08-19 17:54:54,game guide,zen | web browser | game | browser | unknown | game guide,1,3
+2026-07-23 14:27:18,Google Drive project files,zen | web browser | productivity | productivity | google_docs | Google Drive project files,1,1
+2026-07-28 15:03:10,calendar planning,zen | web browser | productivity | productivity | google_docs | calendar planning,1,1
+2026-08-12 16:31:35,debugging session,code | app | dev | unknown | unknown | debugging session,0,1
+2026-07-15 10:57:19,community notifications,zen | web browser | communication | social | discord | community notifications,2,2
+2026-08-22 14:37:19,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,3,3
+2026-06-16 08:04:00,Google Docs research notes,zen | web browser | productivity | productivity | google_docs | Google Docs research notes,1,1
+2026-08-03 12:41:38,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,1,1
+2026-08-05 10:26:12,assignment draft,winword | app | office | unknown | unknown | assignment draft,1,1
+2026-08-07 10:04:49,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,1,1
+2026-06-26 12:09:23,Team project discussion,slack | app | communication | unknown | unknown | Team project discussion,2,2
+2026-07-16 10:05:31,group discussion,zen | web browser | communication | social | discord | group discussion,1,2
+2026-06-16 16:02:15,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,1,1
+2026-06-25 11:08:57,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,0,0
+2026-07-21 10:13:38,game launcher,limbuscompany | app | game | unknown | unknown | game launcher,3,3
+2026-06-06 11:37:32,literature review,winword | app | office | unknown | unknown | literature review,1,1
+2026-07-01 14:02:21,Research report,winword | app | office | unknown | unknown | Research report,1,1
+2026-08-04 09:22:16,BeeAware project,code | app | dev | unknown | unknown | BeeAware project,1,1
+2026-06-27 10:14:08,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,0,0
+2026-07-27 16:41:25,stand-up messages,slack | app | communication | unknown | unknown | stand-up messages,1,2
+2026-06-03 17:48:49,github.com BeeAware repository,zen | web browser | dev | dev | github | github.com BeeAware repository,1,1
+2026-07-13 21:54:26,music video,zen | web browser | media | media | youtube | music video,3,3
+2026-07-27 16:50:37,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,0,0
+2026-08-12 10:12:42,online assignment brief,zen | web browser | productivity | productivity | google_docs | online assignment brief,1,1
+2026-06-19 08:16:59,training script,python | app | app | unknown | unknown | training script,3,1
+2026-06-08 13:13:31,project write-up,winword | app | office | unknown | unknown | project write-up,1,1
+2026-07-27 10:33:15,project notifications,slack | app | communication | unknown | unknown | project notifications,2,2
+2026-07-16 14:53:21,Course presentation,powerpnt | app | office | unknown | unknown | Course presentation,0,0
+2026-07-13 13:01:57,data preparation,code | app | dev | unknown | unknown | data preparation,3,1
+2026-07-10 16:58:33,community notifications,zen | web browser | communication | social | discord | community notifications,2,2
+2026-08-26 11:55:36,stand-up messages,slack | app | communication | unknown | unknown | stand-up messages,0,2
+2026-06-24 21:54:13,group discussion,zen | web browser | communication | social | discord | group discussion,3,2
+2026-08-05 15:32:22,YouTube entertainment,zen | web browser | media | media | youtube | YouTube entertainment,3,3
+2026-06-04 10:48:12,Roblox experience,zen | web browser | game | browser | unknown | Roblox experience,3,3
+2026-06-23 12:40:43,LimbusCompany,limbuscompany | app | game | unknown | unknown | LimbusCompany,3,3
+2026-07-17 16:33:11,community notifications,zen | web browser | communication | social | discord | community notifications,0,2
+2026-08-22 12:49:02,Stack Overflow question,zen | web browser | dev | dev | github | Stack Overflow question,1,1
+2026-08-21 10:14:18,model evaluation,code | app | dev | unknown | unknown | model evaluation,1,1
+2026-07-31 12:20:42,literature review,winword | app | office | unknown | unknown | literature review,1,1
+2026-07-17 18:59:30,debugging session,code | app | dev | unknown | unknown | debugging session,1,1
+2026-08-22 17:23:44,LimbusCompany update,limbuscompany | app | game | unknown | unknown | LimbusCompany update,3,3
+2026-08-20 15:51:36,assignment draft,winword | app | office | unknown | unknown | assignment draft,1,1
+2026-08-26 15:57:35,BeeAware_Data_Mining_Dataset_Proposal.docx  -  Compatibility Mode - Word,winword | app | office | unknown | unknown | BeeAware_Data_Mining_Dataset_Proposal.docx  -  Compatibility Mode - Word,3,1
+2026-08-26 15:58:24,"Meeting in ""General"" | Microsoft Teams","ms-teams | app | communication | unknown | unknown | Meeting in ""General"" | Microsoft Teams",2,1
+2026-09-01 12:21:48,dye trader likes terraria - Google Search — Zen Browser,zen | web browser | app | browser | unknown | dye trader likes terraria - Google Search — Zen Browser,0,3
+2026-09-01 12:21:58,early game farms terraria 1.4.5 - Google Search — Zen Browser,zen | web browser | game | browser | unknown | early game farms terraria 1.4.5 - Google Search — Zen Browser,0,3
+2026-09-01 12:23:38,[GitHub] Please verify your device - skymargate@gmail.com - Gmail — Zen Browser,zen | web browser | dev | communication | github | [GitHub] Please verify your device - skymargate@gmail.com - Gmail — Zen Browser,3,0
+2026-09-01 12:24:03,ANNOUNCEMENT | Official Registration Now Open: UKFP Manila Shinsa October 2026 - skymargate@gmail.com - Gmail — Zen Browser,zen | web browser | communication | communication | gmail | ANNOUNCEMENT | Official Registration Now Open: UKFP Manila Shinsa October 2026 - skymargate@gmail.com - Gmail — Zen Browser,2,0
+2026-09-01 12:24:10,ANNOUNCEMENT | Opening of Registration – 8th Philippine National Kendo Tournament (8th PNKT) - skymargate@gmail.com - Gmail — Zen Browser,zen | web browser | communication | communication | gmail | ANNOUNCEMENT | Opening of Registration – 8th Philippine National Kendo Tournament (8th PNKT) - skymargate@gmail.com - Gmail — Zen Browser,2,0
+2026-09-01 12:24:15,⚠️ Your Gmail storage is 93% full - skymargate@gmail.com - Gmail — Zen Browser,zen | web browser | communication | communication | gmail | ⚠️ Your Gmail storage is 93% full - skymargate@gmail.com - Gmail — Zen Browser,2,0
+2026-09-01 12:24:19,Aldrhei John Dela Cruz and others share their thoughts on LinkedIn - skymargate@gmail.com - Gmail — Zen Browser,zen | web browser | communication | communication | gmail | Aldrhei John Dela Cruz and others share their thoughts on LinkedIn - skymargate@gmail.com - Gmail — Zen Browser,2,1
+2026-09-01 12:24:50,Daisy Solomon and others share their thoughts on LinkedIn - skymargate@gmail.com - Gmail — Zen Browser,zen | web browser | communication | communication | gmail | Security alert - skymargate@gmail.com - Gmail — Zen Browser,2,0
+2026-09-01 12:32:41,Have Minecraft Horror Mods Gotten Better? - YouTube — Zen Browser,zen | web browser | media | media | youtube | Have Minecraft Horror Mods Gotten Better? - YouTube — Zen Browser,2,3
+2026-09-01 12:33:14,FREE CCNA // What is a Network? // Day 0 - YouTube — Zen Browser,zen | web browser | media | media | youtube | FREE CCNA // What is a Network? // Day 0 - YouTube — Zen Browser,3,1
+2026-09-01 12:33:21,What is a SWITCH? // FREE CCNA // Day 1 - YouTube — Zen Browser,zen | web browser | media | media | youtube | What is a SWITCH? // FREE CCNA // Day 1 - YouTube — Zen Browser,3,1
+2026-09-01 12:33:27,What is a ROUTER? // FREE CCNA // EP 2 - YouTube — Zen Browser,zen | web browser | media | media | youtube | What is a ROUTER? // FREE CCNA // EP 2 - YouTube — Zen Browser,2,1
+2026-09-01 12:33:34,what is TCP/IP and OSI? // FREE CCNA // EP 3 - YouTube — Zen Browser,zen | web browser | media | media | youtube | what is TCP/IP and OSI? // FREE CCNA // EP 3 - YouTube — Zen Browser,2,1
+2026-09-01 12:33:41,REAL LIFE example!! (TCP/IP and OSI layers) // FREE CCNA // EP 4 - YouTube — Zen Browser,zen | web browser | media | media | youtube | REAL LIFE example!! (TCP/IP and OSI layers) // FREE CCNA // EP 4 - YouTube — Zen Browser,3,1
+2026-09-01 12:34:04,Every Network Protocol Explained in 18 Minutes - YouTube — Zen Browser,zen | web browser | media | media | youtube | Every Network Protocol Explained in 18 Minutes - YouTube — Zen Browser,2,1
+2026-09-01 12:34:12,Every Network Device Explained in 13 Minutes! - YouTube — Zen Browser,zen | web browser | media | media | youtube | Every Network Device Explained in 13 Minutes! - YouTube — Zen Browser,2,1
+2026-09-01 12:34:34,Intro to Computer Networking! - YouTube — Zen Browser,zen | web browser | media | media | youtube | Intro to Computer Networking! - YouTube — Zen Browser,2,1
+2026-09-16 08:32:30,"Think Fast, Talk Smart: Communication Techniques - YouTube — Zen Browser","zen | web browser | media | media | youtube | Think Fast, Talk Smart: Communication Techniques - YouTube — Zen Browser",2,1
+2026-09-16 08:34:11,Group yourselves into 3 | Messenger — Zen Browser,zen | web browser | app | browser | unknown | girrlll cornerrr teaaa 🤪☕☕☕ | Messenger — Zen Browser,2,2
+2026-09-16 08:34:20,Group yourselves into 3 | Messenger — Zen Browser,zen | web browser | app | browser | unknown | Group yourselves into 3 | Messenger — Zen Browser,2,1

@@ -10,11 +10,13 @@ from config import (
     BEE_AMBER, BEE_AMBER_DIM, BEE_COMB, BEE_COMB_LIGHT, BEE_COMB_MID,
     BEE_BROWN, BEE_CREAM, BEE_GRAY, BEE_RED, BEE_GREEN, BEE_GOLD,
     QUADRANTS, Q_COLORS, BROWSER_EXES,
+    CORRECTIONS_CSV_PATH, CORRECTIONS_ARCHIVE_PATH, CORRECTIONS_COLS,
 )
 from logger import log_error
 
+# Legacy audit log path (kept for backward compatibility)
 CORRECTIONS_PATH = os.path.join(config.BASE_DIR, "data", "corrections.csv")
-CORRECTIONS_COLS = [
+CORRECTIONS_COLS_LEGACY = [
     "timestamp",
     "exe_name",
     "window_title",
@@ -147,10 +149,27 @@ class CorrectionMixin:
     def _apply_correction(self, exe, title, original_verdict, corrected_label, popup):
         corrected_quadrant = config.QUADRANTS[corrected_label]
 
-        # 1. Append to CSV audit log
+        # 1. Append to CSV audit log (legacy)
         self._save_correction(exe, title, original_verdict, corrected_label, corrected_quadrant)
 
-        # 2. Persist override by exe (primary key — stable across title changes).
+        # 2. Also write to retraining corrections file
+        # Extract predicted_q from original_verdict (remove parenthetical notes)
+        predicted_q_str = original_verdict.split("(")[0].strip()  # e.g., "Q2: GROWTH" from "Q2: GROWTH (Override)"
+        predicted_q = None
+        for q_int, q_name in QUADRANTS.items():
+            if q_name in predicted_q_str:
+                predicted_q = q_int
+                break
+        
+        if predicted_q is not None:
+            self._save_correction_for_retrain(
+                title, 
+                self.current_feature_text,  # Use the feature_text from app state
+                predicted_q,
+                corrected_label
+            )
+
+        # 3. Persist override by exe (primary key — stable across title changes).
         #    NOTE: this is only safe for single-purpose apps (e.g. Slack, a game).
         #    Browsers host many unrelated tabs under one exe name, so writing an
         #    exe-level override here would make a correction on one tab silently
@@ -161,12 +180,12 @@ class CorrectionMixin:
         if not is_browser:
             self._save_to_json(exe_key, corrected_label)
 
-        # 3. Also persist by title only when it's specific enough to be useful
+        # 4. Also persist by title only when it's specific enough to be useful
         if title and len(title.strip()) > 5:
             title_key = self._normalize_title_key(title)
             self._save_to_json(title_key, corrected_label)
 
-        # 4. Refresh UI
+        # 5. Refresh UI
         self.current_verdict = f"{corrected_quadrant} (Corrected)"
         self.lbl_verdict_val.configure(
             text=self.current_verdict,
@@ -240,17 +259,45 @@ class CorrectionMixin:
         corrected_label: int,
         corrected_quadrant: str,
     ) -> None:
-        """Append one row to the CSV audit log."""
+        """Append one row to the legacy CSV audit log."""
         os.makedirs(os.path.dirname(CORRECTIONS_PATH), exist_ok=True)
         file_exists = os.path.isfile(CORRECTIONS_PATH)
         try:
             with open(CORRECTIONS_PATH, "a", newline="", encoding="utf-8") as f:
                 writer = csv.writer(f)
                 if not file_exists:
-                    writer.writerow(CORRECTIONS_COLS)
+                    writer.writerow(CORRECTIONS_COLS_LEGACY)
                 writer.writerow([
                     datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     exe, title, original_verdict, corrected_label, corrected_quadrant,
                 ])
         except Exception as e:
             log_error("save_correction", e)
+
+    def _save_correction_for_retrain(
+        self,
+        window_title: str,
+        feature_text: str,
+        predicted_q: int,
+        corrected_q: int,
+    ) -> None:
+        """Append one row to beeaware_corrections.csv for model retraining.
+        
+        This file accumulates corrections and is used by retrain.py to improve the model.
+        """
+        os.makedirs(os.path.dirname(CORRECTIONS_CSV_PATH), exist_ok=True)
+        file_exists = os.path.isfile(CORRECTIONS_CSV_PATH)
+        try:
+            with open(CORRECTIONS_CSV_PATH, "a", newline="", encoding="utf-8") as f:
+                writer = csv.writer(f)
+                if not file_exists:
+                    writer.writerow(CORRECTIONS_COLS)
+                writer.writerow([
+                    datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    window_title,
+                    feature_text,
+                    predicted_q,
+                    corrected_q,
+                ])
+        except Exception as e:
+            log_error("save_correction_for_retrain", e)

@@ -100,6 +100,8 @@ class BeeAwareApp(
         self.current_window  = "Waiting..."
         self.current_verdict = "Idle"
         self.current_exe     = ""
+        self.current_feature_text = ""  # For retraining corrections
+        self.current_predicted_q = None  # For retraining corrections
         self.graph_tick      = 0
 
         # Model load 
@@ -667,9 +669,14 @@ class BeeAwareApp(
                 for rank, (exe_name, data) in enumerate(ranked, start=1):
                     qc         = data["quadrant_counts"]
                     dominant_q = max(qc, key=qc.get)
+                    predicted_q = dominant_q  # Same as dominant_q for historical consistency
+                    window_title = data.get("window_title", "")
+                    feature_text = data.get("feature_text", "")
+                    
                     writer.writerow([
                         date_str, session_ts, exe_name, data["seconds"],
-                        qc[0], qc[1], qc[2], qc[3], dominant_q, rank,
+                        qc[0], qc[1], qc[2], qc[3], dominant_q, predicted_q, 
+                        window_title, feature_text, rank,
                     ])
         except Exception as e:
             log_error("save_app_history", e)
@@ -725,6 +732,7 @@ class BeeAwareApp(
 
                 override = False
                 active_q_int = None  # Track the integer value of the active quadrant
+                nlp_input = self.build_nlp_input(exe_name, raw_title)
 
                 # Use the same normalisation as correction.py so keys always match
                 lookup_exe   = normalize_exe_key(exe_name)    # e.g. "chrome"
@@ -744,12 +752,20 @@ class BeeAwareApp(
                     active_q_int = q
 
                 if not override:
-                    nlp_input = self.build_nlp_input(exe_name, raw_title)
                     # Safe NLP prediction with Q2 fallback
                     pred = self.safe_predict(nlp_input)
                     self.live_stats[pred] += 1
                     self.current_verdict = QUADRANTS[pred]
                     active_q_int = pred
+                    # Store for corrections.csv when user makes a correction
+                    self.current_feature_text = nlp_input
+                    self.current_predicted_q = pred
+                else:
+                    # For overrides, still store the feature_text and the original predicted value
+                    # so we can log what it was before the override
+                    self.current_feature_text = nlp_input
+                    # For prediction logging, overrides still use their q value
+                    self.current_predicted_q = active_q_int
 
                 # --- NOTIFICATION LOGIC ---
                 # Decrease cooldown if active
@@ -814,7 +830,20 @@ class BeeAwareApp(
                             if proc: exe_path = proc.exe()
                         except Exception:
                             pass
-                        self.app_freq[exe_name] = {"seconds": 0, "quadrant_counts": {0: 0, 1: 0, 2: 0, 3: 0}, "path": exe_path}
+                        # Build feature_text for logging
+                        feature_text = self.build_nlp_input(exe_name, raw_title)
+                        self.app_freq[exe_name] = {
+                            "seconds": 0, 
+                            "quadrant_counts": {0: 0, 1: 0, 2: 0, 3: 0}, 
+                            "path": exe_path,
+                            "window_title": raw_title,
+                            "feature_text": feature_text,
+                        }
+                    else:
+                        # Update window_title and feature_text to the most recent
+                        self.app_freq[exe_name]["window_title"] = raw_title
+                        self.app_freq[exe_name]["feature_text"] = self.build_nlp_input(exe_name, raw_title)
+                    
                     self.app_freq[exe_name]["seconds"] += 1
                     self.app_freq[exe_name]["quadrant_counts"][active_q] += 1
 
@@ -848,12 +877,74 @@ class BeeAwareApp(
             log_error("safe_predict", e)
             return 1  # Default to Q2 on any error
 
+    def extract_browser_domain(self, raw_title: str) -> str:
+        """Extract domain/service name from browser title for feature_text."""
+        text = raw_title.lower()
+        
+        # Try to extract domain from common patterns
+        if "github.com" in text or "github" in text:
+            return "github"
+        if "stackoverflow" in text:
+            return "stackoverflow"
+        if "docs.google" in text or "google docs" in text:
+            return "google_docs"
+        if "sheets.google" in text or "google sheets" in text:
+            return "google_sheets"
+        if "drive.google" in text or "google drive" in text:
+            return "google_drive"
+        if "youtube.com" in text or "youtube" in text:
+            return "youtube"
+        if "netflix" in text:
+            return "netflix"
+        if "twitch" in text:
+            return "twitch"
+        if "spotify" in text:
+            return "spotify"
+        if "reddit" in text:
+            return "reddit"
+        if "twitter" in text or "x.com" in text:
+            return "twitter"
+        if "facebook" in text:
+            return "facebook"
+        if "instagram" in text:
+            return "instagram"
+        if "gmail" in text or "google mail" in text:
+            return "gmail"
+        if "outlook" in text or "office365" in text:
+            return "outlook"
+        if "microsoft teams" in text or "teams" in text:
+            return "teams"
+        if "slack" in text:
+            return "slack"
+        if "discord" in text:
+            return "discord"
+        if "linkedin" in text:
+            return "linkedin"
+        if "medium" in text:
+            return "medium"
+        if "dev.to" in text or "dev.to" in text:
+            return "dev_to"
+        
+        # Default: extract domain if URL-like or fall back to generic browser
+        if "://" in text:
+            try:
+                domain = text.split("://")[1].split("/")[0]
+                return domain.replace("www.", "")
+            except (IndexError, AttributeError):
+                pass
+        
+        return "unknown"
+
     def build_nlp_input(self, exe_name: str, raw_title: str) -> str:
         exe_label = exe_name.lower().replace(".exe", "").strip()
-        source_type = "web browser" if exe_name in BROWSER_EXES else "app"
+        source_type = "web browser" if exe_name.lower() in BROWSER_EXES else "app"
         app_family = self.infer_app_family(exe_label, raw_title)
         browser_category = self.infer_browser_category(raw_title) if source_type == "web browser" else "unknown"
-        return f"{exe_label} | {source_type} | {app_family} | {browser_category} | {raw_title}"
+        browser_domain = self.extract_browser_domain(raw_title) if source_type == "web browser" else "unknown"
+        
+        # Build feature_text in same format as training data
+        feature_text = f"{exe_label} | {source_type} | {app_family} | {browser_category} | {browser_domain} | {raw_title}"
+        return feature_text
 
     def infer_app_family(self, exe_label: str, raw_title: str) -> str:
         text = f"{exe_label} {raw_title}".lower()
