@@ -143,7 +143,6 @@ class MonitorPanelMixin:
                     lbl.configure(text=self.format_time(self.live_stats[q]))
 
                 self.lbl_switches.configure(text=str(self.switch_count))
-                self.update_freq_panel()
 
                 if self.is_paused:
                     self.monitor_frame.configure(fg_color=BEE_COMB_MID)
@@ -160,11 +159,13 @@ class MonitorPanelMixin:
                 self.lbl_verdict_val.configure(text=self.current_verdict)
 
                 self.graph_tick += 1
-                if self.graphs_visible and self.graph_tick % 10 == 0:
-                    self.refresh_graphs()
+                if self.graph_tick % 4 == 0:
+                    self.update_freq_panel()
+                    if self.graphs_visible and self.graph_tick % 40 == 0:
+                        self.refresh_graphs()
 
         except Exception as e:
             log_error("update_live_ui", e)
         finally:
             if self.is_tracking and self.winfo_exists():
-                self.after(1000, self.update_live_ui)
+                self.after(250, self.update_live_ui)

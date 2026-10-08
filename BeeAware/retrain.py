@@ -21,6 +21,7 @@ Hyperparameters (matching V3 training):
 
 import os
 import sys
+import csv
 import shutil
 import pickle
 import argparse
@@ -41,13 +42,18 @@ if getattr(sys, 'frozen', False):
 else:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-TRAINING_DATA_PATH = os.path.join(BASE_DIR, "Training", "data", "processed", "V3beeware_master_training.csv")
-CORRECTIONS_PATH = os.path.join(BASE_DIR, "BeeAware", "data", "beeaware_corrections.csv")
-CORRECTIONS_ARCHIVE_PATH = os.path.join(BASE_DIR, "BeeAware", "data", "beeaware_corrections_archive.csv")
-MODEL_OUTPUT_PATH = os.path.join(BASE_DIR, "BeeAware", "models", "V4eisenhower_model.pkl")
-VECTORIZER_OUTPUT_PATH = os.path.join(BASE_DIR, "BeeAware", "models", "V4tfidf_vectorizer.pkl")
-MODEL_BACKUP_PATH = os.path.join(BASE_DIR, "BeeAware", "models", "V4eisenhower_model.backup.pkl")
-VECTORIZER_BACKUP_PATH = os.path.join(BASE_DIR, "BeeAware", "models", "V4tfidf_vectorizer.backup.pkl")
+# Source-tree layout: retrain.py lives under BeeAware/, but the repo root is its
+# parent directory. This keeps the script working when invoked from source. A
+# frozen-build path strategy will need separate handling later.
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
+TRAINING_DATA_PATH = REPO_ROOT / "Training" / "data" / "processed" / "V3beeware_master_training.csv"
+CORRECTIONS_PATH = REPO_ROOT / "BeeAware" / "data" / "beeaware_corrections.csv"
+CORRECTIONS_ARCHIVE_PATH = REPO_ROOT / "BeeAware" / "data" / "beeaware_corrections_archive.csv"
+MODEL_OUTPUT_PATH = REPO_ROOT / "BeeAware" / "models" / "V4eisenhower_model.pkl"
+VECTORIZER_OUTPUT_PATH = REPO_ROOT / "BeeAware" / "models" / "V4tfidf_vectorizer.pkl"
+MODEL_BACKUP_PATH = REPO_ROOT / "BeeAware" / "models" / "V4eisenhower_model.backup.pkl"
+VECTORIZER_BACKUP_PATH = REPO_ROOT / "BeeAware" / "models" / "V4tfidf_vectorizer.backup.pkl"
 
 # Hyperparameters (matching V3 training)
 TFIDF_PARAMS = {
@@ -94,20 +100,26 @@ def load_corrections():
         return None, 0
     
     print(f"Loading corrections: {CORRECTIONS_PATH}")
-    df = pd.read_csv(CORRECTIONS_PATH)
+    df = pd.read_csv(CORRECTIONS_PATH, on_bad_lines="skip")
     
-    if df.empty:
-        print("  ⚠ Corrections file is empty")
-        return None, 0
-    
-    # Validate required columns
+    # Some prior run left a duplicate header row in the live corrections CSV.
+    # Ignore rows that are not numeric corrected labels so the loader can still
+    # process valid evidence without rewriting the existing data file.
     required_cols = ["window_title", "feature_text", "predicted_q", "corrected_q"]
     if not all(col in df.columns for col in required_cols):
         raise ValueError(f"Corrections CSV missing required columns: {required_cols}")
     
-    # Map corrected_q (quadrant index 0-3) to quadrant names to match training data
-    quadrant_names = {0: "Q1: URGENT", 1: "Q2: GROWTH", 2: "Q3: NOISE", 3: "Q4: PLAY"}
-    df["quadrant"] = df["corrected_q"].map(quadrant_names)
+    df = df.dropna(subset=["corrected_q"]).copy()
+    df["corrected_q"] = pd.to_numeric(df["corrected_q"], errors="coerce")
+    df = df.dropna(subset=["corrected_q"]).copy()
+    df["corrected_q"] = df["corrected_q"].astype(int)
+    if df.empty:
+        print("  ⚠ Corrections file is empty after filtering invalid rows")
+        return None, 0
+    
+    # Keep the target as integer quadrant IDs throughout so it lines up with
+    # V3beeware_master_training.csv and app.py's int(model.predict(...)[0]) logic.
+    df["quadrant"] = df["corrected_q"].astype(int)
     
     result = df[["feature_text", "quadrant"]].copy()
     print(f"  ✓ Loaded {len(result)} corrections")
@@ -225,8 +237,10 @@ def archive_corrections(num_corrections, dry_run=False):
         corrections_df.to_csv(CORRECTIONS_ARCHIVE_PATH, index=False)
         print(f"  ✓ Archived to: {CORRECTIONS_ARCHIVE_PATH}")
         
-        # Clear active corrections file
-        open(CORRECTIONS_PATH, "w").close()
+        # Clear active corrections file and restore the canonical 5-column header.
+        with open(CORRECTIONS_PATH, "w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(["timestamp", "window_title", "feature_text", "predicted_q", "corrected_q"])
         print(f"  ✓ Cleared: {CORRECTIONS_PATH}")
 
 

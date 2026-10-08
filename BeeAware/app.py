@@ -5,6 +5,7 @@ import os
 import csv
 import time
 import pickle
+import queue
 import threading
 import pystray
 from PIL import Image, ImageDraw
@@ -15,6 +16,7 @@ import win32process
 import psutil
 import pygetwindow as gw
 
+from collections.abc import Callable
 from datetime import datetime
 from tkinter import messagebox      
 from notif import show_notification
@@ -33,6 +35,7 @@ from config import (
     MODEL_PATH, VECTORIZER_PATH, BROWSER_EXES, IDLE_TITLES, IDLE_EXES,
 )
 from logger import log_error
+from sanitize import sanitize_title
 from ui.control_panel import ControlPanelMixin
 from ui.monitor_panel  import MonitorPanelMixin
 from ui.graphs_panel   import GraphsPanelMixin
@@ -90,6 +93,9 @@ class BeeAwareApp(
         self.last_date_str   = "No Data"
         self.chart_view      = "pie"
         self.app_freq        = {}
+        self._ui_callbacks: queue.SimpleQueue[Callable[[], None]] = queue.SimpleQueue()
+        self._ui_callback_lock = threading.Lock()
+        self._ui_dispatch_closed = False
 
         # Camera tracking state
         self.camera_enabled = False  # Set by options.py
@@ -158,6 +164,7 @@ class BeeAwareApp(
         self.tray_icon = None
         self._tray_thread = None
         self._tray_active = False
+        self.after(50, self._poll_ui_callbacks)
 
     def _periodic_insight_refresh(self):
         """Update the insight panel every 10 seconds while tracking."""
@@ -353,14 +360,65 @@ class BeeAwareApp(
             self.camera_tracker = None
         self.camera_auto_paused = False
 
+    def _stop_tracking_worker(self):
+        self.is_tracking = False
+        self._stop_camera()
+
+        worker = self.tracking_thread
+        if worker and worker.is_alive() and worker is not threading.current_thread():
+            worker.join(timeout=2)
+            if worker.is_alive():
+                log_error("watcher_shutdown", RuntimeError("Watcher thread did not stop within 2 seconds"))
+        self.tracking_thread = None
+
+    def _dispatch_ui_callback(self, callback: Callable[[], None]) -> None:
+        with self._ui_callback_lock:
+            if self._ui_dispatch_closed:
+                return
+            if threading.current_thread() is not threading.main_thread():
+                self._ui_callbacks.put(callback)
+                return
+        callback()
+
+    def _close_ui_callback_dispatch(self) -> None:
+        with self._ui_callback_lock:
+            self._ui_dispatch_closed = True
+            while True:
+                try:
+                    self._ui_callbacks.get_nowait()
+                except queue.Empty:
+                    return
+
+    def _prepare_for_shutdown(self) -> None:
+        self._stop_tracking_worker()
+
+        options_window = getattr(self, "options_window", None)
+        if options_window is not None:
+            options_window.close_window()
+
+        self._close_ui_callback_dispatch()
+
+    def _run_pending_ui_callbacks(self) -> None:
+        while True:
+            try:
+                callback = self._ui_callbacks.get_nowait()
+            except queue.Empty:
+                return
+            try:
+                callback()
+            except Exception as e:
+                log_error("ui_callback", e)
+
+    def _poll_ui_callbacks(self) -> None:
+        self.after(50, self._poll_ui_callbacks)
+        self._run_pending_ui_callbacks()
+
     def exit_app(self):
         self._destroy_floating_bar()
 
         if self.is_tracking:
             # Stop tracking, SAVE immediately, update UI, then show summary
-            self.is_tracking = False
-
-            self._stop_camera()
+            self._stop_tracking_worker()
 
             # Capture stats BEFORE reset
             saved_stats = self.live_stats.copy()
@@ -387,7 +445,7 @@ class BeeAwareApp(
                 pass
             self.show_session_summary(saved_stats, saved_switches)
         else:
-            self.is_tracking = False
+            self._prepare_for_shutdown()
             self.quit()
             self.destroy()
 
@@ -414,11 +472,11 @@ class BeeAwareApp(
 
         def on_restore(icon, item):
             icon.stop()
-            self.after(0, self._restore_from_tray)
+            self._dispatch_ui_callback(self._restore_from_tray)
 
         def on_exit(icon, item):
             icon.stop()
-            self.after(0, self._exit_from_tray)
+            self._dispatch_ui_callback(self._exit_from_tray)
 
         menu = pystray.Menu(
             pystray.MenuItem("Restore", on_restore),
@@ -463,9 +521,9 @@ class BeeAwareApp(
             "Save Session?",
             "Save current session before exiting?",
         )
+        self._prepare_for_shutdown()
         if try_save:
             self.save_live_session()
-        self._stop_camera()
         try:
             self.quit()
             self.destroy()
@@ -488,6 +546,7 @@ class BeeAwareApp(
                     "Exit",
                     "Minimize failed. Save session and exit?",
                 )
+                self._prepare_for_shutdown()
                 if proceed:
                     self.save_live_session()
                 try:
@@ -500,12 +559,12 @@ class BeeAwareApp(
                 "Save Session?",
                 "Save current session before exiting?",
             )
+            self._prepare_for_shutdown()
             if save:
                 try:
                     self.save_live_session()
                 except Exception as e:
                     log_error("save_on_exit", e)
-            self._stop_camera()
             try:
                 self.quit()
                 self.destroy()
@@ -547,6 +606,7 @@ class BeeAwareApp(
     def _confirm_and_save(self, summary_window):
         """Close app (session already saved in exit_app)."""
         summary_window.destroy()
+        self._prepare_for_shutdown()
         try:
             self.quit()
             self.destroy()
@@ -689,7 +749,7 @@ class BeeAwareApp(
                 current_date = datetime.now().date()
                 if self.session_start and current_date != self.session_start.date():
                     self.is_tracking = False
-                    self.after(0, lambda: messagebox.showinfo(
+                    self._dispatch_ui_callback(lambda: messagebox.showinfo(
                         "Midnight Boundary",
                         "Session crossed into a new day.\nSaving current session..."
                     ))
@@ -700,6 +760,7 @@ class BeeAwareApp(
                     self.is_tracking = True
                 
                 raw_title = gw.getActiveWindowTitle() or "Desktop"
+                raw_title = sanitize_title(raw_title)
                 hwnd = win32gui.GetForegroundWindow()
                 exe_name  = get_active_process_name()
                 self.current_window = raw_title
@@ -789,10 +850,10 @@ class BeeAwareApp(
                                 f"compared to only {prod_mins}m on productive tasks. "
                                 "Time to shift focus.")
                             
-                            self.after(0, lambda: show_notification(
+                            self._dispatch_ui_callback(lambda m=msg: show_notification(
                                 master=self,
                                 title="Productivity Alert",
-                                message=msg,
+                                message=m,
                                 duration=6000,
                                 color=BEE_RED
                             ))
@@ -807,7 +868,7 @@ class BeeAwareApp(
                                 f"compared to {prod_mins}m on productive tasks. "
                                 "Let's get back on track.")
                             
-                            self.after(0, lambda m=msg: show_notification(
+                            self._dispatch_ui_callback(lambda m=msg: show_notification(
                                 master=self,
                                 title="Focus Check",
                                 message=m,
@@ -1023,22 +1084,29 @@ class BeeAwareApp(
     def _on_user_left(self):
         if self.is_tracking and not self.is_paused:
             self.camera_auto_paused = True
-            # Update UI safely from thread
-            self.after(0, lambda: self.lbl_status.configure(text="AWAY (Camera)", text_color=BEE_GOLD))
-            self.after(0, lambda: self.dot_status.configure(text="●", text_color=BEE_GOLD))
+            self._dispatch_ui_callback(
+                lambda: self.lbl_status.configure(text="AWAY (Camera)", text_color=BEE_GOLD)
+            )
+            self._dispatch_ui_callback(
+                lambda: self.dot_status.configure(text="●", text_color=BEE_GOLD)
+            )
 
     def _on_user_returned(self):
         if self.is_tracking and self.camera_auto_paused and not self.is_paused:
             self.camera_auto_paused = False
-            self.after(0, lambda: self.lbl_status.configure(text="WATCHING", text_color=BEE_GREEN))
-            self.after(0, lambda: self.dot_status.configure(text="●", text_color=BEE_GREEN))
+            self._dispatch_ui_callback(
+                lambda: self.lbl_status.configure(text="WATCHING", text_color=BEE_GREEN)
+            )
+            self._dispatch_ui_callback(
+                lambda: self.dot_status.configure(text="●", text_color=BEE_GREEN)
+            )
 
     def _notify_window_switch(self, app_name):
         """Alert on frequent window switching."""
         if self.switch_count > 15:
             show_notification(
                 self,
-                title="⚡ High Context Switching",
+                title="High Context Switching",
                 message=f"You've switched {self.switch_count} times. Try focused work blocks.",
                 duration=5000,
                 color=BEE_AMBER
@@ -1049,7 +1117,7 @@ class BeeAwareApp(
         if quadrant == 3:  # Q4: Distracted + Structured
             show_notification(
                 self,
-                title="⚠️ Extended Distraction",
+                title="Extended Distraction",
                 message=f"Distracted for 10+ min on structured task. Take a break?",
                 duration=6000,
                 color=BEE_RED
@@ -1057,7 +1125,7 @@ class BeeAwareApp(
         elif quadrant == 2:  # Q3: Distracted + Unstructured
             show_notification(
                 self,
-                title="⚠️ Deep Distraction",
+                title="Deep Distraction",
                 message=f"Unstructured distraction detected. Refocus?",
                 duration=5000,
                 color=BEE_RED
@@ -1068,7 +1136,7 @@ class BeeAwareApp(
         if duration_seconds >= 1800:  # 30 min
             show_notification(
                 self,
-                title="🎯 Excellent Focus!",
+                title="Excellent Focus!",
                 message=f"30+ minutes of deep, focused work. Keep it up!",
                 duration=4000,
                 color=BEE_GREEN
@@ -1078,7 +1146,7 @@ class BeeAwareApp(
         """Feedback after manual correction."""
         show_notification(
             self,
-            title="✓ Correction Saved",
+            title="Correction Saved",
             message="Your feedback improves our AI model.",
             duration=3000,
             color=BEE_GOLD
@@ -1088,7 +1156,7 @@ class BeeAwareApp(
         """When custom rule overrides a verdict."""
         show_notification(
             self,
-            title="🔧 Custom Rule Applied",
+            title="Custom Rule Applied",
             message=f"Override rule for {app_name} applied.",
             duration=3000,
             color=BEE_GOLD
@@ -1098,7 +1166,7 @@ class BeeAwareApp(
         """Session started."""
         show_notification(
             self,
-            title="▶️ Tracking Active",
+            title="▶Tracking Active",
             message="Live monitoring enabled. Focus time: 0m",
             duration=3000,
             color=BEE_GREEN
@@ -1108,7 +1176,7 @@ class BeeAwareApp(
         """Session paused."""
         show_notification(
             self,
-            title="⏸️ Tracking Paused",
+            title="⏸ Tracking Paused",
             message="Resume monitoring anytime.",
             duration=3000,
             color=BEE_AMBER
@@ -1118,7 +1186,7 @@ class BeeAwareApp(
         """Daily focus goal reached."""
         show_notification(
             self,
-            title="🏆 Daily Goal Reached!",
+            title="Daily Goal Reached!",
             message="You've hit your daily focus target. Excellent work!",
             duration=5000,
             color=BEE_GREEN

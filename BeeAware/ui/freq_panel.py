@@ -232,9 +232,9 @@ class FreqPanelMixin:
             row["frame"].grid_remove()
 
         if not most_used:
-            self.app_rows[0].frame.grid()
-            self.app_rows[0].name.configure(text="No apps tracked yet this session.")
-            self.app_rows[0].badge.configure(fg_color=BEE_GRAY, text="--")
+            self.app_rows[0]["frame"].grid()
+            self.app_rows[0]["name"].configure(text="No apps tracked yet this session.")
+            self.app_rows[0]["badge"].configure(fg_color=BEE_GRAY, text="--")
             return
 
         for i, (exe, seconds, q_int, path) in enumerate(most_used):

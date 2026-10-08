@@ -59,3 +59,5 @@ timestamp,exe_name,window_title,original_verdict,corrected_label,corrected_quadr
 2026-09-16 08:32:30,zen.exe,"Think Fast, Talk Smart: Communication Techniques - YouTube — Zen Browser",Q3: NOISE,1,Q2: GROWTH
 2026-09-16 08:34:11,zen.exe,Group yourselves into 3 | Messenger — Zen Browser,Q3: NOISE,2,Q3: NOISE
 2026-09-16 08:34:20,zen.exe,Group yourselves into 3 | Messenger — Zen Browser,Q3: NOISE (Override),1,Q2: GROWTH
+2026-10-08 18:19:06,zen.exe,Cisco Networking Academy: Course Launch — Zen Browser,Q4: PLAY,1,Q2: GROWTH
+2026-10-08 18:19:11,zen.exe,Cisco Networking Academy: Course Launch — Zen Browser,Q4: PLAY,1,Q2: GROWTH

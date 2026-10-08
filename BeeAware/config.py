@@ -14,6 +14,9 @@ OVERRIDES_JSON_PATH  = os.path.join(BASE_DIR, "data", "overrides.json")
 IDLE_EXCLUSIONS_PATH = os.path.join(BASE_DIR, "data", "idle_exclusions.json")
 MODEL_PATH           = os.path.join(BASE_DIR, "models", "V4eisenhower_model.pkl")
 VECTORIZER_PATH      = os.path.join(BASE_DIR, "models", "V4tfidf_vectorizer.pkl")
+PERSONAL_MODEL_PATH  = os.path.join(BASE_DIR, "models", "personal_eisenhower_model.pkl")
+PERSONAL_VECTORIZER_PATH = os.path.join(BASE_DIR, "models", "personal_vectorizer.pkl")
+TRAINING_CACHE_PATH  = os.path.join(BASE_DIR, "data", "beeaware_training_cache.dpapi")
 
 # Colours
 BEE_AMBER      = "#c8922a"
@@ -43,7 +46,7 @@ CORRECTIONS_COLS = [
     "timestamp", "window_title", "feature_text", "predicted_q", "corrected_q",
 ]
 
-BROWSER_EXES = {
+BROWSER_EXES = {    
     "zen.exe", "chrome.exe", "msedge.exe", "firefox.exe",
     "opera.exe", "brave.exe", "vivaldi.exe",
 }

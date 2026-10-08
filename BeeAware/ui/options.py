@@ -1,10 +1,12 @@
 import os
 import sys
 import json
+import threading
 import customtkinter as ctk
 import config
 
 from config import BEE_AMBER, BEE_AMBER_DIM, BEE_COMB, BEE_COMB_LIGHT, BEE_COMB_MID, BEE_GREEN, BEE_RED, BEE_GRAY
+from logger import log_error
 from notif import show_notification
 from .rule_manager import RulesManagerWindow
 
@@ -33,6 +35,8 @@ class OptionsWindow(ctk.CTkToplevel):
         super().__init__(master)
 
         self.app = app_instance
+        self._camera_preview_stop = threading.Event()
+        self._camera_preview_thread = None
         self.title("BeeAware Settings")
         self.geometry("420x540") # Increased height slightly for status badge
         self.configure(fg_color=BEE_COMB)
@@ -175,7 +179,7 @@ class OptionsWindow(ctk.CTkToplevel):
 
         # Hook this open settings UI window into the live camera tracker's callback loop
         if hasattr(self.app, 'camera_tracker') and self.app.camera_tracker:
-            self.app.camera_tracker.status_callback = self.update_camera_status_ui
+            self.app.camera_tracker.status_callback = self._dispatch_camera_status_ui
             # Manually poll initialization state display
             if self.app.camera_tracker.is_running:
                 state = "Active - User Present" if self.app.camera_tracker.user_present else "Active - User Away (Paused)"
@@ -240,8 +244,13 @@ class OptionsWindow(ctk.CTkToplevel):
         close_button.grid(row=14, column=0, padx=18, pady=(8, 18), sticky="ew")
   
 
+    def _dispatch_camera_status_ui(self, status_text):
+        self.app._dispatch_ui_callback(
+            lambda: self.update_camera_status_ui(status_text)
+        )
+
     def update_camera_status_ui(self, status_text):
-        """Receives live updates from the background camera thread and transforms the UI badge color."""
+        """Update the camera status badge on Tk's main thread."""
         if not self.winfo_exists():
             return
             
@@ -264,12 +273,12 @@ class OptionsWindow(ctk.CTkToplevel):
             self.app.camera_tracker = CameraPresenceTracker(
                 pause_callback=self.app._on_user_left,
                 resume_callback=self.app._on_user_returned,
-                status_callback=self.update_camera_status_ui
+                status_callback=self._dispatch_camera_status_ui
             )
         
   
         if is_on:
-            self.app.camera_tracker.status_callback = self.update_camera_status_ui
+            self.app.camera_tracker.status_callback = self._dispatch_camera_status_ui
             self.app.camera_tracker.start()
         else:
             self.app.camera_tracker.stop()
@@ -277,42 +286,79 @@ class OptionsWindow(ctk.CTkToplevel):
     
     def test_camera_preview(self):
         import cv2
-        import threading
+
+        if self._camera_preview_thread and self._camera_preview_thread.is_alive():
+            return
 
         # Disable button to prevent multiple windows
         self.btn_test_camera.configure(state="disabled", text="Opening...")
         self.update()
+        self._camera_preview_stop.clear()
 
         def preview_loop():
-            cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-            
-            # Check if camera actually works
-            if not cap.isOpened():
-                print("Camera failed to open.")
-                return
+            cap = None
+            window_created = False
+            try:
+                cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+                if not cap.isOpened():
+                    print("Camera failed to open.")
+                    return
 
-            cv2.namedWindow("BeeAware Camera Preview", cv2.WINDOW_NORMAL)
-            
-            while True:
-                ret, frame = cap.read()
-                if not ret:
-                    break
-                
-                # Show the feed
-                cv2.imshow("BeeAware Camera Preview", frame)
-                
-                # Close if user hits 'q' or clicks the 'X' on the window
-                if cv2.waitKey(1) & 0xFF == ord('q') or cv2.getWindowProperty("BeeAware Camera Preview", cv2.WND_PROP_VISIBLE) < 1:
-                    break
-            
-            cap.release()
-            cv2.destroyWindow("BeeAware Camera Preview")
-            
-            # Re-enable the button once closed
-            self.btn_test_camera.configure(state="normal", text="Verify Camera Connection")
+                cv2.namedWindow("BeeAware Camera Preview", cv2.WINDOW_NORMAL)
+                window_created = True
+
+                while not self._camera_preview_stop.is_set():
+                    ret, frame = cap.read()
+                    if not ret:
+                        break
+
+                    cv2.imshow("BeeAware Camera Preview", frame)
+                    if (
+                        cv2.waitKey(1) & 0xFF == ord('q')
+                        or cv2.getWindowProperty(
+                            "BeeAware Camera Preview", cv2.WND_PROP_VISIBLE
+                        ) < 1
+                    ):
+                        break
+            except Exception as e:
+                log_error("camera_preview", e)
+            finally:
+                if cap is not None:
+                    try:
+                        cap.release()
+                    except Exception as e:
+                        log_error("camera_preview_release", e)
+                if window_created:
+                    try:
+                        cv2.destroyWindow("BeeAware Camera Preview")
+                    except Exception as e:
+                        log_error("camera_preview_window_cleanup", e)
+                self.app._dispatch_ui_callback(self._finish_camera_preview)
 
         # Run the preview in a separate thread so it doesn't freeze the Settings window
-        threading.Thread(target=preview_loop, daemon=True).start()
+        self._camera_preview_thread = threading.Thread(
+            target=preview_loop, daemon=True
+        )
+        self._camera_preview_thread.start()
+
+    def _finish_camera_preview(self):
+        if self.winfo_exists():
+            self.btn_test_camera.configure(
+                state="normal", text="Verify Camera Connection"
+            )
+
+    def _stop_camera_preview(self):
+        self._camera_preview_stop.set()
+        worker = self._camera_preview_thread
+        if worker and worker.is_alive() and worker is not threading.current_thread():
+            worker.join(timeout=2)
+            if worker.is_alive():
+                log_error(
+                    "camera_preview_shutdown",
+                    RuntimeError("Camera preview thread did not stop within 2 seconds"),
+                )
+        else:
+            self._camera_preview_thread = None
 
         
     def _show_camera_popup(self, title, message, color):
@@ -409,49 +455,52 @@ class OptionsWindow(ctk.CTkToplevel):
                     cwd=config.BASE_DIR
                 )
                 
-                # Re-enable button and show result
-                self.btn_retrain.configure(state="normal", text="Retrain Model Now")
-                
                 if result.returncode == 0:
-                    show_notification(
-                        master=self.app,
-                        title="Retraining Complete",
-                        message="Model has been successfully retrained with corrections. Changes will apply on next app restart.",
-                        duration=6000,
-                        color=BEE_GREEN
+                    self.app._dispatch_ui_callback(
+                        lambda: self._finish_retraining(
+                            "Retraining Complete",
+                            "Model has been successfully retrained with corrections. Changes will apply on next app restart.",
+                            reload_models=True,
+                        )
                     )
-                    # Optionally reload models
-                    self._reload_models()
                 else:
                     error_msg = result.stderr[-200:] if result.stderr else "Unknown error"
-                    show_notification(
-                        master=self.app,
-                        title="Retraining Failed",
-                        message=f"Error: {error_msg}",
-                        duration=6000,
-                        color=BEE_RED
+                    self.app._dispatch_ui_callback(
+                        lambda: self._finish_retraining(
+                            "Retraining Failed", f"Error: {error_msg}"
+                        )
                     )
             except subprocess.TimeoutExpired:
-                self.btn_retrain.configure(state="normal", text="Retrain Model Now")
-                show_notification(
-                    master=self.app,
-                    title="Retraining Timeout",
-                    message="Retraining took too long (>5 min). Check logs for details.",
-                    duration=6000,
-                    color=BEE_RED
+                self.app._dispatch_ui_callback(
+                    lambda: self._finish_retraining(
+                        "Retraining Timeout",
+                        "Retraining took too long (>5 min). Check logs for details.",
+                    )
                 )
             except Exception as e:
-                self.btn_retrain.configure(state="normal", text="Retrain Model Now")
-                show_notification(
-                    master=self.app,
-                    title="Retraining Error",
-                    message=f"Error: {str(e)}",
-                    duration=6000,
-                    color=BEE_RED
+                error_msg = str(e)
+                self.app._dispatch_ui_callback(
+                    lambda: self._finish_retraining(
+                        "Retraining Error", f"Error: {error_msg}"
+                    )
                 )
         
         # Run retraining in background thread
         threading.Thread(target=run_retrain, daemon=True).start()
+
+    def _finish_retraining(
+        self, title: str, message: str, reload_models: bool = False
+    ) -> None:
+        self.btn_retrain.configure(state="normal", text="Retrain Model Now")
+        show_notification(
+            master=self.app,
+            title=title,
+            message=message,
+            duration=6000,
+            color=BEE_GREEN if reload_models else BEE_RED,
+        )
+        if reload_models:
+            self._reload_models()
 
     def _reload_models(self):
         """Reload model and vectorizer from disk."""
@@ -474,7 +523,9 @@ class OptionsWindow(ctk.CTkToplevel):
             )
 
     def close_window(self):
-        # Detach callback reference when closing window to prevent memory leaks or background thread crashing
+        self._stop_camera_preview()
+
+        # Detach callback reference when closing the settings window.
         if hasattr(self.app, 'camera_tracker') and self.app.camera_tracker:
             self.app.camera_tracker.status_callback = None
             

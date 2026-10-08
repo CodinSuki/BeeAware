@@ -166,9 +166,24 @@ class InsightPanelMixin:
             try:
                 df = pd.read_csv(APP_HISTORY_PATH)
                 if not df.empty:
+                    quadrant_cols = ["q1_seconds", "q2_seconds", "q3_seconds", "q4_seconds"]
+                    required_cols = ["session_ts", "exe_name", "dominant_q", *quadrant_cols]
+                    missing_cols = [col for col in required_cols if col not in df.columns]
+                    if missing_cols:
+                        raise ValueError(
+                            f"App history is missing required columns: {', '.join(missing_cols)}"
+                        )
+
+                    for col in [*quadrant_cols, "dominant_q"]:
+                        df[col] = pd.to_numeric(df[col], errors="coerce")
+                    df = df.dropna(subset=["session_ts", *quadrant_cols, "dominant_q"])
+                    if df.empty:
+                        self._reset_insight_panel_to_idle("No valid app history records found.")
+                        return
+
                     latest_ts = df["session_ts"].max()
                     df = df[df["session_ts"] == latest_ts].copy()
-                    df["total_seconds"] = df[["q1_seconds", "q2_seconds", "q3_seconds", "q4_seconds"]].sum(axis=1)
+                    df["total_seconds"] = df[quadrant_cols].sum(axis=1)
                     df_sorted = df.sort_values("total_seconds", ascending=False)
 
                     all_apps = [

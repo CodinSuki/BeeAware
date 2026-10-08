@@ -10,7 +10,3 @@ ctk.set_default_color_theme("blue")
 if __name__ == "__main__":
     app = BeeAwareApp()
     app.mainloop()
-    try:
-        app.destroy()
-    except Exception:
-        pass
